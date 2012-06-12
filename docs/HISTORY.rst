@@ -5,6 +5,6 @@ Changelog
 0.1 (unreleased)
 ----------------
 
-- Initial release.
-  [zupo]
+- Bootstraping the package.
+  [iElectric, zupo]
 
