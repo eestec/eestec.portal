@@ -23,7 +23,7 @@ setup(name='eestec.portal',
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
-        ],
+      ],
       keywords='Plone Python',
       author='EESTEC International',
       author_email='it@eestec.com',
@@ -35,7 +35,6 @@ setup(name='eestec.portal',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          # list project dependencies
           'niteoweb.loginas',
           'plone.app.caching',
           'plone.app.theming',
@@ -43,19 +42,31 @@ setup(name='eestec.portal',
           'setuptools',
           'z3c.jbot',
           'five.pt',
+          'Plone',
+          'Pillow',
       ],
       extras_require={
-          # list libs needed for unittesting this project
           'test': [
               'mock',
               'plone.app.testing',
               'unittest2',
-          ]
+          ],
+          'develop': [
+              'plone.reload',
+              'plone.app.debugtoolbar',
+              'Products.Clouseau',
+              'Products.DocFinderTab',
+              'Products.PDBDebugMode',
+              'Products.PrintingMailHost',
+              'zptlint',
+              'pep8',
+              'setuptools-flakes',
+              'zest.releaser',
+              'jarn.mkrelease',
+          ],
       },
       entry_points="""
-      # -*- Entry points: -*-
-
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      )
+)
