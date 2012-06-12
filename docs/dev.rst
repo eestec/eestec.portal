@@ -9,3 +9,4 @@ Quick start:
 #. bin/buildout
 #. bin/instance fg
 #. bin/test -s eestec.portal
+#. ./pre-commit-check.sh
