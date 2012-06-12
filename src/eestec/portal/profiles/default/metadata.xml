@@ -1,3 +1,6 @@
 <metadata>
     <version>0010</version>
+    <dependencies>
+        <dependency>profile-plone.app.toolbar:default</dependency>
+    </dependencies>
 </metadata>
