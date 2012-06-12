@@ -2,13 +2,16 @@
 EESTEC.net Plone portal
 =======================
 
-A Plone add-on that turns a Plone site into the EESTEC portal.
+:Framework: `Plone 4.2 <http://plone.org>`_
+:Bug tracker: http://dev.starzel.de/eestec
+:Source: https://github.com/eestec/eestec.portal
+:Documentation: http://eestecportal.readthedocs.org/
+:Continuous Integration: http://travis-ci.org/eestec/eestec.portal
 
-* `Source code @ GitHub <https://github.com/eestec/eestec.portal>`_
-* `Releases @ PyPI <http://pypi.python.org/pypi/eestec.portal>`_
-* `Documentation @ ReadTheDocs <http://readthedocs.org/docs/eestecportal>`_
-* `Continuous Integration @ Travis-CI <http://travis-ci.org/eestec/eestec.portal>`_
+.. topic:: Summary
 
+EESTEC.net portal is the main hub for managing of EESTEC Events (workshops,
+exchanges, etc.), applications to these event, managing Local Committees,
+managing public content (news, PR, etc.) and an online collaboration space for
+EESTECers.
 
-TODO
-====

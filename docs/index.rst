@@ -1,14 +1,16 @@
 .. include:: ../README.rst
 
 
-Developer documentation
-=======================
+Table of Contents
+=================
 
 .. toctree::
     :maxdepth: 2
 
     glossary.rst
-    dev.rst
+    specs/index.rst
+    dev/index.rst
+    source.rst
 
 
 .. include:: HISTORY.rst

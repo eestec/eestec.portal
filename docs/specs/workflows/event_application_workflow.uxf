@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+//fontsize=14
+
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><zoom_level>9</zoom_level><element><type>com.umlet.element.base.Relation</type><coordinates><x>540</x><y>162</y><w>170</w><h>98</h></coordinates><panel_attributes>lt=&lt;
+[reject_participant]
+LC Board</panel_attributes><additional_attributes>90;81;90;27</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>405</x><y>81</y><w>215</w><h>84</h></coordinates><panel_attributes>lt=&lt;-
+[accept_participant]
+LC Board</panel_attributes><additional_attributes>198;45;27;45</additional_attributes></element><element><type>com.umlet.element.custom.State</type><coordinates><x>558</x><y>243</y><w>252</w><h>81</h></coordinates><panel_attributes>EventApplication
+--
+[rejected]
+-.
+view: LC Board, Owner, Participant
+view_personal_data: Owner, LC Board
+edit: Owner, LC Board
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>189</x><y>90</y><w>243</w><h>99</h></coordinates><panel_attributes>EventApplication
+--
+[pending]
+-.
+view: LC Board, Owner, Participant
+view_personal_data: Owner, LC Board
+edit: Owner, LC Board
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>18</x><y>81</y><w>188</w><h>84</h></coordinates><panel_attributes>lt=&lt;-
+[apply_to_event]
+Member</panel_attributes><additional_attributes>171;45;27;45</additional_attributes></element><element><type>com.umlet.element.custom.InitialState</type><coordinates><x>36</x><y>117</y><w>18</w><h>18</h></coordinates><panel_attributes/><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>603</x><y>90</y><w>252</w><h>99</h></coordinates><panel_attributes>EventApplication
+--
+[accepted]
+-.
+view: LC Board, Owner, Participant
+view_personal_data: Owner, LC Board
+edit: Owner, LC Board
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>198</x><y>162</y><w>377</w><h>147</h></coordinates><panel_attributes>lt=&lt;-
+        [reject_participant]
+         LC Board</panel_attributes><additional_attributes>360;108;108;108;108;27</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>702</x><y>162</y><w>178</w><h>98</h></coordinates><panel_attributes>lt=&gt;
+[accept_participant]
+LC Board</panel_attributes><additional_attributes>90;81;90;27</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>36</x><y>279</y><w>225</w><h>54</h></coordinates><panel_attributes>Email -&gt; Member LC Spamtarget
+Email -&gt; Event LC Spamtarget
+Email -&gt; Member
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>135</x><y>99</y><w>44</w><h>197</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>27;180;27;27</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>360</x><y>18</y><w>225</w><h>36</h></coordinates><panel_attributes>Email -&gt; Member LC Spamtarget
+Email -&gt; Member
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>423</x><y>27</y><w>44</w><h>116</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>27;27;27;99</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>558</x><y>405</y><w>225</w><h>36</h></coordinates><panel_attributes>Email -&gt; Member LC Spamtarget
+Email -&gt; Member
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>315</x><y>207</y><w>225</w><h>36</h></coordinates><panel_attributes>Email -&gt; Member LC Spamtarget
+Email -&gt; Member
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>513</x><y>189</y><w>134</w><h>44</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>27;27;117;27</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>756</x><y>207</y><w>98</w><h>233</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>27;216;81;216;81;27;36;27</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>297</x><y>324</y><w>225</w><h>36</h></coordinates><panel_attributes>Email -&gt; Member LC Spamtarget
+Email -&gt; Member
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>414</x><y>243</y><w>44</w><h>98</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>27;27;27;81</additional_attributes></element></umlet_diagram>

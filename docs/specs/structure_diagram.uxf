@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+fontsize=12
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><zoom_level>10</zoom_level><element><type>com.umlet.element.custom.PackageAggregationHierarchy</type><coordinates><x>90</x><y>30</y><w>490</w><h>660</h></coordinates><panel_attributes>root
+public [Folder]
+&gt;news [Folder]
+&gt;Open Day [NewsItem]
+EESTEC Hour [NewsItem]
+...
+&lt;events [Folder]
+&gt; ...
+&lt;news [Folder]
+&gt; ...
+&lt;about [Folder]
+&lt;members [MemberContainer]
+&gt;zupo [Member]
+joni [Member]
+...
+&lt;lcs [Folder]
+&gt;ljubljana [LC]
+&gt;New Years party! [NewsItem]
+Plone My Web 5 [Event]
+&gt; duc [EventApplication]
+husam [EventApplication]
+...
+&lt;...
+&lt;...
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element></umlet_diagram>

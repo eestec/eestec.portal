@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+fontsize=12
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><zoom_level>10</zoom_level><element><type>com.umlet.element.base.Class</type><coordinates><x>320</x><y>760</y><w>260</w><h>570</h></coordinates><panel_attributes>ConCert
+--
+title [Computed]
+short_title [String]
+full_title [String]
+company_id_number [String]
+address [String]
+city [String]
+postal_code [String]
+director [String]
+established [DateTime]
+revenue [FixedPoint]
+num_of_employees [Integer]
+phone [String]
+fax [String]
+email [String]
+main_product [String]
+other_products [String]
+geolocation [String]
+verified_subdomain [String]
+base_domain [String]
+valid_from [DateTime]
+valid_to [DateTime]
+price_on_proforma_invoice [String]
+proforma_invoice_sent [DateTime]
+concert_type [String]
+order_form [File]
+scanned_signed_order_form [File]
+proforma_invoice [File]
+register_verification [File]
+report [File]
+--
+getConCertTypeTitle()
+available_concert_types()
+--
+&lt;&lt;concert_external_verification&gt;&gt;
+&lt;&lt;concert_external_verification_with_report&gt;&gt;
+&lt;&lt;concert_internal_verification&gt;&gt;
+&lt;&lt;concert_internal_verification_with report&gt;&gt;
+&lt;&lt;concert_trial_internal_verification&gt;&gt; {Default}
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>660</x><y>760</y><w>190</w><h>120</h></coordinates><panel_attributes>Transaction
+--
+title [String]
+amount [Float]
+transaction_to [String]
+transaction_subject [String]
+trial_credit [Boolean]
+--
+&lt;&lt;transaction_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>190</x><y>390</y><w>190</w><h>40</h></coordinates><panel_attributes>Member
+--
+&lt;&lt;member_approval_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>650</x><y>660</y><w>120</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=         0..n
+m2=   1</panel_attributes><additional_attributes>100;100;100;70;20;70;20;20</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>510</x><y>720</y><w>170</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+m1=      1 
+m2=n</panel_attributes><additional_attributes>20;40;20;20;80;20;80;110;130;110;150;110</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>450</x><y>660</y><w>150</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=    1..n
+m2=   1</panel_attributes><additional_attributes>20;100;20;60;130;60;130;20</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>650</x><y>930</y><w>170</w><h>240</h></coordinates><panel_attributes>ConCertType
+--
+title [String]
+description [Text]
+core_type_id [Integer]
+register [String]
+verifier [String]
+report_provider [String]
+report_type [String]
+trial [Boolean]
+price [FixedPoint]
+credits_cost [Integer]
+validity_period [Integer]
+workflow [String]
+--
+list_policies(self)
+--
+&lt;&lt;sysadmin_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>590</x><y>660</y><w>90</w><h>180</h></coordinates><panel_attributes>lt=&lt;-
+m1=   1 
+p2=n</panel_attributes><additional_attributes>20;20;20;160;70;160</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>560</x><y>880</y><w>180</w><h>270</h></coordinates><panel_attributes>lt=&lt;-
+m1=    1 
+m2=n</panel_attributes><additional_attributes>160;50;160;20;60;20;60;250;20;250</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>250</x><y>230</y><w>200</w><h>40</h></coordinates><panel_attributes>NewsItem
+--
+&lt;&lt;simple_publication_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>90</x><y>130</y><w>200</w><h>40</h></coordinates><panel_attributes>Folder
+--
+&lt;&lt;simple_publication_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>180</x><y>150</y><w>180</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+p1=      0..1
+m2=1</panel_attributes><additional_attributes>160;80;10;20</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>20</x><y>230</y><w>200</w><h>40</h></coordinates><panel_attributes>Page
+--
+&lt;&lt;simple_publication_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>100</x><y>160</y><w>70</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=    0..1
+p2=    1</panel_attributes><additional_attributes>20;70;50;10</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>490</x><y>130</y><w>100</w><h>40</h></coordinates><panel_attributes>LC
+--
+&lt;&lt;lc_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>540</x><y>230</y><w>130</w><h>40</h></coordinates><panel_attributes>Event
+--
+&lt;&lt;event_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>510</x><y>330</y><w>200</w><h>40</h></coordinates><panel_attributes>EventApplication
+--
+&lt;&lt;event_application_workflow&gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>360</x><y>160</y><w>190</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+p1=0..1
+m2=1</panel_attributes><additional_attributes>20;70;170;10</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>140</x><y>160</y><w>380</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+p1=0..1
+m2=1</panel_attributes><additional_attributes>20;70;360;10</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>530</x><y>150</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+p1=    0..1
+p2=1</panel_attributes><additional_attributes>80;80;20;20</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>590</x><y>250</y><w>40</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+p1=  0..1
+p2=  1</panel_attributes><additional_attributes>20;80;20;20</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>80</x><y>310</y><w>190</w><h>40</h></coordinates><panel_attributes>MemberDataContainer
+--
+&lt;&lt; none &gt;&gt;
+
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>160</x><y>340</y><w>120</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=         0..1
+m2=1</panel_attributes><additional_attributes>100;50;20;10</additional_attributes></element></umlet_diagram>

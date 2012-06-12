@@ -1,0 +1,53 @@
+================
+Developers Guide
+================
+
+Setting up development environment
+==================================
+
+.. toctree::
+   :maxdepth: 2
+
+   environment.rst
+
+Creating a blank eestec.net on your local machine
+=================================================
+
+This is normally not needed but is kept here for future reference.
+
+.. toctree::
+   :maxdepth: 2
+
+   initial_content.rst
+
+Upgrade
+=======
+
+Describing how to upgrade our application.
+
+.. toctree::
+   :maxdepth: 2
+
+   upgrade.rst
+
+
+Deployment
+==========
+
+Describe how the site is deployed, how to access the server, where are backups stored, ...
+
+.. toctree::
+   :maxdepth: 2
+
+   deployment.rst
+
+
+Tips & tricks
+=============
+
+Random development and deployment tips & tricks.
+
+.. toctree::
+   :maxdepth: 2
+
+   tips.rst

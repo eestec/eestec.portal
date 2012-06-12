@@ -1,0 +1,43 @@
+Application Upgrade
+===================
+
+Upgrade a minor Plone version
+-----------------------------
+
+For example upgrading from 3.3.1 to 3.3.5. You need to change:
+
+* extends url in versions.cfg [line 2]
+* find-links url in base.cfg [line 19]
+
+Re-run buildout and start Zope. Go to http://localhost:8080/dev/portal_migration and click Upgrade.
+
+Update workflows
+----------------
+
+#. Update workflows specifications in ``eestec.base/profiles/default/workflow_csv/``.
+
+#. Import new workflows specification by using `Import` tab of ``portal_setup``. From the dropdown select
+``eestec.base``, check ``Workflow definitions (CSV)`` and click ``Import selected steps``.
+
+#. Go to ``portal_workflow`` and click on ``Update security settings``.
+
+#. Test the shit out of it!
+
+Upgrade application
+-------------------
+
+Congress 2011 upgrade
+"""""""""""""""""""""
+
+#. ``svn up ~/PloneDev/zinstance/``
+#. ``svn up ~/PloneDev/zinstance/src/eestec.base``
+#. ``svn up ~/PloneDev/zinstance/src/eestec.theme``
+#. Follow procedure of old plugins cleanup at https://dev.starzel.de/eestec/ticket/335
+#. Reinstall XDV in quickinstaller.
+#. Set XDV's Alternate themes to ``^(/dev|/)$ python://eestec.theme/skins/eestec_theme_custom_templates/hack-startpage.html python://eestec.theme/skins/eestec_theme_custom_templates/rules-hack-startpage.xml``
+#. Import portlets GS step.
+#. Import CSS GS step.
+#. Import workflows GS step.
+#. Update security settings in portal_workflow.
+#. Run add_to_spamtargets method admin.py.
+#. Remove content-rules -> they are now implemented in code with zope.event.

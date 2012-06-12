@@ -1,0 +1,159 @@
+Setting up the development environment
+======================================
+
+Describing how to setup a development environment on you local computer.
+
+This section is meant for new developers on the eestec.net project. It's purpose is to guide them through the steps needed to start contributing.
+    
+.. note ::: This HowTo is written for Linux and OS X users. If your are running Windows I suggest using VMWare or a similar Virtualization product to install Ubuntu Linux on a virtual machine or installing Ubuntu Linux as a secondary OS on your machine. Alternatively, you can browse Plone's documentation on how to get Plone development environment up and running on Windows. Plone does run on Windows but it's not completely trivial to set it up. 
+
+Prerequisites
+-------------
+
+System libraries
+""""""""""""""""
+
+First let's look at 'system' libraries and applications that are normally installed with your OS packet manager, such as apt, aptitude, yum, etc.
+
+* links - a console based web browser
+* libxml2 - an xml parser written in C
+* libxslt - XSLT library written in C
+* pcre - Perl regex libraly
+* svn - the Subversion client.
+* gcc - the GNU Compiler Collection.
+* g++ - the C++ extensions for gcc.
+* GNU make - the fundamental build-control tool.
+* GNU tar - the (un)archiving tool for extracting downloaded archives.
+* bzip2 and gzip decompression packages - gzip is nearly standard, however some platforms will require that bzip2 be installed.
+* Python 2.4 - Plone 3.3 does NOT work with newer versions of Python so you'll need the 2.4 version. If you use the Unified installer found on plone.org (TODO: link to installer), this will already be installed for you.
+
+
+Python tools
+""""""""""""
+
+Then you'll also need to install some Python specific tools (if you did not use the Unified installer):
+
+* easy_install - the Python packaging system (download http://peak.telecommunity.com/dist/ez_setup.py and run ``sudo python ez_setup.py``.
+* zc.buildout - a tool for creating isolated environments and deployments (once you have easy_install, just run ``sudo easy_install buildout``)
+* virtualenv - a tool that assists in creating isolated Python working environments.
+
+
+Further information
+"""""""""""""""""""
+
+If you experience problems read through the following links as almost all of the above steps are required for a default Plone development environment:
+
+http://plone.org/documentation/tutorial/buildout
+
+http://pypi.python.org/pypi/zc.buildout/
+
+http://pypi.python.org/pypi/setuptools
+
+http://plone.org/documentation/tutorial/installing-plone-3-with-the-unified-installer
+
+
+Creating the development environment
+------------------------------------
+
+Go to your home folder or a folder you use for development and create a new isolated python environment called ``eestec``.
+
+.. sourcecode:: bash
+
+    [you@local ~]$ cd <your_work_folder>
+    [you@local work]$ virtualenv -p python2.4 --no-site-packages eestec
+
+Now `cd` into the newly created environment and fetch all code that we need to run the project.
+
+.. sourcecode:: bash
+
+    [you@local ~]$ cd eestec
+    [you@local eestec]$ svn checkout https://svn.plone.org/svn/collective/eestec.buildout/trunk/ .
+
+First check you are really using Python 2.4.
+
+.. sourcecode:: bash
+
+    [you@local eestec]$ bin/python -V
+    Python 2.4.6
+
+The next step bootstrapts all necessary tools in ``~/work/eestec/bin``. 
+
+.. sourcecode:: bash
+
+    [you@local eestec]$ bin/python bootstrap.py
+
+Buildout first builds Zope and any other servers we might need, then fetches all dependencies and installs them. Read more about buildout at http://plone.org/documentation/tutorial/buildout.
+
+.. sourcecode:: bash
+
+    [you@local eestec]$ bin/buildout -v
+
+Go make some tea. Buildout needs about 10 minutes to finish preparing your development environment.
+
+
+Starting application
+--------------------------------
+
+Starting Zope
+"""""""""""""
+
+Download data from http://docs.eestec.net/Data.fs.tar.gz to your local installation so you have a basis to work on.
+
+.. sourcecode:: bash
+
+    [you@local eestec]$ wget http://docs.eestec.net/Data.fs.tar.gz
+    [you@local eestec]$ tar -xzvf Data.fs.tar.gz
+
+Now let's start Zope - the application server. There are several ways to start Zope. For development purposes we'll use the 'foreground' mode which starts Zope in console's foreground so you can immediately see all debug messages and use the Python Debugger to interactively debug your code.
+
+.. sourcecode:: bash
+
+    [you@local eestec]$ bin/zope fg
+
+Accessing application
+"""""""""""""""""""""
+
+Once Zope has started you can now access our application. Open up your browser and point it to http://localhost:8080/dev. This should give you a local copy of eestec.net. You can play with this in any way you want because it's running on your local machine and does not effect what is on ETHZ server in Zurich.
+
+Besides the main URL you have the following options of accessing the application:
+
+#. http://localhost:8080/manage - ZMI (Zope Management Interface), a low-level Zope admin interface.
+#. http://localhost:8080/@@reload - A shortcut for reloading Python and ZCML files without the need to restart Zope.
+#. http://127.0.0.1/dev - eestec.net without a theme -> very useful if you fucked up the theme making the main site unusable.
+
+Password for Zope Manager user (aka. `dev` user) is available on ETHZ server, in ``~/.passwords.txt``.
+    
+Troubleshooting
+---------------
+
+Make sure you have the latest code
+""""""""""""""""""""""""""""""""""
+
+.. sourcecode:: bash
+
+    [you@local eestec]$ svn up
+    [you@local eestec]$ svn up src/eestec.theme
+    [you@local eestec]$ svn up src/eestec.base
+
+Naked python
+""""""""""""
+
+Read and follow http://blog.mfabrik.com/2010/07/16/easily-install-all-python-versions-under-linux-and-osx-using-collective-buildout-python/.
+
+This will compile a separate and isolated Python for you. Now you can use it for your development and be isolated from your system python fuckups.
+
+.. sourcecode:: bash
+
+    [you@local ~]$ cd ~/work
+    [you@local work]$ <path_to_collective.buildout.python_installation>/bin/virtualenv-2.4 --no-site-packages eestec
+    [you@local eestec]$ cd eestec/
+    [you@local eestec]$ bin/python -V
+    Python 2.4.6
+    
+    
+LXML on OS X and linux
+""""""""""""""""""""""
+
+If you are using virtualenv and do not have lxml on your system just follow this tutorial: 
+Compiling lxml/libxml2/libxslt for a virtualenv http://digita.la/2010/6/2/compiling-lxml-libxml2-libxslt-for-a-virtualenv
+

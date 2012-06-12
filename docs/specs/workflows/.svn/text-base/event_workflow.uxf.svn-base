@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+//fontsize=14
+
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><zoom_level>5</zoom_level><element><type>com.umlet.element.base.Relation</type><coordinates><x>155</x><y>165</y><w>159</w><h>154</h></coordinates><panel_attributes>lt=-&gt;
+[back_to_open_for_application]
+Admin</panel_attributes><additional_attributes>150;145;150;75;15;75;140;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>190</x><y>95</y><w>89</w><h>46</h></coordinates><panel_attributes>lt=&lt;-
+[publish_event]
+LC Board</panel_attributes><additional_attributes>80;25;15;25</additional_attributes></element><element><type>com.umlet.element.custom.State</type><coordinates><x>270</x><y>310</y><w>110</w><h>70</h></coordinates><panel_attributes>Event
+--
+[cancelled]
+-.
+view: LC Board, Int Board
+edit: Admin
+add_event_application:
+add_content:
+publish_content:
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>105</x><y>100</y><w>100</w><h>80</h></coordinates><panel_attributes>Event
+--
+[pending]
+-.
+view: LC Board, Int Board
+edit: LC Board
+add_event_application:
+add_content: LC Board
+publish_content: LC Board
+accept_reject:
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>5</x><y>110</y><w>114</w><h>46</h></coordinates><panel_attributes>lt=&lt;-
+[create_event]
+LC Board</panel_attributes><additional_attributes>105;25;15;25</additional_attributes></element><element><type>com.umlet.element.custom.InitialState</type><coordinates><x>15</x><y>130</y><w>10</w><h>10</h></coordinates><panel_attributes/><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>270</x><y>100</y><w>120</w><h>80</h></coordinates><panel_attributes>Event
+--
+[open_for_application]
+-.
+view: anonymous
+edit: LC Board
+add_event_application: Member
+add_content: LC Board
+publish_content: LC Board
+accept_reject:
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>505</x><y>100</y><w>100</w><h>80</h></coordinates><panel_attributes>Event
+--
+[choosing_participants]
+-.
+view: anonymous
+edit: LC Board
+add_event_application:
+add_content: LC Board
+publish_content: LC Board
+accept_reject: LC Board
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>375</x><y>95</y><w>139</w><h>46</h></coordinates><panel_attributes>lt=&lt;-
+[deadline_reached]
+Deadline</panel_attributes><additional_attributes>130;25;15;25</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>335</x><y>160</y><w>224</w><h>159</h></coordinates><panel_attributes>lt=-&gt;
+[back_to_choosing_participants]
+Admin</panel_attributes><additional_attributes>15;150;15;105;215;105;215;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>135</x><y>165</y><w>159</w><h>154</h></coordinates><panel_attributes>lt=-&gt;
+                             [back_to_pending]
+ 
+                             Int Board</panel_attributes><additional_attributes>150;145;150;125;15;125;15;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>190</x><y>110</y><w>89</w><h>46</h></coordinates><panel_attributes>lt=-&gt;
+[back_to_pending]
+Admin</panel_attributes><additional_attributes>80;25;15;25</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>375</x><y>110</y><w>139</w><h>46</h></coordinates><panel_attributes>lt=-&gt;
+[back_to_open_for_application]
+Admin</panel_attributes><additional_attributes>130;25;15;25</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>315</x><y>165</y><w>84</w><h>154</h></coordinates><panel_attributes>lt=&lt;-
+[cancel_event]
+LC Board</panel_attributes><additional_attributes>15;145;15;75;75;75;25;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>365</x><y>160</y><w>253</w><h>176</h></coordinates><panel_attributes>lt=&lt;-
+[cancel_event]
+LC Board</panel_attributes><additional_attributes>15;155;215;155;215;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>45</x><y>165</y><w>234</w><h>196</h></coordinates><panel_attributes>lt=&lt;-
+p1=[cancel_event]
+ 
+                                                 LC Board</panel_attributes><additional_attributes>225;175;80;175;80;15</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>20</x><y>55</y><w>80</w><h>15</h></coordinates><panel_attributes>Email -&gt; Int Board
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>55</x><y>55</y><w>24</w><h>89</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>15;15;15;80</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>420</x><y>55</y><w>75</w><h>20</h></coordinates><panel_attributes>Email -&gt; LC Board
+(@daily)
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>205</x><y>40</y><w>110</w><h>20</h></coordinates><panel_attributes>Email -&gt; CP List
+Create -&gt; Group Participants
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>225</x><y>45</y><w>24</w><h>84</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>15;15;15;75</additional_attributes></element><element><type>com.umlet.element.custom.State</type><coordinates><x>745</x><y>100</y><w>100</w><h>80</h></coordinates><panel_attributes>Event
+--
+[confirmed]
+-.
+view: anonymous
+edit: LC Board
+add_event_application:
+add_content: LC Board
+publish_content: LC Board
+accept_reject:
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>590</x><y>95</y><w>164</w><h>52</h></coordinates><panel_attributes>lt=&lt;-
+[confirm_participants]
+LC Board
+(if all approve_reject)</panel_attributes><additional_attributes>155;25;15;25</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>335</x><y>165</y><w>499</w><h>271</h></coordinates><panel_attributes>lt=&lt;-
+[cancel_event]
+LC Board</panel_attributes><additional_attributes>15;215;15;250;490;250;490;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>365</x><y>165</y><w>463</w><h>201</h></coordinates><panel_attributes>lt=-&gt;
+[back_to_confirmed]
+Admin</panel_attributes><additional_attributes>15;180;415;180;415;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>435</x><y>60</y><w>24</w><h>69</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>15;15;15;60</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>600</x><y>65</y><w>80</w><h>15</h></coordinates><panel_attributes>Email -&gt; CP List
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>625</x><y>65</y><w>24</w><h>64</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>15;15;15;55</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>445</x><y>400</y><w>24</w><h>49</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>15;40;15;15</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>120</x><y>375</y><w>80</w><h>15</h></coordinates><panel_attributes>Email -&gt; Int Board
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>410</x><y>195</y><w>75</w><h>15</h></coordinates><panel_attributes>Email -&gt; CP List
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>435</x><y>440</y><w>75</w><h>15</h></coordinates><panel_attributes>Email -&gt; CP List
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>600</x><y>265</y><w>75</w><h>10</h></coordinates><panel_attributes>Email -&gt; CP List
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>565</x><y>260</y><w>44</w><h>24</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>35;15;15;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>345</x><y>185</y><w>74</w><h>24</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>65;15;15;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>130</x><y>325</y><w>24</w><h>59</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>15;50;15;15</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>590</x><y>120</y><w>164</w><h>46</h></coordinates><panel_attributes>lt=-&gt;
+[accept_more_participants]
+LC Board</panel_attributes><additional_attributes>155;25;15;25</additional_attributes></element></umlet_diagram>

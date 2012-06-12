@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/collective/!svn/ver/237891/eestec.buildout/trunk/docs/source/dev
+END
+tips.rst
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/collective/!svn/ver/237891/eestec.buildout/trunk/docs/source/dev/tips.rst
+END
+deployment.rst
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/collective/!svn/ver/237503/eestec.buildout/trunk/docs/source/dev/deployment.rst
+END
+initial_content.rst
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/collective/!svn/ver/237502/eestec.buildout/trunk/docs/source/dev/initial_content.rst
+END
+environment.rst
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/collective/!svn/ver/237539/eestec.buildout/trunk/docs/source/dev/environment.rst
+END
+index.rst
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/collective/!svn/ver/237503/eestec.buildout/trunk/docs/source/dev/index.rst
+END
+upgrade.rst
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/collective/!svn/ver/237891/eestec.buildout/trunk/docs/source/dev/upgrade.rst
+END

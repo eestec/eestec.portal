@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+//fontsize=14
+
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><zoom_level>7</zoom_level><element><type>com.umlet.element.custom.State</type><coordinates><x>420</x><y>63</y><w>154</w><h>112</h></coordinates><panel_attributes>LC
+--
+[jlc]
+-.
+view: Anonymous
+edit: Admin
+add_content: LC Board
+publish_content: LC Board
+manage_events: LC Board
+manage_members: LC Board
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>266</x><y>56</y><w>167</w><h>64</h></coordinates><panel_attributes>lt=&lt;-
+[promote_to_jlc]
+Int Board</panel_attributes><additional_attributes>154;35;21;35</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>0</x><y>63</y><w>146</w><h>64</h></coordinates><panel_attributes>lt=&lt;-
+[creating_new_lc]
+Admin</panel_attributes><additional_attributes>133;35;21;35</additional_attributes></element><element><type>com.umlet.element.custom.InitialState</type><coordinates><x>14</x><y>91</y><w>14</w><h>14</h></coordinates><panel_attributes/><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>133</x><y>63</y><w>154</w><h>112</h></coordinates><panel_attributes>LC
+--
+[observer]
+-.
+view: Anonymous
+edit: Admin
+add_content: LC Board
+publish_content: LC Board
+manage_events: LC Board
+manage_members: LC Board
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>679</x><y>63</y><w>161</w><h>112</h></coordinates><panel_attributes>LC
+--
+[lc]
+-.
+view: Anonymous
+edit: Admin
+add_content: LC Board
+publish_content: LC Board
+manage_events: LC Board
+manage_members: LC Board
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>553</x><y>56</y><w>139</w><h>64</h></coordinates><panel_attributes>lt=&lt;-
+[promote_to_lc]
+Int Board</panel_attributes><additional_attributes>126;35;21;35</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>266</x><y>77</y><w>167</w><h>64</h></coordinates><panel_attributes>lt=-&gt;
+[degrade_to_observer]
+Int Board</panel_attributes><additional_attributes>154;35;21;35</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>553</x><y>77</y><w>139</w><h>64</h></coordinates><panel_attributes>lt=-&gt;
+[degrade_to_jlc]
+Int Board</panel_attributes><additional_attributes>126;35;21;35</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>644</x><y>91</y><w>34</w><h>139</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>21;126;21;21</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>539</x><y>217</y><w>154</w><h>21</h></coordinates><panel_attributes>
+Email -&gt; LC Spamtarget
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>280</x><y>217</y><w>154</w><h>21</h></coordinates><panel_attributes>Email -&gt; LC Spamtarget
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>385</x><y>70</y><w>34</w><h>160</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>21;147;21;21</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>287</x><y>91</y><w>34</w><h>139</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>21;126;21;21</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>567</x><y>70</y><w>34</w><h>160</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>21;147;21;21</additional_attributes></element></umlet_diagram>

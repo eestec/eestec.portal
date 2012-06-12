@@ -1,0 +1,140 @@
+Creating a blank eestec.net on your local machine
+=================================================
+
+.. warning:: 
+    This text here is mainly for reference of how we set up the initial structure of the site in the beginning of the project. You probably don't want to do all this. Use a Data.fs from the production server which is more up-to-date.
+
+Add a Plone site
+----------------
+
+Fire up your browser and point it to http://localhost:8080/. If you see the default Zope welcome page than your Zope installation is working. Now move to http://localhost:8080/manage and login as username 'dev', password 'dev'. 
+
+Then, on the right-hand side panel click on a 'Select type to add...' dropdown and select Plone Site. Choose 'dev' as the site id, leave everything else as-is and click Add Plone Site button below.
+
+Install eestec.* products
+-------------------------
+
+When your site is built click on it in the left-hand panel and then find 'portal_quickinstaller' on the right-hand panel. Use the Quick Installer to install (in this order):
+
+1. membrane
+2. remember
+3. eestec.base
+4. XDV Transforms
+5. EESTEC Theme
+6. niteoweb.loginas
+7. Plone Survey
+8. ContentWellPortlets
+
+.. warning::
+
+    Do NOT touch remember after you installed it! It will break zope and require a new buildout.
+
+Enable CSS debug mode
+---------------------
+
+Go to http://localhost:8080/dev/portal_css/manage_cssForm, select 'Debug/development mode' and click Save.
+
+Configure collective.xdv theme transforms
+-----------------------------------------
+
+Point your browser to http://localhost:8080/dev/@@xdv-settings
+
+Set enabled to True
+
+Set Domains to 
+
+.. sourcecode:: bash
+
+    dev.eestec.net:8000
+    new.eestec.net
+    eestec.net
+
+Set Theme template to 'src/eestec.theme/eestec/theme/skins/eestec_theme_custom_templates/hack.html'
+
+Set Rules file to 'src/eestec.theme/eestec/theme/skins/eestec_theme_custom_templates/rules-hack.xml'
+
+Set Alternate themes to '^/$|src/eestec.theme/eestec/theme/skins/eestec_theme_custom_templates/hack-startpage.html|src/eestec.theme/eestec/theme/skins/eestec_theme_custom_templates/rules-hack-startpage.xml'
+
+.. warning::
+
+    If you are running Zope in producion mode the paths above have to be absolute!
+
+Now XDV is set up, and we can check if it works by navigating to http://dev.eestec.net:8000/. For this make sure you have started nginx and set "127.0.0.1 dev.eestec.net" in your /etc/hosts. The XDV theme works only through nginx and it will not work if the instance is accessed directly with http://dev.eestec.net:8080/dev or http://localhost:8080/dev! 
+
+Add initial content
+-------------------
+
+At this point the site still doesn't look usable. You first need to add the initial content.
+
+Remove default Plone content
+""""""""""""""""""""""""""""
+
+Go to http://localhost:8080/dev/folder_contents and remove everything except 'Member profiles'.
+
+
+Content sections
+""""""""""""""""
+
+Go to http://localhost:8080/dev and add Folders 'About EESTEC', 'Events & Projects', 'News and Offers', 'Partners'.
+These are the main sections for content on the site.
+
+Components folder
+"""""""""""""""""
+
+Go to http://localhost:8080/dev and use the 'Add new ...' dropdown to add a new Folder 'components'. It will contain content that is used in the structure of the site and generally shouldn't be touched by anyhone. Example: collections for displaying sitemap in footer, images for portlets, ...
+
+Footer sitemap
+""""""""""""""
+
+1. Add a section collection
+
+Go to http://localhost:8080/dev/components and add a new Collection 'About EESTEC' with an id 'column1'. Set its criteria to have Location set to '../../about-eestec' and Item Type to 'Collection, Folder, Page'. The Sort Order must be set to 'Order in folder'.
+
+2. Add a footer portlet
+
+Go to http://localhost:8080/dev/@@manage-footerportlets and add a Collection Portlet to 'Footer Portlet A' slot. Set it's header to 'About EESTEC' and select the /components/column1 as the Target collection. Save.
+
+3. Repeat step 1. and 2. for the rest of content sections (top-level folders).
+
+Site-wide portlets
+""""""""""""""""""
+
+Go to http://localhost:8080/dev/@@manage-portlets and remove all portlets except the Navigation portlet.
+
+First page
+""""""""""
+
+Go to http://localhost:8080/dev and use the 'Add new ...' dropdown to add a new Page 'What is EESTEC?' with the following HTML source.
+
+.. sourcecode:: html
+
+    <div id="blob">
+    <div id="blob-left">
+    <p>What is EESTEC?</p>
+    <p>&nbsp;</p>
+    <p><span id="first-line">EESTEC is a non-political, non-profit organization</span> of</p>
+    <p>and for Electrical Engineering and Computer Science (EECS)</p>
+    <p>students of universities, institutes and technical schools in Europe</p>
+    <p>awarding an engineering degree.</p>
+    <p>&nbsp;</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Interested?</p>
+    <p>&nbsp;</p>
+    <div id="blob-left-links"><a title="Students" class="internal-link" href="get-involved/students">Student</a>&nbsp; <a title="Companies" class="internal-link" href="get-involved/companies">Company</a>&nbsp; <a title="Universities" class="internal-link" href="get-involved/universities">University</a><br /><a title="Universities" class="internal-link" href="get-involved/universities"></a></div>
+    </div>
+    <div id="blob-right"><br /><br /><br /><br /><br /><br /><br /><br /><br /><a title="Local Committees" class="internal-link" href="about-eestec/local-committees">Where are we?</a></div>
+    </div>
+    
+    <div id="login-blob"><br />Welcome, here is some essential basic stuff you might be searching for:<br /><br />
+    <ul><li><a title="LC" class="internal-link" href="lc">LCs</a></li><li><a title="Publications" class="internal-link" href="publications">Publications</a><br /></li><li><a title="Official Documents" class="internal-link" href="about-eestec/official-documents">Essential documents</a></li><li><a title="EESTEC Bodies" class="internal-link" href="about-eestec/eestec-bodies">Structure of EESTEC</a></li></ul>
+    </div>
+
+Then go to http://localhost:8080/dev/what-is-eestec/@@manage-portlets and add 2 static text portlets 'ECM Buff' and 'Magazine Buff' followed by a Login portlet.
+
+.. sourcecode:: html
+
+    <p><a class="external-link" href="http://ecm.eestec.net/"><img class="image-inline" src="components/ECM.png/image_large" alt="ECM 2009" /></a></p>
+
+.. sourcecode:: html
+    
+    <p><img class="image-inline" src="components/magazine.png/image_large" alt="Magazine Buff" /></p>
+    
+Lastly, upload ECM.png and magazine.png to /components folder on your Plone site so they can be displayed in first page portlets.

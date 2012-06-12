@@ -1,0 +1,27 @@
+Tips & Tricks
+=============
+
+Tunneling to ETHZ server
+""""""""""""""""""""""""
+
+Sometimes you need direct access to services running on ETHZ server. All servers
+are running on local address ``127.0.0.2``, and the ports for them are as
+follows::
+
+    zope1       = 8091
+    zope2       = 8092
+    zope3       = 8093
+    zope4       = 8094
+    zope4_debug = 8099 (needs to be manually started with ``bin/zope_debug fg``)
+    zeo         = 8090
+    haproxy     = 8080
+    supervisor  = 9000
+
+
+So, to access (for example) ``zope_debug`` use:
+
+    $ ssh eestecwm@galen.ee.ethz.ch -L 8099:127.0.0.2:8099
+
+Then open ``http://localhost:8099`` in your browser and you will directly access
+the service on this port.
+

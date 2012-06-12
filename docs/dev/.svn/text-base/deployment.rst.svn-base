@@ -1,0 +1,99 @@
+======================
+Deployment information
+======================
+
+
+docs.eestec.net
+===============
+
+Deployment information for developers documentation at docs.eestec.net (TODO: link), located in ``~/docs/``. Sphinx (TODO: link) is used to generate HTML documentation out of ReST source files. We serve these files directly with Apache. Source files are pulled from Subversion repository every hour followed by generating HTML files out of them.
+
+Here's how to set it up:
+
+.. sourcecode:: bash
+
+    $ virtualenv -p python2.4 --no-site-packages docs
+    $ cd docs
+    $ svn checkout https://svn.plone.org/svn/collective/eestec.buildout/trunk/ ./
+    $ bin/python bootstrap.py
+    $ bin/buildout -c sphinx.cfg
+    $ bin/sphinxbuilder
+
+haproxy.eestec.net
+==================
+
+A status page for HAProxy load balancer that sits in front of 4 Zope servers serving eestec.net. You can access also access this via localhost on ``http://localhost:8080/haproxy-status``.
+
+The status page is protected by simple HTTP authentication:
+ - username: ``user``
+ - password: ``pass``
+
+congress.eestec.net
+===================
+
+TODO
+This is just a redirect that points to http://TODO
+
+awstats.eestec.net
+==================
+
+TODO
+This is redirect that points to AWStats that ETHZ provides for us. They are located at http://TODO.
+
+Access to stats is protected with simple HTTP Authentication. Credentials are available on the server in ``~/passwords.txt``.
+
+eestec.net
+==========
+
+Deployment information for Plone application running eestec.net (TODO:link), located in ``~/PloneDev/zinstance/``.
+
+ZODB packing
+------------
+
+Packing means removing old revisions of object in database which greatly lowers the size of ZODB and increases performance. We pack our database every week and remove all objects that are more than one month old.
+
+Packing is performed by using `cronjob` that calls ``~/PloneDev/zinstance/bin/zeopack`` every Sunday.
+
+Backups
+-------
+
+We use collective.recipe.backup (TODO:link) for performing backups. 
+
+We do an incremental backup everyday and a full backup every week. The script for performing a backup is at ``~/PloneDev/zinstance/backup``. By default, this script performs an incremental backup. However, if it is run after a ZODB packing has occured, it automatically performs a full backup. These backups are saved in `~/PloneDev/zinstance/backups`.
+
+Besides scheduled daily backups one can also perform full, snapshot backups manually. This is much recommended to do before any system updates or other changes to the application. Snapshot backups are performed by running ``~/PloneDev/zinstance/bin/snapshotbackup`` and stored in ``~/PloneDev/zinstance/var/snapshotbackups``.
+
+Restoring from normal and snapshot backups is done with helper scripts at ``~/PloneDev/zinstance/var/restore`` and ``~/PloneDev/zinstance/var/snapshotrestore``. BE CAREFUL when using these as they override your current database in ``~/PloneDev/zinstance/var/filestorage/Data.fs``
+
+Cronjobs
+--------
+
+Cronjobs are scheduled tasks on Linux systems. One can manually edit them with `crontab -e`, but please this is discouraged. The reason being we cannot track changes to crontab with a Subversion repository this way.
+
+Instead, one should add/edit crontab commands in `~/PloneDev/zinstance/production.cfg`. After doing changes, buildout needs to be re-run so that it installs these changes to crontab: `~/PloneDev/zinstance/bin/buildout -c production.cfg`.
+
+Supervisord
+-----------
+
+We use supervisord to monitor application servers. After a server reboot, just start supervisord with ~/PloneDev/zinstance/bin/supervisord` and supervisord will in turn start all other services. It's control interface is available at ``~/PloneDev/zinstance/bin/supervisorctl``. This should be used for restarting Zope, ZEO, HAProxy, etc.
+
+A few usefull commands:
+
+source:: bash
+
+    $ cd ~/PloneDev/zinstance
+    
+    # get status of services
+    $ bin/supervisorctl status
+    
+    # restart everything
+    $ bin/supervisorctl restart
+    
+    # restart/status only a specific service
+    $ bin/supervisorctl status zope1
+    $ bin/supervisorctl restart zope1
+
+HAProxy
+------
+
+We use HAProxy for load balancing a backend of four Zope instances. HAProxy is also monitored by supervisord. To access it's status page (TODO: internal link) go to haproxy.eestec.net (TODO: link).

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><umlet_diagram><help_text>//Uncomment the following line to change the fontsize:
+//fontsize=14
+
+//Welcome to UMLet!
+
+// *Double-click on UML elements to add them to the diagram.
+// *Edit element properties by modifying the text in this panel.
+// *Edit the files in the 'palettes' directory to store your own element palettes.
+// *Press Del or Backspace to remove elements from the diagram.
+// *Hold down Ctrl key to select multiple elements.
+// *Press c to copy the UML diagram to the system clipboard.
+// * This text will be stored with each diagram. Feel free to use the area for notes.
+</help_text><zoom_level>10</zoom_level><element><type>com.umlet.element.base.Relation</type><coordinates><x>440</x><y>250</y><w>170</w><h>160</h></coordinates><panel_attributes>lt=-&gt;
+    [enable_user]
+    LC Board</panel_attributes><additional_attributes>90;140;90;30</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>340</x><y>210</y><w>180</w><h>94</h></coordinates><panel_attributes>lt=&lt;-
+[register_user]
+LC Board</panel_attributes><additional_attributes>160;50;30;50</additional_attributes></element><element><type>com.umlet.element.custom.State</type><coordinates><x>500</x><y>390</y><w>185</w><h>110</h></coordinates><panel_attributes>Member
+--
+[disabled]
+-.
+view: LC Board
+view_personal_info:
+edit:
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>180</x><y>170</y><w>190</w><h>110</h></coordinates><panel_attributes>Member
+--
+[pending]
+-.
+view: LC Board
+view_personal_info: Owner
+edit: Owner
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>30</x><y>180</y><w>170</w><h>94</h></coordinates><panel_attributes>lt=&lt;-
+[new_user]
+anonymous</panel_attributes><additional_attributes>150;50;30;50</additional_attributes></element><element><type>com.umlet.element.custom.InitialState</type><coordinates><x>50</x><y>220</y><w>20</w><h>20</h></coordinates><panel_attributes/><additional_attributes/></element><element><type>com.umlet.element.custom.State</type><coordinates><x>500</x><y>170</y><w>185</w><h>110</h></coordinates><panel_attributes>Member
+--
+[enabled]
+-.
+view: Member
+view_personal_info: Owner
+edit: Owner
+
+bg=orange</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>570</x><y>250</y><w>176</w><h>160</h></coordinates><panel_attributes>lt=&lt;-
+     [disable_user]
+    LC Board</panel_attributes><additional_attributes>90;140;90;30</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>50</x><y>80</y><w>190</w><h>40</h></coordinates><panel_attributes>Email -&gt; LC Spamtarget
+Email -&gt; Owner
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>90</x><y>90</y><w>50</w><h>160</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>30;30;30;140</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>410</x><y>90</y><w>50</w><h>190</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>30;30;30;170</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>750</x><y>290</y><w>140</w><h>30</h></coordinates><panel_attributes>Email -&gt; Owner
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Note</type><coordinates><x>280</x><y>350</y><w>140</w><h>30</h></coordinates><panel_attributes>Email -&gt; Owner
+bg=blue</panel_attributes><additional_attributes/></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>630</x><y>270</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>120;30;30;30</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>390</x><y>340</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>30;30;140;30</additional_attributes></element><element><type>com.umlet.element.base.Note</type><coordinates><x>370</x><y>90</y><w>140</w><h>30</h></coordinates><panel_attributes>Email -&gt; Owner
+bg=blue</panel_attributes><additional_attributes/></element></umlet_diagram>
