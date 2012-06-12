@@ -1,0 +1,47 @@
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <!-- plone.app.toolbar -->
+    <append theme="/html/body"
+	    content="//div[@data-iframe='toolbar']" />
+    <append theme="/html/head">
+	<script type="text/javascript"
+	        src="++resource++plone.app.toolbar/src/iframed.js"></script>
+    </append>
+
+    <!-- Prevent theme usage in zmi-->
+    <rules css:if-content="#visual-portal-wrapper">
+        <theme href="index.html" />
+    </rules>
+    <notheme if-path="presentation_view"/>
+    <notheme if-path="source_editor.htm"/>
+    <notheme if-path="ploneimage.htm"/>
+    <notheme if-path="anchor.htm"/>
+    <notheme if-path="table.htm"/>
+    <notheme if-path="attributes.htm"/>
+    <drop theme='//*[@id="slogan"]' />
+    <replace content="/html/head/title" theme="/html/head/title" />
+    <replace content="/html/head/base" theme="/html/head/base" />
+    <replace content="/html/head/meta" theme="/html/head/meta" />
+    <prepend content='/html/head' theme='/html/head' />
+
+    <copy attributes="href title" css:content='#portal-logo' css:theme='#logo a' />
+    <copy attributes="id class dir" css:theme="body" css:content="body"/>
+    <copy content='//*[@id="portal-globalnav"]' theme='//*[@id="menu"]' />
+    <copy content='//*[@id="portal-globalnav"]' theme='//*[@id="menu_footer"]' />
+    <drop attributes="id" css:content="#portal-globalnav"/>
+    <prepend content='//*[@id="portal-personaltools-wrapper"]' theme='//*[@id="container"]' />
+    <prepend css:content="#viewlet-above-content" css:theme="#text"/>
+	<before css:content="#edit-bar" css:theme="#text"/>
+    <copy css:content-children="#content" css:theme="#text"/>
+    <after css:content="#viewlet-below-content" css:theme-children="#text"/>
+    <copy content-children='//*[@id="portal-column-one"]' theme='//*[@id="sidebar"]' />
+    <copy content-children='//*[@id="portal-footer"]' theme='//*[@id="footer"]' />
+    <append content='//*[@id="portal-colophon"]' theme='//*[@id="footer"]' />
+    <append content='//*[@id="portal-siteactions"]' theme='//*[@id="footer"]' />
+
+
+
+</rules>

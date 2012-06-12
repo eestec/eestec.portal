@@ -10,8 +10,13 @@
 
     <!-- Publish static files -->
     <browser:resourceDirectory
-      name="eestec.portal"
       directory="static"
+      name="eestec.portal"
       />
 
+    <!-- Diazo theme -->
+    <plone:static
+      directory="theme"
+      type="theme"
+      />
 </configure>
