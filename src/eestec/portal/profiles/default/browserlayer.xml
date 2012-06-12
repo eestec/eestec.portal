@@ -1,0 +1,6 @@
+<layers>
+  <layer
+    name="eestec.portal"
+    interface="eestec.portal.interfaces.IEestecPortalLayer"
+  />
+</layers>

@@ -1,0 +1,15 @@
+language: python
+python:
+  - 2.6
+install:
+  - sudo apt-get purge python2.5
+  - python bootstrap.py
+  - bin/buildout -q
+script:
+  - ./pre-commit-check.sh
+ 
+notifications:
+  irc:
+    - "irc.freenode.org#ngep"
+  email:
+    - it@eestec.net
