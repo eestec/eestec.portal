@@ -42,6 +42,7 @@ setup(name='eestec.portal',
           'plone.app.toolbar',
           'setuptools',
           'z3c.jbot',
+          'five.pt',
       ],
       extras_require={
           # list libs needed for unittesting this project
