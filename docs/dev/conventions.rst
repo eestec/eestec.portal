@@ -140,7 +140,7 @@ Add an entry every time you add/remove a feature, fix a bug, etc.
 
 .. _sphinx-docs:
 
-Sphinx documentation
+Sphinx Documentation
 ====================
 
 Un-documented code is broken code.
@@ -162,8 +162,8 @@ the results are visible at http://eestecportal.readthedocs.org/.
 
 .. _travis:
 
-Continuous Integration
-======================
+Travis Continuous Integration
+=============================
 
 On every push to GitHub, `Travis <http://travis-ci.org/eestec/eestec.portal>`_
 runs all tests/syntax validation checks and reports failures (if there
@@ -172,7 +172,7 @@ are any) to ``it@eestec.net`` mailinglist and to the ``#ngep`` IRC channel.
 Travis is configured with the ``.travis.yml`` file located in the root of
 ``eestec.portal`` package.
 
-.. _git_layout:
+.. _git_workflow:
 
 Git workflow & branching model
 ==============================
@@ -182,13 +182,17 @@ version controled by Git on https://github.com/eestec/eestec.portal.
 
 Git repository has the following layout:
 
-* **feature branches**: all new development for new features should be done in
+* **feature branches**: all development for new features must be done in
   dedicated branches, normaly one branch per feature,
 * **master branch**: when features get completed they are merged into the master
   branch; bugfixes are commited directly on the master branch,
-* **production tags**: whenever we deploy code to production we tag the
-  repository so we can later re-trace our steps and revert broken deployments
-  if necessary.
+* **tags**: whenever we deploy code to production we tag the repository so we
+  can later re-trace our steps and revert broken deployments if necessary.
 
+Hooks:
+
+* On every change to the ``master`` branch, our :ref:`staging_env` gets
+  re-deployed.
+* On every new tag, our :ref:`production_env` gets re-deployed.
 
 
