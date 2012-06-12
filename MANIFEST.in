@@ -1,0 +1,2 @@
+include *.cfg *.rst *.in
+graft src/eestec/
