@@ -17,12 +17,20 @@ class TestInstall(IntegrationTestCase):
 
     def test_product_installed(self):
         """Test if eestec.portal is installed with portal_quickinstaller."""
-        self.failUnless(self.installer.isProductInstalled('eestec.portal'))
+        self.assertTrue(self.installer.isProductInstalled('eestec.portal'))
 
     def test_uninstall(self):
         """Test if eestec.portal is cleanly uninstalled."""
         self.installer.uninstallProducts(['eestec.portal'])
-        self.failIf(self.installer.isProductInstalled('eestec.portal'))
+        self.assertFalse(self.installer.isProductInstalled('eestec.portal'))
+
+    def test_dependencies_installed(self):
+        """Test if eestec.portal's dependencies are installed."""
+        self.assertFalse(self.installer.isProductInstalled('Dexterity Content Types'))
+        self.assertFalse(self.installer.isProductInstalled('Diazo theme support'))
+        self.assertFalse(self.installer.isProductInstalled('HTTP caching support'))
+        self.assertFalse(self.installer.isProductInstalled('Niteoweb.LoginAs'))
+        self.assertFalse(self.installer.isProductInstalled('Plone Toolbar'))
 
     # properties.xml
     def test_portal_title(self):
@@ -35,7 +43,7 @@ class TestInstall(IntegrationTestCase):
         """Test that IEestecPortalLayer is registered."""
         from eestec.portal.interfaces import IEestecPortalLayer
         from plone.browserlayer import utils
-        self.failUnless(IEestecPortalLayer in utils.registered_layers())
+        self.assertTrue(IEestecPortalLayer in utils.registered_layers())
 
 
 def test_suite():
