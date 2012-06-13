@@ -8,12 +8,6 @@
     <include package="z3c.jbot" file="meta.zcml" />
     <browser:jbot directory="overrides" layer="..interfaces.IEestecPortalLayer" />
 
-    <!-- Publish static files -->
-    <browser:resourceDirectory
-      directory="static"
-      name="eestec.portal"
-      />
-
     <!-- Diazo theme -->
     <plone:static
       directory="theme"
