@@ -134,3 +134,22 @@ in the `Add-ons` list and click ``Create Plone Site``.
 There you go, a local installation of the EESTEC portal on your laptop. Go
 nuts with it!
 
+You can also run our :ref:`unit-tests` or perform :ref:`syntax-validation`.
+
+
+Commiting a change
+==================
+
+Based on our :ref:`git_workflow` all new features must be developed in separate
+git branches:
+
+.. sourcecode:: bash
+    [you@local eestec.portal]$ git co master  # go to master branch
+    [you@local eestec.portal]$ git co -B my_cool_feature  # create a feature branch
+
+    # change code here
+
+    [you@local eestec.portal]$ git add -p && git ci  # commit my changes
+    [you@local eestec.portal]$ git push -u origin my_cool_feature  # push my branch to GitHub
+
+Read more about Git branching at http://learn.github.com/p/branching.html.
