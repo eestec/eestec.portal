@@ -123,7 +123,7 @@ Python Debugger to interactively debug your code:
 
 .. sourcecode:: bash
 
-    [you@local eestec.portal]$ bin/zope fg
+    [you@local eestec.portal]$ bin/instance fg
 
 
 Once Zope has started you need to add a Plone site. Open up a browser and
