@@ -10,13 +10,13 @@ EESTEC.net Plone portal
 
 .. topic:: Summary
 
-EESTEC.net portal is the main hub for managing of EESTEC Events (workshops,
-exchanges, etc.), applications to these event, managing Local Committees,
-managing public content (news, PR, etc.) and an online collaboration space for
-EESTECers.
+    EESTEC.net portal is the main hub for managing of EESTEC Events (workshops,
+    exchanges, etc.), applications to these event, managing Local Committees,
+    managing public content (news, PR, etc.) and an online collaboration space
+    for EESTECers.
 
-.. note::
+Make sure you read the
+`install instructions <http://eestecportal.readthedocs.org/en/latest/dev/local.html>`_
+before attempting to *run buildout* or at least check the list of
+`prerequisites <http://eestecportal.readthedocs.org/en/latest/dev/local.html#prerequisites>`_.
 
-    If you are more experienced developer be sure that you install all the prerequisites_.
-
-.. _prerequisites: http://eestecportal.readthedocs.org/en/latest/dev/local.html#prerequisites
