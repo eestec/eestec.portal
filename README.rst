@@ -6,9 +6,10 @@ EESTEC.net Plone portal
 :Bug tracker: http://dev.starzel.de/eestec
 :Source: https://github.com/eestec/eestec.portal
 :Documentation: http://eestecportal.readthedocs.org/
-:CI:
+:Cnt. Integration:
+
     .. image:: http://travis-ci.org/eestec/eestec.portal.png
-       :align: right
+       :align: left
        :target: http://travis-ci.org/eestec/eestec.portal
 
 .. topic:: Summary
