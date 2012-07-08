@@ -32,7 +32,7 @@ installed with your OS packet manager, such as apt, aptitude, yum, etc.:
 * ``GNU tar`` - the (un)archiving tool for extracting downloaded archives.
 * ``bzip2`` and ``gzip`` decompression packages - ``gzip`` is nearly standard,
   however some platforms will require that ``bzip2`` be installed.
-* ``Python 2.7 or 2.6`` - Plone 4.2 does NOT work with other Python version so you need
+* ``Python 2.7`` - Plone 4.2 does NOT work with other Python version so you need
   this exact version.
 
 
@@ -87,12 +87,12 @@ environment:
     # OS X users using collective.buildout.python would run the following
     [you@local eestec.portal]$ <path>/<to>/<collective.buildout.python>/bin/virtualenv-2.7 --no-site-packages ./
 
-Confirm you are indeed using Python 2.6 or 2.7:
+Confirm you are indeed using Python 2.7:
 
 .. sourcecode:: bash
 
     [you@local eestec.portal]$ bin/python -V
-    Python 2.6.7
+    Python 2.7.2
 
 Bootstrap tools and scripts in ``bin/``:
 
