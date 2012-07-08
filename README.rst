@@ -19,4 +19,4 @@ EESTECers.
 
     If you are more experienced developer be sure that you install all the prerequisites_.
 
-_prerequisites: http://eestecportal.readthedocs.org/en/latest/dev/local.html#prerequisites
+.. _prerequisites: http://eestecportal.readthedocs.org/en/latest/dev/local.html#prerequisites
