@@ -3,6 +3,7 @@ parts
 lib
 include
 bin
+local
 .mr.developer.cfg
 .installed.cfg
 .DS_Store
