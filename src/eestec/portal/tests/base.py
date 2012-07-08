@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Base module for unittesting."""
+"""Base module for unit-testing."""
 
+from plone import api
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
@@ -11,6 +12,8 @@ from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.testing import z2
+from Products.CMFPlone.tests.utils import MockMailHost
+from Products.MailHost.interfaces import IMailHost
 
 import unittest2 as unittest
 
@@ -31,12 +34,17 @@ class EestecPortalLayer(PloneSandboxLayer):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'eestec.portal:default')
 
-        # Login and create some test
+        # Mock MailHost
+        mockmailhost = MockMailHost('MailHost')
+        portal.MailHost = mockmailhost
+        sm = api.get_site().getSiteManager()
+        sm.registerUtility(component=mockmailhost, provided=IMailHost)
+
+        # Login
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory('Folder', 'folder')
 
-        # Commit so that the test browser sees these objects
+        # Rebuild the catalog and commit changes
         portal.portal_catalog.clearFindAndRebuild()
         import transaction
         transaction.commit()
