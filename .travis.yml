@@ -8,8 +8,8 @@ install:
 # to 900 seconds per command: we install 'instance' and 'test' which
 # are the biggest to steps followed by a general buildout steps that
 # pulls in everything else
+  - bin/buildout -q install scripts
   - bin/buildout -q install instance
-  - bin/buildout -q install test
   - bin/buildout -q
 
 script:
