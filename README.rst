@@ -15,3 +15,8 @@ exchanges, etc.), applications to these event, managing Local Committees,
 managing public content (news, PR, etc.) and an online collaboration space for
 EESTECers.
 
+.. note::
+
+    If you are more experienced developer be sure that you install all the prerequisites_.
+
+_prerequisites: http://eestecportal.readthedocs.org/en/latest/dev/local.html#prerequisites
