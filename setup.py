@@ -7,7 +7,7 @@ from setuptools import setup
 import os
 
 
-# shamlessly stolen from Hexagon IT guys
+# shamelessly stolen from Hexagon IT guys
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
