@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<rolemap>
+
+    <roles>
+        <role name="LCMember"/>
+        <role name="LCBoardMember"/>
+        <role name="IntBoardMember"/>
+    </roles>
+
+    <permissions>
+
+        <!-- TODO: Why is this the way it is? -->
+        <permission name="eestec.portal: Add EventApplication" acquire="False">
+            <role name="Manager" />
+        </permission>
+
+        <!-- Events can be added to an LC by whoever has Contributor role on
+        that LC -->
+        <permission name="eestec.portal: Add Event" acquire="False">
+            <role name="Manager" />
+            <role name="Contributor" />
+        </permission>
+
+        <!-- LCs are created programatically via the @@add-new-lc form so noone
+        should be able to add them manually -->
+        <permission name="eestec.portal: Add LC" acquire="False">
+            <role name="Manager"/>
+        </permission>
+
+        <!-- Allow Editors to manage portlets -->
+        <permission name="Portlets: Manage portlets" acquire="True">
+            <role name="Manager"/>
+            <role name="Editor"/>
+        </permission>
+        <permission name="plone.portlet.static: Add static portlet" acquire="True">
+            <role name="Manager"/>
+            <role name="Editor"/>
+        </permission>
+
+        <!-- Disable dashboard -->
+        <permission name="Portlets: Manage own portlets" acquire="False">
+            <role name="Manager"/>
+        </permission>
+
+        <!-- Allow anonymous users to register to the site -->
+        <permission name="Add portal member" acquire="False">
+            <role name="Anonymous"/>
+            <role name="Manager"/>
+        </permission>
+
+    </permissions>
+</rolemap>

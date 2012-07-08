@@ -3,6 +3,7 @@
 
 from eestec.portal.tests.base import IntegrationTestCase
 from Products.CMFCore.utils import getToolByName
+from zope.component import getUtilitiesFor
 
 import unittest2 as unittest
 
@@ -14,6 +15,13 @@ class TestInstall(IntegrationTestCase):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
         self.installer = getToolByName(self.portal, 'portal_quickinstaller')
+
+    def _check_permission_for_role(self, permission, role):
+        """Check if the specified role has the specified permission."""
+        # The API of the permissionsOfRole() function sucks - it is bound too
+        # closely up in the permission management screen's user interface
+        return permission in [r['name'] for r in
+            self.portal.permissionsOfRole(role) if r['selected']]
 
     def test_product_installed(self):
         """Test if eestec.portal is installed with portal_quickinstaller."""
@@ -44,6 +52,36 @@ class TestInstall(IntegrationTestCase):
         from eestec.portal.interfaces import IEestecPortalLayer
         from plone.browserlayer import utils
         self.assertTrue(IEestecPortalLayer in utils.registered_layers())
+
+    # rolemap.xml and sharing.xml
+    def test_local_roles_registered(self):
+        """Test that Local Roles were registered."""
+        from plone.app.workflow.interfaces import ISharingPageRole
+        roles = dict(getUtilitiesFor(ISharingPageRole))
+        self.assertIn('LCMember', roles)
+        self.assertIn('LCBoardMember', roles)
+        self.assertIn('IntBoardMember', roles)
+
+    # rolemap.xml
+    def test_dashboard_disabled(self):
+        """Test that Dashboard is disabled."""
+        self.assertFalse(self._check_permission_for_role(
+            permission='Portlets: Manage own portlets',
+            role='Member',
+        ))
+
+    # rolemap.xml
+    def test_portlets_editable(self):
+        """Test that Editors can manage portlets."""
+
+        self.assertTrue(self._check_permission_for_role(
+            permission='Portlets: Manage portlets',
+            role='Editor',
+        ))
+        self.assertTrue(self._check_permission_for_role(
+            permission='plone.portlet.static: Add static portlet',
+            role='Editor',
+        ))
 
 
 def test_suite():

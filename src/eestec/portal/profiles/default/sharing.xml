@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<sharing>
+
+    <role
+        id="LCMember"
+        title="LC Member"
+        permission="Manage portal"
+        />
+
+    <role
+        id="LCBoardMember"
+        title="LC Board Member"
+        permission="Manage portal"
+        />
+
+    <role
+        id="IntBoardMember"
+        title="Int Board Member"
+        permission="Manage portal"
+        />
+
+</sharing>
