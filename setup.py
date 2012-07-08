@@ -36,6 +36,7 @@ setup(name='eestec.portal',
       zip_safe=False,
       install_requires=[
           'niteoweb.loginas',
+          'plone.api',
           'plone.app.caching',
           'plone.app.theming',
           'plone.app.dexterity',
