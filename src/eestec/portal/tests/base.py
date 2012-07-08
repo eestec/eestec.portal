@@ -11,6 +11,7 @@ from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing import z2
 from Products.CMFPlone.tests.utils import MockMailHost
 from Products.MailHost.interfaces import IMailHost
@@ -71,3 +72,9 @@ class FunctionalTestCase(unittest.TestCase):
     """Base class for functional tests."""
 
     layer = FUNCTIONAL_TESTING
+
+    def login(self):
+        self.browser.open(self.layer['portal'].absolute_url() + '/login_form')
+        self.browser.getControl(name='__ac_name').value = TEST_USER_NAME
+        self.browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+        self.browser.getControl(name='submit').click()

@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <site>
     <property name="title">EESTEC International</property>
+    <property name="email_from_address" type="string">noreply@eestec.net</property>
+    <property name="email_from_name" type="string">EESTEC International</property>
 </site>
