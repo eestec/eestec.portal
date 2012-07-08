@@ -10,3 +10,4 @@ develop-eggs
 docs/doctrees
 docs/html
 docs/make.bat
+src/plone.api
