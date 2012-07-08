@@ -1,0 +1,92 @@
+// CSS that is applied only for sceen that is less then 768px wide.
+
+@media only screen and (min-width: 481px) and (max-width: 800px)  {
+
+    // MOVE RIGHT COLUMN DOWN
+    // Set the content column to use the width of the column that was moved down
+    .tablet-right-down {
+        
+        .no-right-sidebar();
+        
+        // Move the right column down and use the whole width
+        #portal-column-two { 
+            float: none!important;
+            clear: both;
+            margin-left: 0;
+            width: 100%;
+            
+            .portlets-in-columns(@tablet-sidebar-column-count, @tablet-sidebar-column-gap);
+        }
+    }
+
+
+    // MOVE LEFT COLUMN DOWN
+    // Set the content column to use the width of the column that was moved down
+    .tablet-left-down {
+        
+        .no-left-sidebar();
+        
+        // Move the left column down and use the whole width
+        #portal-column-one { 
+            float: none!important;
+            clear: both;
+            margin-left: 0;
+            width: 100%;
+            
+            .portlets-in-columns(@tablet-sidebar-column-count, @tablet-sidebar-column-gap);
+        }
+    }
+
+
+    // Both of the sidebars are on the right
+    .sidebars-right {
+        .tablet-right-down {
+            #portal-column-wrapper {
+                margin-left: 0;
+                margin-right: @sidebar-left-width + @sidebar-left-margin-left;
+            }
+            #portal-column-main {
+                margin-right: -(@sidebar-left-width + @sidebar-left-margin-left);
+            }
+        }
+        .tablet-left-down {
+            #portal-column-wrapper {
+                margin-left: 0;
+                margin-right: @sidebar-right-width + @sidebar-right-margin-left;
+            }
+            #portal-column-main {
+                margin-right: -(@sidebar-right-width + @sidebar-right-margin-left);
+            }
+            #portal-column-two {
+                margin-left: @sidebar-right-margin-left;
+            }
+        }
+        
+        // No right column
+        .no-right-column {
+            .tablet-left-down {
+                #portal-column-wrapper {
+                    margin-right: 0;
+                }
+                #portal-column-main {
+                    margin-right: 0;
+                }
+                #portal-column-one {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        // No left column
+        .no-left-column {
+            .tablet-right-down {
+                #portal-column-wrapper {
+                    margin-right: 0;
+                }
+                #portal-column-main {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+    <!-- Modernizr - include only if Diazo not enabled -->
+    <javascript
+        cacheable="True"
+        compression="safe"
+        conditionalcomment=""
+        cookable="True"
+        enabled="True"
+        expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+        inline="False"
+        id="++theme++eestec.portal/javascript/libs/modernizr.custom.js"
+    />
+
+    <javascript
+        cacheable="True"
+        compression="safe"
+        conditionalcomment=""
+        cookable="True"
+        enabled="True"
+        expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+        inline="False"
+        id="++theme++eestec.portal/javascript/libs/respond.min.js"
+    />
+
+    <javascript
+        cacheable="True"
+        compression="safe"
+        conditionalcomment=""
+        cookable="True"
+        enabled="True"
+        expression=""
+        inline="False"
+        id="++theme++eestec.portal/javascript/script.js"
+    />
+
+</object>

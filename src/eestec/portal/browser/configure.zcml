@@ -12,5 +12,6 @@
     <plone:static
       directory="theme"
       type="theme"
+      name="eestec.portal"
       />
 </configure>

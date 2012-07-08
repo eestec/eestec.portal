@@ -1,0 +1,165 @@
+/* Commonly used mixins */
+
+// Clearfix for clearing floats like a boss h5bp.com/q
+.clearfix() {
+    zoom: 1;
+    
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+.rounded-corners(@radius: 5px) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+}
+
+.rounded-corners-bottom(@radius: 5px) {
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    -moz-border-radius-bottomleft: @radius;
+    -moz-border-radius-bottomright: @radius;
+}
+
+.rounded-corners-top(@radius: 5px) {
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    -moz-border-radius-topleft: @radius;
+    -moz-border-radius-topright: @radius;
+}
+
+.background-gradient(@fallback, @from, @to) {
+
+    // for non-css3 browsers
+    background-color: @fallback; 
+
+    // Safari 4+, Chrome 1-9
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@from), to(@to));
+
+    // Safari 5.1+, Mobile Safari, Chrome 10+
+    background-image: -webkit-linear-gradient(top, @from, @to); 
+
+    // Firefox 3.6+
+    background-image: -moz-linear-gradient(top, @from, @to);
+
+    // IE
+    filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)",@from,@to));
+
+    // IE 10+
+    background-image: -ms-linear-gradient(top, @from, @to);
+
+    // Opera 11.10+
+    background-image: -o-linear-gradient(top, @from, @to);
+}
+
+.text-shadow(@horizontal: 1px, @vertical: 1px, @blur: 1px, @color: #000) {
+    text-shadow: @horizontal @vertical @blur @color;
+    //filter: e(%("dropshadow(color='%d', offx='%d', offy='%d')", @color, @horizontal, @vertical));
+}
+
+.box-shadow(@horizontal: 1px, @vertical: 1px, @blur: 1px, @spread: 1px, @color: #000) {
+    -webkit-box-shadow: @horizontal @vertical @blur @spread @color;
+    -moz-box-shadow: @horizontal @vertical @blur @spread @color;
+    box-shadow: @horizontal @vertical @blur @spread @color;
+    -ms-filter: e(%("progid:DXImageTransform.Microsoft.Shadow(Strength='%d', Direction=180, Color='%d')", @spread, @color));
+    filter: e(%("progid:DXImageTransform.Microsoft.Shadow(Strength='%d', Direction=180, Color='%d')", @spread, @color));
+}
+
+.opacity(@opacity:1) {
+    @freaking-ie: @opacity * 100;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{freaking-ie})";
+    filter: alpha(opacity=@freaking-ie);
+    -webkit-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    -moz-opacity: @opacity;
+    opacity: @opacity;
+}
+
+
+// Modify the style if one of the sidebars are missing
+.no-right-sidebar() {
+    #portal-column-main {
+        margin-right: 0;
+    }
+    #portal-column-wrapper {
+        margin-right: 0;
+    }
+    #portal-column-one {
+        padding-left: 0;
+    }
+}
+.no-left-sidebar() {
+    #portal-column-wrapper {
+        margin-left: 0;
+    }
+}
+
+// Tablet mode - show bottom portlets in columns
+.portlets-in-columns(@col-count: 2, @col-gap: 10px) {
+    -moz-column-count: @col-count;
+    -moz-column-gap: @col-gap;
+    -webkit-column-count: @col-count;
+    -webkit-column-gap: @col-gap;
+    column-count: @col-count;
+    column-gap: @col-gap;
+
+    .portletWrapper {
+        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .managePortletsLink {
+        clear: both;
+    }
+}
+
+// GRID
+.grid-column-width(@column: 1) {
+    //For a given cell width, the calculation is: width: (6.25*n - 2.25)%
+    width: (@grid-column-width + 2 * @grid-column-gutter) * @column - (2 * @grid-column-gutter);
+}
+
+.grid-position(@column: 1) {
+    // For a given position, the calculation is margin-left: -100 + (6.25*n) + 1.125
+    margin-left: -100 + (@grid-column-width + 2 * @grid-column-gutter) * @column + @grid-column-gutter;
+}
+
+
+// Portlet styles
+.portlet-style(@header-color, @header-bg, @bg, @color, @link-color) {
+    &.portlet {
+        background: @bg;
+    }
+    
+    .portletHeader {
+        background: @header-bg;
+        color: @header-color;
+        position: relative;
+        
+        a, a:hover, a:link, a:active, a:visited {
+            color: @header-color!important;
+        }
+    }
+    
+    .portletItem {
+        p {
+            color: @color;
+            margin: 0;
+        }
+    }
+
+    a, a:hover, a:link, a:active, a:visited {
+        color: @link-color!important;
+    }
+}

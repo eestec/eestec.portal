@@ -3,45 +3,176 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <!-- plone.app.toolbar -->
-    <append theme="/html/body"
-	    content="//div[@data-iframe='toolbar']" />
-    <append theme="/html/head">
-	<script type="text/javascript"
-	        src="++resource++plone.app.toolbar/src/iframed.js"></script>
-    </append>
+    <!-- Apply theme to normal Plone pages -->
+    <theme href="index.html" css:if-content="#visual-portal-wrapper" />
 
-    <!-- Prevent theme usage in zmi-->
     <rules css:if-content="#visual-portal-wrapper">
-        <theme href="index.html" />
+
+        <!-- Drop Plone's meta tags that define the content type and IE rendering mode.
+             We set those explicitly in our theme. This allows us to copy the
+             rest of the <meta> tags in one go. -->
+        <drop css:content="meta[http-equiv]" />
+        <!-- Drop the viewport meta tag from Plone -->
+        <drop css:content="meta[name=viewport]"/>
+
+        <before content="/html/head/meta" css:theme="#css" />
+        <replace content="/html/head/title" theme="/html/head/title"/>
+
+        <!-- Copy the <base> tag -->
+        <copy attributes="href" content="/html/head/base" theme="/html/head/base" />
+
+        <replace content="/html/head/title" theme="/html/head/title" />
+
+        <!-- Drop the favicon, we use our own -->
+        <!-- <drop content="/html/head/link[@rel='shortcut icon']" /> -->
+
+        <!-- Copy style and link tags in the order they appear in the content -->
+        <after
+            content="/html/head/style | /html/head/link"
+            css:theme="#css"
+            />
+        <!-- Drop the css target from the theme -->
+        <drop css:theme="#css" />
+
+        <!-- Drop the "type" attribute from <script> tags. HTML5 doesn't mandate
+             it and we can save a few bytes there. -->
+        <drop css:content="script" attributes="type"/>
+
+        <!-- Copy script tags in the order they appear in the content but place
+             them at the bottom of the theme. -->
+        <before
+            css:content="head > script"
+            css:theme="#javascript_at_bottom"
+            />
+
+        <!-- Copy inline javascripts from within the body -->
+        <!-- reCaptcha needs to stay within the body because they generate html
+             in place where the JS is. -->
+        <replace
+            content="//body//script[not(contains(@src, 'www.google.com/recaptcha/api/challenge'))]"
+            css:theme="#javascript_inline"
+            method="raw"
+            />
+
+        <!-- Drop the scripts within the body because we have copied them to the
+             end of the page -->
+        <drop content="//div[@id='visual-portal-wrapper']//script[not(contains(@src, 'www.google.com/recaptcha/api/challenge'))]"/>
+
+        <!-- Drop the javascript target from the theme -->
+        <drop css:theme="#javascript_at_bottom"/>
+
+        <!-- Copy over the id/class attributes on the body tag.
+             This is important for per-section styling -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+
+
+
+        <!-- HEADER -->
+
+        <before css:content="#portal-personaltools-wrapper" css:theme="#mobile-menu" />
+        <before css:content="#portal-logo" css:theme="#mobile-menu" />
+        <after css:content="#portal-searchbox" css:theme="#mobile-menu" />
+        <after css:content="#portal-globalnav" css:theme="#mobile-menu" />
+
+        <!-- Language chooser and quick links -->
+        <copy css:content-children="#portal-top .toplinks" css:theme="#quicklinks" />
+        <replace css:theme-children="#languages" css:content-children="#language-actions"/>
+
+
+
+        <!-- BODY -->
+        
+        <replace css:content-children="#portal-column-content" css:theme-children="#portal-column-content" />
+
+        <!-- Drop class attribute from portal-column-one/two -->
+        <drop attributes="class" css:content="#portal-column-one" />
+        <drop attributes="class" css:content="#portal-column-two" />
+
+        <!-- Both of the sidebars on the right marker -->
+        <rules if="$sidebarsright">
+            <prepend css:theme="#main">
+                <xsl:attribute name="class">clearfix sidebars-right</xsl:attribute>
+            </prepend>
+        </rules>
+
+        <!-- No right column marker -->
+        <rules if-content="not(//div[@id='portal-column-two'])">
+            <prepend css:theme="#visual-portal-wrapper">
+                <xsl:attribute name="class">no-right-column</xsl:attribute>
+            </prepend>
+            <drop css:theme="#portal-column-two" />
+        </rules>
+
+        <!-- No left column marker -->
+        <rules if-content="not(//div[@id='portal-column-one'])">
+            <prepend css:theme="#visual-portal-wrapper">
+                <xsl:attribute name="class">no-left-column</xsl:attribute>
+            </prepend>
+            <drop css:theme="#portal-column-one" />
+        </rules>
+
+        <!-- No left and right column marker -->
+        <rules if-content="not(//div[@id='portal-column-one']) and not(//div[@id='portal-column-two'])">
+            <prepend css:theme="#visual-portal-wrapper">
+                <xsl:attribute name="class">no-right-column no-left-column</xsl:attribute>
+            </prepend>
+            <drop css:theme="#portal-column-one" />
+            <drop css:theme="#portal-column-two" />
+        </rules>
+
+
+
+        <!-- Left column down in tablet -->
+        <rules if="$tabletleftcolumndown">
+            <!-- Copy the sidebars over -->
+            <after css:content="#portal-column-two" css:theme-children="#portal-columns" />
+            <after css:content="#portal-column-one" css:theme-children="#portal-columns" />
+
+            <!-- Mark the wrapper which column goes down in tablet -->
+            <prepend css:theme="#portal-columns">
+                <xsl:attribute name="class">row tablet-left-down</xsl:attribute>
+            </prepend>
+        </rules>
+
+        <!-- Right column down in tablet -->
+        <rules if="not($tabletleftcolumndown)">
+            <!-- Copy the sidebars over -->
+            <after css:content="#portal-column-one" css:theme-children="#portal-columns" />
+            <after css:content="#portal-column-two" css:theme-children="#portal-columns" />
+
+            <!-- Mark the wrapper which column goes down in tablet -->
+            <prepend css:theme="#portal-columns">
+                <xsl:attribute name="class">row tablet-right-down</xsl:attribute>
+            </prepend>
+        </rules>
+
+
+
+        <!-- Users and Groups control panel - inherited rules are marked with checkmark -->
+        <replace css:content=".template-usergroup-userprefs img[src$='site_icon.gif'], .template-usergroup-groupprefs img[src$='site_icon.gif']">
+            <span>&#10003;</span>
+        </replace>
+
+        <drop attributes="style" css:content=".template-prefs_install_products_form form" />
+        <drop attributes="style" css:content=".template-prefs_install_products_form fieldset" />
+
+        <!-- Copy mobile elements -->
+        <drop css:theme="#mobile-page-settings"
+              if-content="not(//*[@id='edit-bar'])" />
+        <replace css:content="#mobile-menu" css:theme="#mobile-menu" />
+        <replace css:content="#mobile-page-settings" css:theme="#mobile-page-settings" />
+
+
+
+        <!-- FOOTER -->
+        
+        <!-- Content footer is for siteelement doormat, so update this rule if
+             doormat is needed for the theme -->
+        <drop css:theme="#content-footer" />
+        
+        <copy css:content-children=".siteelement-footertext .footertext" css:theme="#colophon" />
+
     </rules>
-    <notheme if-path="presentation_view"/>
-    <notheme if-path="source_editor.htm"/>
-    <notheme if-path="ploneimage.htm"/>
-    <notheme if-path="anchor.htm"/>
-    <notheme if-path="table.htm"/>
-    <notheme if-path="attributes.htm"/>
-    <drop theme='//*[@id="slogan"]' />
-    <replace content="/html/head/title" theme="/html/head/title" />
-    <replace content="/html/head/base" theme="/html/head/base" />
-    <replace content="/html/head/meta" theme="/html/head/meta" />
-    <prepend content='/html/head' theme='/html/head' />
-
-    <copy attributes="href title" css:content='#portal-logo' css:theme='#logo a' />
-    <copy attributes="id class dir" css:theme="body" css:content="body"/>
-    <copy content='//*[@id="portal-globalnav"]' theme='//*[@id="menu"]' />
-    <copy content='//*[@id="portal-globalnav"]' theme='//*[@id="menu_footer"]' />
-    <drop attributes="id" css:content="#portal-globalnav"/>
-    <prepend content='//*[@id="portal-personaltools-wrapper"]' theme='//*[@id="container"]' />
-    <prepend css:content="#viewlet-above-content" css:theme="#text"/>
-	<before css:content="#edit-bar" css:theme="#text"/>
-    <copy css:content-children="#content" css:theme="#text"/>
-    <after css:content="#viewlet-below-content" css:theme-children="#text"/>
-    <copy content-children='//*[@id="portal-column-one"]' theme='//*[@id="sidebar"]' />
-    <copy content-children='//*[@id="portal-footer"]' theme='//*[@id="footer"]' />
-    <append content='//*[@id="portal-colophon"]' theme='//*[@id="footer"]' />
-    <append content='//*[@id="portal-siteactions"]' theme='//*[@id="footer"]' />
-
-
 
 </rules>
