@@ -1,0 +1,20 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           i18n_domain="niteoweb.plr">
+
+    <permission
+      id="eestec.portal.AddEventApplication"
+      title="eestec.portal: Add EventApplication"
+      />
+
+    <permission
+      id="eestec.portal.AddEvent"
+      title="eestec.portal: Add Event"
+      />
+
+    <permission
+      id="eestec.portal.AddLC"
+      title="eestec.portal: Add LC"
+      />
+
+</configure>
