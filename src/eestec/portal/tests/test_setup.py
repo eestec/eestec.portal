@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Setup/installation tests for this package."""
 
+from plone import api
 from eestec.portal.tests.base import IntegrationTestCase
-from Products.CMFCore.utils import getToolByName
 from zope.component import getUtilitiesFor
 
 import unittest2 as unittest
@@ -14,7 +14,8 @@ class TestInstall(IntegrationTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.installer = api.get_tool('portal_quickinstaller')
+        self.workflow = api.get_tool('portal_workflow')
 
     def _check_permission_for_role(self, permission, role):
         """Check if the specified role has the specified permission."""
@@ -82,6 +83,21 @@ class TestInstall(IntegrationTestCase):
             permission='plone.portlet.static: Add static portlet',
             role='Editor',
         ))
+
+    # rolemap.xml
+    def test_promote_lc_permission(self):
+        """Test that International Board can promote/degrade LCs."""
+        self.assertTrue(self._check_permission_for_role(
+            permission='eestec.portal: Promote LC',
+            role='IntBoard',
+        ))
+
+    # workflows.xml
+    def test_workflows_mapped(self):
+        """Test if types are mapped to correct workflow."""
+        for portal_type, chain in self.workflow.listChainOverrides():
+            if portal_type == 'eestec.portal.lc':
+                self.assertEquals(('lc_workflow',), chain)
 
 
 def test_suite():

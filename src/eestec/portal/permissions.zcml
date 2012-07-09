@@ -2,19 +2,28 @@
            xmlns:zcml="http://namespaces.zope.org/zcml"
            i18n_domain="niteoweb.plr">
 
+    <!-- Required to add an Event Application -->
     <permission
       id="eestec.portal.AddEventApplication"
       title="eestec.portal: Add EventApplication"
       />
 
+    <!-- Required to add an Event -->
     <permission
       id="eestec.portal.AddEvent"
       title="eestec.portal: Add Event"
       />
 
+    <!-- Required to add an LC -->
     <permission
       id="eestec.portal.AddLC"
       title="eestec.portal: Add LC"
+      />
+
+    <!-- Required to promote/degrade an LC -->
+    <permission
+      id="eestec.portal.PromoteLC"
+      title="eestec.portal: Promote LC"
       />
 
 </configure>

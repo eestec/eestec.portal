@@ -35,6 +35,7 @@ setup(name='eestec.portal',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'collective.wtf',
           'niteoweb.loginas',
           'plone.api',
           'plone.app.caching',

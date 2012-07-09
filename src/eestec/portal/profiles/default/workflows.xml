@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+
+    <object name="lc_workflow" meta_type="Workflow"/>
+
+    <bindings>
+
+        <!-- Bind LC content types to a dedicated LC workflow -->
+        <type type_id="LC">
+            <bound-workflow workflow_id="lc_workflow"/>
+        </type>
+
+    </bindings>
+
+</object>

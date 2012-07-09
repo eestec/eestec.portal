@@ -27,6 +27,12 @@
             <role name="Manager"/>
         </permission>
 
+        <!-- Only the International Board can promote/degrade LCs -->
+        <permission name="eestec.portal: Promote LC" acquire="False">
+            <role name="Manager"/>
+            <role name="IntBoard"/>
+        </permission>
+
         <!-- Allow Editors to manage portlets -->
         <permission name="Portlets: Manage portlets" acquire="True">
             <role name="Manager"/>
