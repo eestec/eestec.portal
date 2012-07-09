@@ -17,7 +17,7 @@ body {
 }
 
 #portal-header,
-#visual-portal-wrapper,
+#main,
 #footer-colophon {
     margin: @container-margin;
 }
@@ -211,7 +211,7 @@ dd { margin: 0; }
     position:absolute;
     right: 0;
     text-align: left;
-    margin-top: -64px;
+    margin-top: 55px;
     font-size: @Portal-searchbox-font-size;
     
     form {
@@ -712,9 +712,13 @@ dl.portlet ul {
             img {
                 display: none;
             }
+            &:hover {
+                color: @Portlet-Navigation-hover-color!important;
+            }
         }
         .navTreeCurrentItem {
             background-color: @Portlet-Navigation-currentItem-background;
+            font-weight: @Portlet-Navigation-currentItem-font-weight;
             color: @Portlet-Navigation-currentItem-color!important;
         }
     }

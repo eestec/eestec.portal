@@ -67,18 +67,25 @@
         <copy attributes="id dir" css:content="body" css:theme="body" />
 
 
+        <!-- plone.app.toolbar -->
+        <append theme="/html/body"
+            content="//div[@data-iframe='toolbar']" />
+        <append theme="/html/head">
+        <script type="text/javascript"
+                src="++resource++plone.app.toolbar/src/iframed.js"></script>
+        </append>
+
 
         <!-- HEADER -->
 
-        <before css:content="#portal-personaltools-wrapper" css:theme="#mobile-menu" />
-        <before css:content="#portal-logo" css:theme="#mobile-menu" />
-        <after css:content="#portal-searchbox" css:theme="#mobile-menu" />
-        <after css:content="#portal-globalnav" css:theme="#mobile-menu" />
+        <copy attributes="href title" css:content="#portal-logo" css:theme="#portal-logo" />
+        <copy attributes="title alt" css:content="#portal-logo > img" css:theme="#portal-logo > img" />
 
-        <!-- Language chooser and quick links -->
-        <copy css:content-children="#portal-top .toplinks" css:theme="#quicklinks" />
-        <replace css:theme-children="#languages" css:content-children="#language-actions"/>
+        <before css:content="#portal-searchbox" css:theme="#portal-logo" />
+        <before css:content="#portal-globalnav" css:theme-children="#menu" />
 
+        <drop css:content=".searchSection" />
+        <drop css:content="#portal-advanced-search" />
 
 
         <!-- BODY -->
@@ -160,18 +167,13 @@
         <!-- Copy mobile elements -->
         <drop css:theme="#mobile-page-settings"
               if-content="not(//*[@id='edit-bar'])" />
-        <replace css:content="#mobile-menu" css:theme="#mobile-menu" />
-        <replace css:content="#mobile-page-settings" css:theme="#mobile-page-settings" />
-
 
 
         <!-- FOOTER -->
         
         <!-- Content footer is for siteelement doormat, so update this rule if
              doormat is needed for the theme -->
-        <drop css:theme="#content-footer" />
-        
-        <copy css:content-children=".siteelement-footertext .footertext" css:theme="#colophon" />
+        <replace css:content="#portal-footer" css:theme="#portal-footer" />
 
     </rules>
 

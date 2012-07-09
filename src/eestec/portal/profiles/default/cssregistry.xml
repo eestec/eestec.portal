@@ -93,12 +93,6 @@
       />
 
   <stylesheet
-      enabled="off"
-      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
-      id="++resource++tinymce.stylesheets/tinymce.css"
-      />
-
-  <stylesheet
       title=""
       authenticated="False"
       cacheable="True"

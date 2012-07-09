@@ -1,6 +1,8 @@
 /* Commonly used mixins */
 @media only screen and (min-width: 801px) {
-  #container {
+  header,
+  #visual-portal-wrapper,
+  footer {
     margin: 0 auto;
     max-width: 1088px;
   }

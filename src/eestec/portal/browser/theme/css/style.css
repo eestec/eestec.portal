@@ -577,7 +577,7 @@ body {
   width: 100%;
 }
 #portal-header,
-#visual-portal-wrapper,
+#main,
 #footer-colophon {
   margin: 0 13px;
 }
@@ -627,10 +627,10 @@ a {
 }
 a:link,
 a:visited {
-  color: #205c90 !important;
+  color: #ff020c !important;
 }
 a:hover {
-  color: #205c90 !important;
+  color: #9f000a !important;
 }
 dt {
   font-weight: bold;
@@ -696,7 +696,7 @@ dd {
 }
 #portal-globalnav {
   font: 13px Arial, FreeSans, sans-serif;
-  background: #dddddd;
+  background: transparent;
   border-top: 0;
   border-bottom: 0;
   margin: 0 0 1em 0;
@@ -712,22 +712,22 @@ dd {
   display: inline-block;
   font-weight: bold;
   padding: 1em;
-  background: #dddddd;
+  background: transparent;
   min-width: auto;
   text-decoration: none;
 }
 #portal-globalnav li a:hover {
+  background: #ffffff;
+  color: #ff020c !important;
+  text-decoration: none;
+}
+#portal-globalnav .selected a {
   background: #000000;
   color: #ffffff !important;
   text-decoration: none;
 }
-#portal-globalnav .selected a {
-  background: #205c90;
-  color: #ffffff !important;
-  text-decoration: none;
-}
 #portal-globalnav .selected a:hover {
-  background: #205c90;
+  background: #000000;
   color: #ffffff !important;
   text-decoration: none;
 }
@@ -755,7 +755,7 @@ dd {
 #portal-personaltools a:hover,
 #portal-personaltools a:active,
 #portal-personaltools a:visited {
-  color: #205c90 !important;
+  color: #ff020c !important;
 }
 #portal-personaltools #anon-personalbar a {
   float: left;
@@ -784,7 +784,7 @@ dd {
   position: absolute;
   right: 0;
   text-align: left;
-  margin-top: -64px;
+  margin-top: 55px;
   font-size: 13px;
 }
 #portal-searchbox form {
@@ -952,16 +952,16 @@ dl.portlet {
   font-size: 13px;
 }
 dl.portlet dt {
-  color: #000000;
+  color: #ffffff;
   padding: 0.42em 1em;
-  background: #dddddd;
+  background: #555555;
   line-height: normal;
   text-transform: uppercase;
 }
 dl.portlet dt a:link,
 dl.portlet dt a:visited,
 dl.portlet dt a:hover {
-  color: #000000 !important;
+  color: #ffffff !important;
   display: block;
   border: none;
 }
@@ -972,15 +972,15 @@ dl.portlet a {
   text-decoration: none;
 }
 dl.portlet a:link {
-  color: #205c90;
+  color: #ff020c;
   border-bottom: 0.1em solid #cccccc;
 }
 dl.portlet a:visited {
-  color: #205c90;
+  color: #ff020c;
   border-bottom: 0.1em solid #cccccc;
 }
 dl.portlet a:hover {
-  color: #205c90 !important;
+  color: #9f000a !important;
   /* This one gets an !important because it should always activate in the content area, even when state coloring is active */
 
 }
@@ -1042,7 +1042,7 @@ div.portletAssignments {
   line-height: 2em;
 }
 div.portletAssignments div.portletHeader {
-  color: #205c90;
+  color: #ff020c;
   padding: 0.42em 1em;
   background: #dddddd;
   line-height: normal;
@@ -1052,7 +1052,7 @@ div.portletAssignments div.portletHeader a:hover,
 div.portletAssignments div.portletHeader a:active,
 div.portletAssignments div.portletHeader a:link,
 div.portletAssignments div.portletHeader a:visited {
-  color: #205c90 !important;
+  color: #ff020c !important;
   text-decoration: none;
 }
 div.portletAssignments .managedPortletActions {
@@ -1098,14 +1098,14 @@ div.managePortletsLink a:visited,
 a.managePortletsFallback a:visited,
 div.managePortletsLink a:link,
 a.managePortletsFallback a:link {
-  color: #205c90 !important;
+  color: #ff020c !important;
 }
 a.managePortletsFallback,
 a:active.managePortletsFallback,
 a:hover.managePortletsFallback,
 a:visited.managePortletsFallback,
 a:link.managePortletsFallback {
-  color: #205c90 !important;
+  color: #ff020c !important;
 }
 a.managePortletsFallback {
   display: inline-block;
@@ -1216,19 +1216,23 @@ a.managePortletsFallback {
 /* @end */
 /* @group Navigation portlet */
 dl.portlet ul.navTree li a {
-  color: #205c90 !important;
+  color: #333333 !important;
   background: none;
   border: none;
   display: block;
-  padding: 0 0 0 5px !important;
+  padding: 0 0 0 13px !important;
   zoom: 1;
 }
 dl.portlet ul.navTree li a img {
   display: none;
 }
+dl.portlet ul.navTree li a:hover {
+  color: #9f000a !important;
+}
 dl.portlet ul.navTree .navTreeCurrentItem {
-  background-color: #dddddd;
-  color: #ffffff !important;
+  background-color: transparent;
+  font-weight: bold;
+  color: #ff020c !important;
 }
 dl.portlet ul.navTreeLevel0 > .navTreeItem {
   border-bottom: 0.1em dotted #dddddd;
@@ -1318,15 +1322,15 @@ dl.portletNavigationTree dd.portletItem {
   margin: 0 0 1em 2em;
 }
 #content a:link {
-  color: #205c90;
+  color: #ff020c;
   border-bottom: 0.1em solid #cccccc;
 }
 #content a:visited {
-  color: #205c90;
+  color: #ff020c;
   border-bottom: 0.1em solid #cccccc;
 }
 #content a:hover {
-  color: #205c90 !important;
+  color: #9f000a !important;
   /* This one gets an !important because it should always activate in the content area, even when state coloring is active */
 
 }
@@ -1993,7 +1997,7 @@ dl.error dd {
 }
 #portal-personaltools dd a:hover {
   background: #ffffff;
-  color: #205c90;
+  color: #ff020c;
 }
 /* @end */
 /* @group Content pulldowns */
@@ -2016,7 +2020,7 @@ dl.error dd {
 #contentActionMenus dl.actionMenu.activated dd a:hover,
 #contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
   background-color: #ffffff !important;
-  color: #205c90;
+  color: #ff020c;
 }
 #folderHeader,
 #contextHeader {
@@ -3172,9 +3176,9 @@ div.overlaybg div.close {
 }
 /* @end */#content div.documentByLine {
   clear: both;
-  margin-top: 15px;
-  text-align: center;
-  border-top: 1px solid #dddddd;
+  margin-top: 0px;
+  text-align: left;
+  border-top: 0;
 }
 #content .keywords {
   color: #999999;
@@ -3328,6 +3332,76 @@ div.overlaybg div.close {
 }
 .ie7 #content figure figcaption .image-caption:hover {
   left: 0px;
+}
+#portal-logo img {
+  width: 100%;
+  height: auto;
+}
+#main-wrapper {
+  background: url('../images/body_bg.png') repeat-x;
+}
+#main {
+  padding-top: 20px;
+}
+#portal-searchbox {
+  margin-top: 55px;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+input.searchField {
+  border: 0;
+  padding: 3px 5px;
+  -moz-appearance: none;
+}
+#searchGadget {
+  width: 200px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+.LSBox .searchButton {
+  border: 1px solid #eee;
+  height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#efefef));
+  background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
+  background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#fafafa', EndColorStr='#efefef', GradientType=0);
+  background-image: -ms-linear-gradient(top, #fafafa, #efefef);
+  background-image: -o-linear-gradient(top, #fafafa, #efefef);
+}
+#social {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#social img {
+  margin-top: -15px;
+}
+.promo {
+  background: #eff0f5 url('../images/promo_bg.png') no-repeat 50% 50%;
+  padding: 0 35px;
+  border: 1px solid #fff;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 1px 1px #dedede;
+  -moz-box-shadow: 1px 1px 1px 1px #dedede;
+  box-shadow: 1px 1px 1px 1px #dedede;
+  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
+}
+.promo h1 {
+  font-size: 25px;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.8em;
 }
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
