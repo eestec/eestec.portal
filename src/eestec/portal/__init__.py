@@ -7,7 +7,6 @@ _ = MessageFactory('eestec.portal')
 
 LC_MEMBERS_GROUP_SUFFIX = '-members'
 LC_BOARD_GROUP_SUFFIX = '-board'
-LC_NOTIFICATIONS_GROUP_SUFFIX = '-notifications'
 
 CP_LIST_ADDRESS = "cp@eestec.net"
 
