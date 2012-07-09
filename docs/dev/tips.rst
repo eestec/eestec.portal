@@ -44,7 +44,7 @@ Do one (or more) of the following:
 Example of ``~/.gitconfig``
 ---------------------------
 
-.. sourcecode: ini
+.. sourcecode:: ini
 
     [user]
         name = John Smith
@@ -70,7 +70,7 @@ Example of ``~/.gitconfig``
 Example of ``~/.gitignore``
 ---------------------------
 
-.. sourcecode: ini
+.. sourcecode:: ini
 
     # Compiled source #
     ###################
