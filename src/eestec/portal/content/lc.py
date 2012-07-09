@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from plone.api import content
 from five import grok
+from plone.api import content
 from plone.directives import dexterity
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -10,7 +10,7 @@ from zope import schema
 
 
 class ILC(form.Schema, IImageScaleTraversable):
-    """EESTEC Local Committee."""
+    """LC field specification."""
 
     title = schema.TextLine(
         title=u"City",
@@ -19,6 +19,7 @@ class ILC(form.Schema, IImageScaleTraversable):
 
 
 class LC(dexterity.Container):
+    """EESTEC Local Committee."""
     grok.implements(ILC)
 
     def full_lc_title(self):
