@@ -8,5 +8,6 @@
         <dependency>profile-plone.app.dexterity:default</dependency>
         <dependency>profile-plone.app.theming:default</dependency>
         <dependency>profile-plone.app.toolbar:default</dependency>
+        <dependency>profile-plone.app.z3cform:default</dependency>
     </dependencies>
 </metadata>
