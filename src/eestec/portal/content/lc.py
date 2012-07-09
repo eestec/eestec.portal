@@ -3,14 +3,14 @@
 
 from plone.api import content
 from five import grok
-from plone.directives import dexterity, form
+from plone.directives import dexterity
+from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-from Products.CMFPlone.utils import getToolByName
 from zope import schema
 
 
 class ILC(form.Schema, IImageScaleTraversable):
-    """Information about EESTEC Local Committee"""
+    """EESTEC Local Committee."""
 
     title = schema.TextLine(
         title=u"City",
