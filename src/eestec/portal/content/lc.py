@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from plone.api import content
+from plone.api import user
 from plone import api
 from Products.CMFCore.interfaces import ISiteRoot
 from five import grok
@@ -93,7 +95,37 @@ class NewLCForm(form.SchemaForm):
             self.status = self.formErrorsMessage
             return
 
+        if not self.context.get('lc'):
+            content.create(
+                type='Folder',
+                title='Local Committees',
+                container=self.context
+            )
+
+
         # Do something with valid data here
+
+        #content.create(
+            #type='eestec.portal.lc',
+            #title=self.request.get('city'),
+            #container=self.context.lc
+        #)
+        import pdb; pdb.set_trace()
+
+        try:
+            user.create(
+                username=self.request.form.get('form.widgets.cp_username'),
+                email=self.request.form.get('form.widgets.cp_email'),
+                roles=(),
+                properties=dict(
+                    fullname=self.request.form.get('form.widgets.cp_fullname'),
+                    )
+            )
+        except Exception, e:
+            api.show_message("Can not add a RC: %s" % e)
+
+
+
 
         # Set status on this form page
         # (this status message is not bind to the session and does not go thru redirects)
