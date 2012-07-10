@@ -4,15 +4,11 @@
 from Products.CMFCore.interfaces import ISiteRoot
 from five import grok
 from plone import api
-from plone.api import content
-from plone.api import user
 from plone.directives import dexterity
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-from z3c.form import button, validator
-from z3c.schema.email import RFC822MailAddress
+from z3c.form import button
 from zope import schema
-import zope.component
 
 
 class ILC(form.Schema, IImageScaleTraversable):
@@ -80,9 +76,8 @@ class NewLCForm(form.SchemaForm):
 
     """
 
-    # XXX we copied the grok lines from a skeleton
     grok.name('add-new-lc')
-    grok.require('zope2.View')
+    grok.require('zope2.View')  # TODO: add permission
     grok.context(ISiteRoot)
 
     schema = INewLCForm
@@ -95,42 +90,63 @@ class NewLCForm(form.SchemaForm):
             self.status = self.formErrorsMessage
             return
 
+        # check if the Local Committees folder exists
         if not self.context.get('lc'):
-            content.create(
+            api.content.create(
                 type='Folder',
                 title='Local Committees',
+                id='lc',
                 container=self.context
             )
 
+        # add a new LC object
+        lc = api.content.create(
+            type='eestec.portal.lc',
+            title=self.request.form.get('form.widgets.city'),
+            container=self.context.lc
+        )
 
-        # Do something with valid data here
+        # create a user for the CP
+        user = api.user.create(
+            username=self.request.form.get('form.widgets.cp_username'),
+            email=self.request.form.get('form.widgets.cp_email'),
+            properties=dict(
+                fullname=self.request.form.get('form.widgets.cp_fullname'),
+                )
+        )
 
-        #content.create(
-            #type='eestec.portal.lc',
-            #title=self.request.get('city'),
-            #container=self.context.lc
-        #)
-        import pdb; pdb.set_trace()
+        # create LC members group
+        members = api.group.create(
+            groupname=lc.id,
+        )
 
-        try:
-            user.create(
-                username=self.request.form.get('form.widgets.cp_username'),
-                email=self.request.form.get('form.widgets.cp_email'),
-                roles=(),
-                properties=dict(
-                    fullname=self.request.form.get('form.widgets.cp_fullname'),
-                    )
-            )
-        except Exception, e:
-            api.show_message("Can not add a RC: %s" % e)
+        # create LC Board group
+        board = api.group.create(
+            groupname="%s-board" % lc.id,
+        )
 
+        # join user to LC groups
+        api.user.join_group(
+            user=user,
+            group=members,
+        )
+        api.user.join_group(
+            user=user,
+            group=board,
+        )
 
+        # TODO: proper body text
+        api.portal.send_email(
+            sender="admin@mysite.com",
+            body="TODO: bla bla",
+            recipient=user.getProperty('email'),
+            subject="TODO: bla bla",
+        )
 
-
-        # Set status on this form page
-        # (this status message is not bind to the session and does not go thru redirects)
-        self.status = "Thank you very much!"
+        # Done!
+        self.status = "LC added."
 
     @button.buttonAndHandler(u"Cancel")
     def handleCancel(self, action):
         """User cancelled. Redirect back to the front page."""
+        pass
