@@ -1,13 +1,9 @@
-from rwproperty import getproperty, setproperty
-
 from five import grok
+from plone.directives import form, dexterity
+from Products.CMFCore.interfaces import IDublinCore
+from zope.component import adapts
 from zope import schema
 from zope.interface import implements, alsoProvides
-from zope.component import adapts
-
-from plone.directives import form, dexterity
-
-from Products.CMFCore.interfaces import IDublinCore
 
 
 class IEvent(form.Schema):

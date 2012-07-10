@@ -17,8 +17,7 @@ class TestIntegration(IntegrationTestCase):
         self.portal = self.layer['portal']
         self.workflow = api.get_tool('portal_workflow')
 
-        # content types don't have assigned workflows in tests, we have to
-        # set them explicitly
+        # in tests we have to manually map content types to workflows
         self.workflow.setChainForPortalTypes(
             ['News Item'],
             'simple_publication_workflow'

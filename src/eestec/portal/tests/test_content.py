@@ -23,6 +23,6 @@ class TestContent(IntegrationTestCase):
             description=u'Imaginary LC'
         )
 
-    def test_full_lc_title(self):
+    def test_full_title(self):
         """TODO"""
         pass

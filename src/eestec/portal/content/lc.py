@@ -1,25 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from eestec.portal import _
-
+from plone.api import content
 from five import grok
-from plone.directives import dexterity, form
+from plone.directives import dexterity
+from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-from Products.CMFPlone.utils import getToolByName
 from zope import schema
 
 
 class ILC(form.Schema, IImageScaleTraversable):
-    """Information about EESTEC Local Committee"""
+    """EESTEC Local Committee."""
 
     title = schema.TextLine(
-        title=_(u"City"),
-        description=_(u"City name of a LC"),
-    )
-
-    description = schema.Text(
-        title=_(u"A short summary"),
+        title=u"City",
+        description=u"City name of the LC",
     )
 
 
@@ -27,16 +22,16 @@ class LC(dexterity.Container):
     grok.implements(ILC)
 
     @property
-    def full_lc_title(self):
-        """Return full name of LC. Example: LC YesPlease"""
+    def full_title(self):
+        """Return full name of LC, for example: JLC Antwerp."""
         if not self.id:
             return ''
-        wf = getToolByName(self, 'portal_workflow')
-        state = wf.getInfoFor(self, 'review_state').split(' ', 1)[0]
+
+        state = content.get_state(self)
         if state == 'inactive':
             state = '(inactive)'
         if state.lower() == 'observer':
             state = state.title()
         else:
             state = state.upper()
-        return u'%s %s' % (state, unicode(self.title, 'utf-8'))
+        return u'%s %s' % (state, self.title)
