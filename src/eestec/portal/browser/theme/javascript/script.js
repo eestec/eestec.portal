@@ -14,6 +14,16 @@
             $('#edit-bar').toggleClass('visible');
             $(this).toggleClass('selected');
         });
+        
+        $('#social a').hover(function() {
+            $(this).find('img').animate({
+                marginTop: 0
+            });
+        }, function() {
+            $(this).find('img').animate({
+                marginTop: '-15px'
+            });
+        });
     });
     
 }(jQuery));

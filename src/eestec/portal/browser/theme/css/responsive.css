@@ -148,10 +148,11 @@
   #mobile-menu {
     display: block!important;
     visibility: visible;
+    margin-top: 45px;
   }
   #mobile-globalnav {
     color: #000000;
-    border-bottom: 1px solid #ffffff;
+    border: 1px solid #ffffff;
     font-size: 16px;
     padding: 10px;
     background: #dddddd;
@@ -173,9 +174,17 @@
   #plone-contentmenu-display {
     float: none;
   }
+  #social {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  #social img {
+    margin-top: -70px;
+  }
   #mobile-search {
     color: #000000;
-    border-bottom: 1px solid #ffffff;
+    border: 1px solid #ffffff;
     border-left: 1px solid #ffffff;
     font-size: 16px;
     padding: 10px;
@@ -199,6 +208,11 @@
   }
   #searchGadget {
     width: 70%;
+  }
+  .LSBox .searchButton {
+    position: absolute;
+    right: 0;
+    height: 20px;
   }
   #LSResult {
     margin: 0;

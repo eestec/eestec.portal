@@ -175,6 +175,11 @@
              doormat is needed for the theme -->
         <replace css:content="#portal-footer" css:theme="#portal-footer" />
 
+
+        <!-- TODO: remove this! Just temporary! -->
+        
+        <!-- <drop css:theme="#front-page" /> -->
+
     </rules>
 
 </rules>
