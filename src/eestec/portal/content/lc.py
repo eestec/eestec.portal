@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from plone.api import content
-from plone.api import user
-from plone import api
 from Products.CMFCore.interfaces import ISiteRoot
 from five import grok
+from plone import api
+from plone.api import content
+from plone.api import user
 from plone.directives import dexterity
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
+from z3c.form import button, validator
+from z3c.schema.email import RFC822MailAddress
 from zope import schema
 import zope.component
-from z3c.schema.email import RFC822MailAddress
-from z3c.form import button, validator
 
 
 class ILC(form.Schema, IImageScaleTraversable):
