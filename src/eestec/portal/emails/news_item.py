@@ -32,7 +32,7 @@ EESTEC IT Team
         news_item_title=news_item.title,
     )
 
-    api.send_email(
+    api.portal.send_email(
         sender=get_portal_from(),
         recipient=CP_LIST_ADDRESS,
         subject=u'[CP] [NEWS] %s' % (news_item.title),

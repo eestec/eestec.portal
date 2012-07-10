@@ -15,7 +15,7 @@ class TestIntegration(IntegrationTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.workflow = api.get_tool('portal_workflow')
+        self.workflow = api.portal.get_tool('portal_workflow')
 
         # in tests we have to manually map content types to workflows
         self.workflow.setChainForPortalTypes(
@@ -36,7 +36,7 @@ class TestIntegration(IntegrationTestCase):
 
     def test_notification_email(self):
         """Test if notification email is sent to CP-list."""
-        mailhost = api.get_tool('MailHost')
+        mailhost = api.portal.get_tool('MailHost')
         self.assertEquals(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])
 
@@ -53,7 +53,7 @@ class TestFunctional(FunctionalTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.workflow = api.get_tool('portal_workflow')
+        self.workflow = api.portal.get_tool('portal_workflow')
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
         self.login()  # login with self.browser so we can add content

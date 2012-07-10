@@ -12,7 +12,7 @@ class TestLC(IntegrationTestCase):
     def setUp(self):
         """docstring for setUp"""
         self.portal = self.layer['portal']
-        self.workflow = api.get_tool('portal_workflow')
+        self.workflow = api.portal.get_tool('portal_workflow')
 
         # in tests we have to manually map content types to workflows
         self.workflow.setDefaultChain('lc_workflow')

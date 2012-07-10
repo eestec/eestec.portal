@@ -14,8 +14,8 @@ class TestInstall(IntegrationTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.installer = api.get_tool('portal_quickinstaller')
-        self.workflow = api.get_tool('portal_workflow')
+        self.installer = api.portal.get_tool('portal_quickinstaller')
+        self.workflow = api.portal.get_tool('portal_workflow')
 
     def _check_permission_for_role(self, permission, role):
         """Check if the specified role has the specified permission."""

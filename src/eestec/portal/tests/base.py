@@ -3,7 +3,6 @@
 import unittest2 as unittest
 
 from plone import api
-from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import login
@@ -29,7 +28,7 @@ class EestecPortalLayer(PloneWithPackageLayer):
         # Mock MailHost
         mockmailhost = MockMailHost('MailHost')
         portal.MailHost = mockmailhost
-        sm = api.get_site().getSiteManager()
+        sm = api.portal.get().getSiteManager()
         sm.registerUtility(component=mockmailhost, provided=IMailHost)
 
         # Login

@@ -9,7 +9,7 @@ def get_portal_from():
 
     Use the ``email_from_name`` and ``email_from_name`` site property.
     """
-    portal = api.get_site()
+    portal = api.portal.get()
     portal_from = portal.getProperty('email_from_name') + \
          ' <' + portal.getProperty('email_from_address') + '>'
     return portal_from
