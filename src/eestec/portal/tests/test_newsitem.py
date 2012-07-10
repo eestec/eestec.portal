@@ -23,7 +23,7 @@ class TestIntegration(IntegrationTestCase):
             'simple_publication_workflow'
         )
 
-        # add test item TODO: replace with api call
+        # add test item
         content.create(
             type='News Item',
             title='Tést item',
