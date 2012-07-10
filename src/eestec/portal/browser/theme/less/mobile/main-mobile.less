@@ -58,12 +58,13 @@
     #mobile-menu {
         display: block!important;
         visibility: visible;
+        margin-top: 45px;
     }
     
     // Show menu button, and hide the actual menu
     #mobile-globalnav {
         color: @mobile-Mobile-globalnav-color;
-        border-bottom: @mobile-Mobile-globalnav-border-bottom;
+        border: @mobile-Mobile-globalnav-border-bottom;
         font-size: @mobile-Mobile-globalnav-font-size;
         padding: 10px;
         background: @mobile-Mobile-globalnav-background;
@@ -88,11 +89,20 @@
         float: none;
     }
 
-
+	// Social networking stuff
+	#social {
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    
+		img {
+       		margin-top: -70px;
+    	}
+	}
     // SEARCH
     #mobile-search {
         color: @mobile-Mobile-search-color;
-        border-bottom: @mobile-Mobile-search-border-bottom;
+        border: @mobile-Mobile-search-border-bottom;
         border-left: @mobile-Mobile-search-border-left;
         font-size: @mobile-Mobile-search-font-size;
         padding: @mobile-Mobile-search-padding;
@@ -120,6 +130,12 @@
     
     #searchGadget {
         width: @mobile-SearchGadget-width;
+    }
+    .LSBox .searchButton {
+    	position: absolute;
+    	right: 0;
+    	
+    	height: 20px;
     }
     
     #LSResult {
