@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <adapter
+    provides=".content.userdata.IEestecPortalUserDataSchema"
+    for="Products.CMFCore.interfaces.ISiteRoot"
+    factory=".adapter.EestecPortalUserDataPanelAdapter"
+    />
+
+</configure>
