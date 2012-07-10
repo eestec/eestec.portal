@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from plone import api
 
 from eestec.portal.tests.base import IntegrationTestCase
-from plone import api
-from plone.api import content
 
 
-class TestContent(IntegrationTestCase):
-    """Test eestec content types."""
+class TestLC(IntegrationTestCase):
+    """Test eestec LC type."""
 
     def setUp(self):
         """docstring for setUp"""
@@ -19,7 +18,7 @@ class TestContent(IntegrationTestCase):
         self.workflow.setDefaultChain('lc_workflow')
 
         # create an LC
-        content.create(
+        api.content.create(
             type='eestec.portal.lc',
             title=u'Niš',
             container=self.portal
@@ -30,6 +29,6 @@ class TestContent(IntegrationTestCase):
         """Test that LC's city is set correctly."""
         self.assertEquals(self.lc.title, u'Niš')
 
-    def test_full_lc_title(self):
-        """Test the full_lc_title() method of an LC."""
-        self.assertEquals(self.lc.full_lc_title(), u'Observer Niš')
+    def test_full_title(self):
+        """Test the full_title() method of an LC."""
+        self.assertEquals(self.lc.full_title(), u'Observer Niš')

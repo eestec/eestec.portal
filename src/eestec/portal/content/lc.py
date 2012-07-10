@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from plone import api
 from five import grok
 from plone.api import content
 from plone.directives import dexterity
@@ -22,12 +23,12 @@ class LC(dexterity.Container):
     """EESTEC Local Committee."""
     grok.implements(ILC)
 
-    def full_lc_title(self):
+    def full_title(self):
         """Return full name of LC, for example: JLC Antwerp."""
         if not self.id:
             return ''
 
-        state = content.get_state(self)
+        state = api.content.get_state(self)
         if state == 'inactive':
             state = '(inactive)'
         if state.lower() == 'observer':
