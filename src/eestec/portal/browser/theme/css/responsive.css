@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('../fonts/BebasNeue-webfont.eot');
+  src: url('../fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/BebasNeue-webfont.woff') format('woff'), url('../fonts/BebasNeue-webfont.ttf') format('truetype'), url('../fonts/BebasNeue-webfont.svg#CuprumFFURegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 /* Commonly used mixins */
 @media only screen and (min-width: 801px) {
   header,
