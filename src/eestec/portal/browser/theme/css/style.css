@@ -622,7 +622,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #444444;
+  color: #494949;
 }
 h2 a,
 h3 a,
@@ -3340,6 +3340,9 @@ div.overlaybg div.close {
 .ie7 #content figure figcaption .image-caption:hover {
   left: 0px;
 }
+h2 {
+  border-bottom: 1px solid #e8e8e8;
+}
 #portal-logo img {
   width: 100%;
   height: auto;
@@ -3398,25 +3401,87 @@ dl.portlet dt {
   font-weight: normal;
   letter-spacing: 1px;
 }
-.promo {
-  background: #eff0f5 url('../images/promo_bg.png') no-repeat 50% 50%;
-  padding: 0 35px;
-  border: 1px solid #fff;
-  margin-bottom: 30px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-box-shadow: 1px 1px 1px 1px #dedede;
-  -moz-box-shadow: 1px 1px 1px 1px #dedede;
-  box-shadow: 1px 1px 1px 1px #dedede;
-  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
+.join {
+  background: #DDD;
 }
-.promo h1 {
+.find {
+  background: #EEE;
+}
+.subtitle {
+  margin-bottom: 0;
+}
+.news-item {
+  margin-bottom: 30px;
+}
+.news-item .news-title {
+  color: #7e7e7e;
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
+}
+.news-item img {
+  border: 4px solid #DDD;
+  margin-right: 20px;
+  float: left;
+}
+.sidebar-title {
+  font-size: 18px;
+  margin-top: 38px;
+}
+.event-item {
+  color: #494949;
+  border-left: 3px solid #c05050;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.event-item a,
+.event-item a:link,
+.event-item a:active,
+.event-item a:hover,
+.event-item a:visited {
+  color: #494949!important;
+}
+.event-item:hover {
+  background: #f5f5f5;
+}
+.event-item .event-date {
+  float: left;
+  padding: 0 15px;
+}
+.event-item .event-date .month {
+  font-size: 13px;
+  text-align: center;
+}
+.event-item .event-date .day {
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
   font-size: 25px;
-  font-weight: normal;
-  font-style: italic;
-  line-height: 1.8em;
+}
+.event-item .event-title {
+  color: #5e5e5e;
+  font-size: 18px;
+  margin-right: 20px;
+}
+.event-item .event-content {
+  color: #c0c0c0;
+  font-size: 13px;
+  margin-right: 20px;
+  margin-top: 4px;
+}
+.project-list {
+  margin-top: 40px;
+}
+.event-arrow,
+.project-arrow {
+  position: absolute;
+  right: 6px;
+  height: 18px;
+  width: 6px;
+  margin-top: 14px;
+  background: url('../images/arrow.png') no-repeat;
+}
+.project-arrow {
+  margin-top: 30px;
 }
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
