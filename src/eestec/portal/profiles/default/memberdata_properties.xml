@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <object name="portal_memberdata" meta_type="Plone Memberdata Tool">
  <property name="lc" type="string"></property>
- <!-- <property name="mobile" type="string"></property> -->
- <!-- <property name="study_field" type="string"></property> -->
- <!-- <property name="birthdate" type="date"></property> -->
- <!-- <property name="sex" type="string"></property> -->
- <!-- <property name="nationality" type="string"></property> -->
- <!-- <property name="address" type="string"></property> -->
- <!-- <property name="passport_id" type="string"></property> -->
- <!-- <property name="passport_date_of_issue" type="date"></property> -->
- <!-- <property name="passport_valid_until" type="date"></property> -->
- <!-- <property name="tshirt_size" type="string"></property> -->
- <!-- <property name="needs" type="string"></property> -->
- <!-- <property name="captcha" type="string"></property> -->
- <!-- <property name="warning" type="string"></property> -->
+ <property name="mobile" type="string"></property>
+ <property name="study_field" type="string"></property>
+ <property name="birthdate" type="date"></property>
+ <property name="sex" type="string"></property>
+ <property name="nationality" type="string"></property>
+ <property name="address" type="string"></property>
+ <property name="passport_id" type="string"></property>
+ <property name="passport_date_of_issue" type="date"></property>
+ <property name="passport_valid_until" type="date"></property>
+ <property name="tshirt_size" type="string"></property>
+ <property name="needs" type="string"></property>
+ <property name="captcha" type="string"></property>
+ <property name="warning" type="string"></property>
 </object>
