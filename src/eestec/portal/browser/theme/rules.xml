@@ -173,7 +173,7 @@
         
         <!-- Content footer is for siteelement doormat, so update this rule if
              doormat is needed for the theme -->
-        <replace css:content="#portal-footer" css:theme="#portal-footer" />
+       <!-- <replace css:content="#portal-footer" css:theme="#portal-footer" /> -->
 
 
         <!-- TODO: remove this! Just temporary! -->

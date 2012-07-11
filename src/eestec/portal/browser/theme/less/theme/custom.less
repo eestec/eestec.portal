@@ -52,10 +52,9 @@ input.searchField {
     right: 0;
     top: 0;
     
-    img {
-        margin-top: -15px;
+	img {
+      	margin-top: 0px;
     }
-
 }
 
 dl {
@@ -69,11 +68,20 @@ dl {
 }
 
 .promo {
+    background: #EFF0F5 url('../images/promo_bg.png') no-repeat 50% 50%;
+    padding: 0 35px;
+    border: 1px solid #fff;
+    margin-bottom: 30px;
     
-}
+    .rounded-corners(4px);
+    .box-shadow(1px, 1px, 1px, 1px, #dedede);
 
-.join {
-    background: #DDD;
+    h1 {
+        font-size: 25px;
+        font-weight: normal;
+        font-style: italic;
+        line-height: 1.8em;
+    }
 }
 
 .find {
@@ -82,6 +90,10 @@ dl {
 
 .subtitle {
     margin-bottom: 0;
+#portal-footer {
+	height: 225px;
+	background: #494949;
+	line-height: 1.25em;
 }
 
 .news-item {
@@ -96,6 +108,14 @@ dl {
         margin-right: 20px;
         float: left;
     }
+.portletHeader {
+	font-family: @heading-font-family;
+    font-weight: @heading-font-weight;
+    font-size: @h2-font-size;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	margin-bottom: 5px;
+	margin-top: 10px;
 }
 
 .sidebar-title {
@@ -145,11 +165,12 @@ dl {
         margin-right: 20px;
         margin-top: 4px;
     }
+.footer-nav li:before { 
+	content: "- "; 
+	position: relative; 
+	left: 0px;
 }
 
-.project-list {
-    margin-top: 40px;
-}
 
 .project-item {
     margin-bottom: 20px;
@@ -173,4 +194,10 @@ dl {
     float: left;
     margin-left: 50px;
     
+}.footer-nav li{
+	color: #fff;
+	display: block;
+	text-indent: 5px;
+	padding: 1px;
+	font-size: 0.9em
 }
