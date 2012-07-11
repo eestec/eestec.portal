@@ -2,12 +2,6 @@
 <sharing>
 
     <role
-        id="LCMember"
-        title="LC Member"
-        permission="Manage portal"
-        />
-
-    <role
         id="LCBoardMember"
         title="LC Board Member"
         permission="Manage portal"

@@ -59,7 +59,6 @@ class TestInstall(IntegrationTestCase):
         """Test that Local Roles were registered."""
         from plone.app.workflow.interfaces import ISharingPageRole
         roles = dict(getUtilitiesFor(ISharingPageRole))
-        self.assertIn('LCMember', roles)
         self.assertIn('LCBoardMember', roles)
         self.assertIn('IntBoardMember', roles)
 

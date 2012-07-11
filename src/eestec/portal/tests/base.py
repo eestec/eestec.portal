@@ -27,6 +27,7 @@ class EestecPortalLayer(PloneWithPackageLayer):
 
         # Mock MailHost
         mockmailhost = MockMailHost('MailHost')
+        mockmailhost.smtp_host = 'nohost'
         portal.MailHost = mockmailhost
         sm = api.portal.get().getSiteManager()
         sm.registerUtility(component=mockmailhost, provided=IMailHost)

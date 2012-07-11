@@ -8,6 +8,8 @@ from plone import api
 from plone.api import content
 from plone.testing.z2 import Browser
 
+import unittest2 as unittest
+
 
 class TestIntegration(IntegrationTestCase):
     """Integration tests for News Items."""
@@ -79,3 +81,9 @@ class TestFunctional(FunctionalTestCase):
             'Image is required, please correct.',
             self.browser.contents
         )
+
+
+def test_suite():
+    """This sets up a test suite that actually runs the tests in the class
+    above."""
+    return unittest.defaultTestLoader.loadTestsFromName(__name__)

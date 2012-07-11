@@ -42,20 +42,16 @@ class LC(dexterity.Container):
 class INewLCForm(form.Schema):
     """Define form fields for adding new LC."""
 
-    title = schema.TextLine(
+    # TODO: add validation to these fields to check if LC/member already exists
+    city = schema.TextLine(
         title=u"City",
         description=u"City name of a LC",
     )
 
     # CP == Contact Person
-    cp_name = schema.TextLine(
-        title=u"CP name",
-        description=u"Contact person name",
-    )
-
-    cp_surname = schema.TextLine(
-        title=u"CP surname",
-        description=u"Contact person surname",
+    cp_fullname = schema.TextLine(
+        title=u"CP full name",
+        description=u"Contact person full name",
     )
 
     cp_username = schema.TextLine(
@@ -69,14 +65,15 @@ class INewLCForm(form.Schema):
     )
 
 
-class NewLCForm(form.SchemaForm):
-    """ Form handling for new LC
+class AddLCForm(form.SchemaForm):
+    """Form for adding a new LC.
 
-    This form can be accessed as @@add-new-lc.
-
+    When adding a new LC we cannot use the default Plone 'add new ...' form,
+    because we need additional information (like CP name and email) and special
+    handling. Hence a custom form for adding a new LC.
     """
 
-    grok.name('add-new-lc')
+    grok.name('add-lc')
     grok.require('zope2.View')  # TODO: add permission
     grok.context(ISiteRoot)
 
@@ -89,6 +86,19 @@ class NewLCForm(form.SchemaForm):
         if errors:
             self.status = self.formErrorsMessage
             return
+
+        self.create()
+
+        # Done!
+        self.status = 'LC added.'
+
+    @button.buttonAndHandler(u"Cancel")
+    def handleCancel(self, action):
+        """User cancelled. Redirect back to the front page."""
+        pass
+
+    def create(self):
+        """Add a new LC, it's CP, groups and assign roles/permissions."""
 
         # check if the Local Committees folder exists
         if not self.context.get('lc'):
@@ -126,14 +136,19 @@ class NewLCForm(form.SchemaForm):
         )
 
         # join user to LC groups
-        api.user.join_group(
-            user=user,
+        api.group.add_user(
             group=members,
+            user=user,
         )
-        api.user.join_group(
+        api.group.add_user(
             user=user,
             group=board,
         )
+
+        # give the LC Board their permissions over LC
+        lc.manage_setLocalRoles(
+            board.id,
+            ['LCBoard', 'Contributor', 'Reviewer', 'Reader'])
 
         # TODO: proper body text
         api.portal.send_email(
@@ -142,11 +157,3 @@ class NewLCForm(form.SchemaForm):
             recipient=user.getProperty('email'),
             subject="TODO: bla bla",
         )
-
-        # Done!
-        self.status = "LC added."
-
-    @button.buttonAndHandler(u"Cancel")
-    def handleCancel(self, action):
-        """User cancelled. Redirect back to the front page."""
-        pass

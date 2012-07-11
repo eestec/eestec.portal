@@ -2,7 +2,6 @@
 <rolemap>
 
     <roles>
-        <role name="LCMember"/>
         <role name="LCBoardMember"/>
         <role name="IntBoardMember"/>
     </roles>
@@ -21,7 +20,7 @@
             <role name="Contributor" />
         </permission>
 
-        <!-- LCs are created programatically via the @@add-new-lc form so noone
+        <!-- LCs are created programatically via the @@add-lc form so no-one
         should be able to add them manually -->
         <permission name="eestec.portal: Add LC" acquire="False">
             <role name="Manager"/>
