@@ -5,8 +5,8 @@ from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('eestec.portal')
 
-LC_MEMBERS_GROUP_SUFFIX = '-members'
-LC_BOARD_GROUP_SUFFIX = '-board'
+LC_MEMBERS_GROUP_STRING = '%-members'
+LC_BOARD_GROUP_STRING = '%-board'
 
 CP_LIST_ADDRESS = "cp@eestec.net"
 

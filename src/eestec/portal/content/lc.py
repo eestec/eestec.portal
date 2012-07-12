@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from Products.CMFCore.interfaces import ISiteRoot
+from eestec.portal import LC_BOARD_GROUP_STRING
+from eestec.portal import LC_MEMBERS_GROUP_STRING
 from five import grok
 from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
+from Products.CMFCore.interfaces import ISiteRoot
 from z3c.form import button
 from zope import schema
 
@@ -127,12 +129,12 @@ class AddLCForm(form.SchemaForm):
 
         # create LC members group
         members = api.group.create(
-            groupname=lc.id,
+            groupname=LC_MEMBERS_GROUP_STRING % lc.id,
         )
 
         # create LC Board group
         board = api.group.create(
-            groupname="%s-board" % lc.id,
+            groupname=LC_BOARD_GROUP_STRING % lc.id,
         )
 
         # join user to LC groups
