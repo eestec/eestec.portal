@@ -1,31 +1,25 @@
 <?xml version="1.0"?>
-<object name="eestec.portal.lc" meta_type="Dexterity FTI"
-  i18n:domain="eestec.portal" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="eestec.portal.eventapplication"
+        meta_type="Dexterity FTI"
+        i18n:domain="eestec.portal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-  <property name="title" i18n:translate="">LC</property>
-  <property name="description" i18n:translate="">Information about an EESTEC Local Commitee.</property>
+  <property name="title" i18n:translate="">Event Application</property>
+  <property name="description" i18n:translate="">LC Event Application</property>
 
-  <property name="content_icon">++resource++eestec.base.icons/lc.png</property>
-  <property name="factory">eestec.portal.lc</property>
-  <property name="global_allow">True</property>
+  <property name="content_icon">++resource++eestec.base.icons/eventapplication.png</property>
+  <property name="factory">eestec.portal.eventapplication</property>
+  <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-    <element value="eestec.portal.event" />
-    <element value="Image" />
-    <element value="File" />
-    <element value="Document" />
-    <element value="Topic" />
-    <element value="News Item" />
-    <element value="Folder" />
-    <element value="Link" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema interface -->
-  <property name="schema">eestec.portal.content.lc.ILC</property>
+  <property name="schema">eestec.portal.content.eventapplication.IEventApplication</property>
 
   <!-- class used for content items -->
-  <property name="klass">eestec.portal.content.lc.LC</property>
+  <property name="klass">eestec.portal.content.eventapplication.EventApplication</property>
 
   <!-- add permission -->
   <property name="add_permission">cmf.AddPortalContent</property>
@@ -34,6 +28,7 @@
   <property name="behaviors">
     <element value="plone.app.content.interfaces.INameFromTitle" />
     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+    <element value="plone.app.dexterity.behaviors.metadata.IOwnership" />
   </property>
 
   <!-- View information -->
