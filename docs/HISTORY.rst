@@ -5,7 +5,13 @@ Changelog
 0.1 (unreleased)
 ----------------
 
-- Dexterity types.
+- Memberdata fields.
+  [fakedrake]
+
+- Event and EventApplication content types.
+  [iElectric]
+
+- LC content type and forms.
   [ibi, brodul, andrejpan]
 
 - Theme skeleton.
