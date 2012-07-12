@@ -14,6 +14,17 @@
     }
 }
 
+.rotate(@degrees) {
+    /* Safari */
+-webkit-transform: rotate(@degrees);
+/* Firefox */
+-moz-transform: rotate(@degrees);
+/* IE */
+-ms-transform: rotate(@degrees);
+/* Opera */
+-o-transform: rotate(@degrees);
+}
+
 
 .rounded-corners(@radius: 5px) {
     border-radius: @radius;

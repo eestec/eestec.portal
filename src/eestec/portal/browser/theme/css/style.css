@@ -35,9 +35,7 @@ nav,
 section {
   display: block;
 }
-audio,
-canvas,
-video {
+audio, canvas, video {
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -102,8 +100,7 @@ a:focus {
 abbr[title] {
   border-bottom: 1px dotted;
 }
-b,
-strong {
+b, strong {
   font-weight: bold;
 }
 blockquote {
@@ -149,8 +146,7 @@ pre {
 q {
   quotes: none;
 }
-q:before,
-q:after {
+q:before, q:after {
   content: "";
   content: none;
 }
@@ -158,8 +154,7 @@ small {
   font-size: 85%;
 }
 /* Position subscript and superscript content without affecting line-height: h5bp.com/k */
-sub,
-sup {
+sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -174,16 +169,14 @@ sub {
 /* =============================================================================
    Lists
    ========================================================================== */
-ul,
-ol {
+ul, ol {
   margin: 1em 0;
   padding: 0 0 0 40px;
 }
 dd {
   margin: 0 0 0 40px;
 }
-nav ul,
-nav ol {
+nav ul, nav ol {
   list-style: none;
   list-style-image: none;
   margin: 0;
@@ -255,8 +248,7 @@ textarea {
 /*
  * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
  */
-button,
-input {
+button, input {
   line-height: normal;
 }
 /*
@@ -275,15 +267,13 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements
  */
-button[disabled],
-input[disabled] {
+button[disabled], input[disabled] {
   cursor: default;
 }
 /*
  * Consistent box sizing and appearance
  */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
   *width: 13px;
@@ -295,15 +285,13 @@ input[type="search"] {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button {
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 /* 
  * Remove inner padding and border in FF3/4: h5bp.com/l 
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -317,8 +305,7 @@ textarea {
   resize: vertical;
 }
 /* Colors for form validity */
-input:invalid,
-textarea:invalid {
+input:invalid, textarea:invalid {
   background-color: #f0dddd;
 }
 /* =============================================================================
@@ -584,9 +571,7 @@ body {
   margin: 0;
   width: 100%;
 }
-#portal-header,
-#main,
-#footer-colophon {
+#portal-header, #main, #footer-colophon {
   margin: 0 13px;
 }
 h1,
@@ -625,16 +610,13 @@ h5,
 h6 {
   color: #494949;
 }
-h2 a,
-h3 a,
-h4 a {
+h2 a, h3 a, h4 a {
   border-bottom: none !important;
 }
 a {
   text-decoration: none;
 }
-a:link,
-a:visited {
+a:link, a:visited {
   color: #ff020c !important;
 }
 a:hover {
@@ -649,15 +631,13 @@ input {
 q {
   quotes: "“" "”" "‘" "’";
 }
-* ul,
-ol {
+* ul, ol {
   list-style: none;
 }
 * li {
   display: inline;
 }
-ul,
-ol {
+ul, ol {
   margin: 0;
   padding: 0;
 }
@@ -681,8 +661,7 @@ dd {
 }
 /* ensures hidden elements don't take up space */
 /* .ie6 is set on <html> by Modernizr library */
-.ie6 .hiddenStructure,
-.ie7 .hiddenStructure {
+.ie6 .hiddenStructure, .ie7 .hiddenStructure {
   position: absolute;
 }
 #content .visualNoMarker {
@@ -828,9 +807,7 @@ input.searchField {
 .collapsible .collapser.expanded {
   background: url('../images/arrowDown.png') center right no-repeat;
 }
-.actionMenuContent img,
-.navTreeFolderish img,
-#listing-table img {
+.actionMenuContent img, .navTreeFolderish img, #listing-table img {
   margin-right: 4px;
 }
 .tooltip {
@@ -890,8 +867,7 @@ input.searchField {
 .livesearchContainer {
   background: #ffffff;
 }
-.LSRow,
-#LSNothingFound {
+.LSRow, #LSNothingFound {
   display: block;
   padding: 0.5em 1em;
   white-space: normal;
@@ -966,9 +942,7 @@ dl.portlet dt {
   line-height: normal;
   text-transform: uppercase;
 }
-dl.portlet dt a:link,
-dl.portlet dt a:visited,
-dl.portlet dt a:hover {
+dl.portlet dt a:link, dl.portlet dt a:visited, dl.portlet dt a:hover {
   color: #ffffff !important;
   display: block;
   border: none;
@@ -992,8 +966,7 @@ dl.portlet a:hover {
   /* This one gets an !important because it should always activate in the content area, even when state coloring is active */
 
 }
-dl.portlet dd.portletItem,
-dl.portlet dd.portletFooter {
+dl.portlet dd.portletItem, dl.portlet dd.portletFooter {
   padding: 1em;
 }
 dl.portlet ol {
@@ -1038,8 +1011,7 @@ dl.portlet.portletEventList .portletFooter,
 dl.portlet.portletPloneboardRecent .portletFooter {
   text-align: right;
 }
-dl.portlet.portletRecent img,
-dl.portlet.portletCollection img {
+dl.portlet.portletRecent img, dl.portlet.portletCollection img {
   display: none;
 }
 dl.portletError {
@@ -1085,8 +1057,7 @@ dl.portletError dd {
 .portlets-manager .portletAssignments .formControls {
   text-align: center;
 }
-div.managePortletsLink,
-a.managePortletsFallback {
+div.managePortletsLink, a.managePortletsFallback {
   text-align: center;
   padding: 0.25em 0.5em;
   font-size: 13px;
@@ -1171,9 +1142,7 @@ a.managePortletsFallback {
   margin: 0;
   padding: 0;
 }
-.portletCalendar a,
-.portletCalendar a:focus,
-.portletCalendar a:hover {
+.portletCalendar a, .portletCalendar a:focus, .portletCalendar a:hover {
   text-decoration: none;
 }
 .ploneCalendar {
@@ -1413,8 +1382,7 @@ dl.portletNavigationTree dd.portletItem {
   border-collapse: collapse;
   border-spacing: 0px;
 }
-#content .documentDescription,
-#content #description {
+#content .documentDescription, #content #description {
   color: #666666;
   margin-left: 0;
   font: bold 16px "Helvetica Neue", Arial, FreeSans, sans-serif;
@@ -1502,15 +1470,13 @@ span.selectedTag {
 body#content {
   margin: 1em;
 }
-body#content,
-body.cke_panel_frame {
+body#content, body.cke_panel_frame {
   background: White;
   margin: 0;
   padding: 0 10px;
   width: auto;
 }
-.reviewHistory,
-.contentHistory {
+.reviewHistory, .contentHistory {
   display: inline;
   color: Black;
 }
@@ -1598,8 +1564,7 @@ body.cke_panel_frame {
 }
 /* @end */
 /* @group Data tables */
-table.listing,
-table.plain {
+table.listing, table.plain {
   border-spacing: 0;
   border-collapse: collapse;
 }
@@ -1612,16 +1577,14 @@ table.listing th {
   padding: 0.5em 1em;
   vertical-align: top;
 }
-table.plain th,
-table.plain td {
+table.plain th, table.plain td {
   border: 1px solid #ffffff;
 }
 table.listing {
   border-left: 1px solid #ffffff;
   border-bottom: 1px solid #ffffff;
 }
-table.listing td.listingCheckbox,
-table.listing th.listingCheckbox {
+table.listing td.listingCheckbox, table.listing th.listingCheckbox {
   text-align: center;
 }
 table.listing .top {
@@ -1646,8 +1609,7 @@ table.listing tbody th {
 table.listing tbody tr {
   text-align: left;
 }
-table.listing tbody tr .dragging,
-table.listing tbody tr .selected {
+table.listing tbody tr .dragging, table.listing tbody tr .selected {
   background-color: #ffffaa;
 }
 table.listing tbody tr .error {
@@ -1659,8 +1621,7 @@ table.listing tbody tr.odd {
 table.listing tbody tr.odd td {
   background: #f7f7f7;
 }
-table.listing tbody tr.odd .selected td,
-table.listing tbody tr.odd .dragging td {
+table.listing tbody tr.odd .selected td, table.listing tbody tr.odd .dragging td {
   background-color: #f7f7f7;
 }
 table.listing tbody tr.odd .error td {
@@ -1690,8 +1651,7 @@ table.vertical td {
   border-top: 0.1em solid #ffffff;
   padding: 0.5em;
 }
-table.grid td,
-table.grid th {
+table.grid td, table.grid th {
   border: 0.1em solid #ffffff;
   padding: 0.5em;
 }
@@ -1729,8 +1689,7 @@ div.listingBar a:hover {
 .highslide:hover img {
   border-color: #a0a0a0;
 }
-.highslide-wrapper,
-.highslide-outline {
+.highslide-wrapper, .highslide-outline {
   background: #ffffff;
 }
 .highslide-image {
@@ -1872,8 +1831,7 @@ dl.error dd {
   -moz-border-radius-topleft: 0.5em;
   -moz-border-radius-topright: 0.5em;
 }
-.actionSeparator #folderHeader .subMenuTitle,
-.actionSeparator #contextHeader .subMenuTitle {
+.actionSeparator #folderHeader .subMenuTitle, .actionSeparator #contextHeader .subMenuTitle {
   color: #ffffff;
 }
 #content ul.formTabs {
@@ -2014,8 +1972,7 @@ dl.error dd {
   margin-top: 0;
   margin-bottom: 0;
 }
-#contentActionMenus dl.actionMenu a,
-#contentActionMenus dl.actionMenu.activated dd {
+#contentActionMenus dl.actionMenu a, #contentActionMenus dl.actionMenu.activated dd {
   background-color: #dddddd;
   color: #666666;
   text-decoration: none;
@@ -2025,13 +1982,11 @@ dl.error dd {
   border-bottom: 0.5em solid #dddddd;
   right: -3px;
 }
-#contentActionMenus dl.actionMenu.activated dd a:hover,
-#contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
+#contentActionMenus dl.actionMenu.activated dd a:hover, #contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
   background-color: #ffffff !important;
   color: #ff020c;
 }
-#folderHeader,
-#contextHeader {
+#folderHeader, #contextHeader {
   border-bottom: 2px solid white;
 }
 #contextHeader {
@@ -2061,8 +2016,7 @@ dl.actionMenu {
   position: relative;
   margin-left: 0.5em;
 }
-dl.actionMenu a,
-dl.actionMenu div {
+dl.actionMenu a, dl.actionMenu div {
   display: block !important;
   text-decoration: none;
   white-space: nowrap;
@@ -2087,9 +2041,7 @@ dl.actionMenu.activated dd {
   -moz-border-radius-bottomleft: 0.5em;
   -moz-border-radius-bottomright: 0.5em;
 }
-dl.actionMenu.activated dt a,
-dl.actionMenu.activated dd a,
-dl.actionMenu.activated dd div {
+dl.actionMenu.activated dt a, dl.actionMenu.activated dd a, dl.actionMenu.activated dd div {
   margin: 0 0.25em;
 }
 span.arrowDownAlternative {
@@ -2151,8 +2103,7 @@ span.arrowDownAlternative {
 table.controlpanel-listing {
   width: 100%;
 }
-table.controlpanel-listing td,
-table.controlpanel-listing th {
+table.controlpanel-listing td, table.controlpanel-listing th {
   font-size: 120%;
 }
 table.controlpanel-listing dl {
@@ -2426,9 +2377,7 @@ dl.searchResults .highlightedSearchTerm {
 }
 /*note: the tricky thing here is that image-inline|image-left|image-right
 can both be on an image and a wrapper element e.g. a dl tag*/
-img.image-left,
-img.image-right,
-.captioned img {
+img.image-left, img.image-right, .captioned img {
   border: 1px solid #dddddd;
 }
 dd.image-caption {
@@ -2459,9 +2408,7 @@ dd.image-caption {
 #dashboard dl.portlet a:link {
   border-bottom: none;
 }
-#dashboard-portlets1,
-#dashboard-portlets2,
-#dashboard-portlets3 {
+#dashboard-portlets1, #dashboard-portlets2, #dashboard-portlets3 {
   float: left;
   width: 23%;
   padding: 0.7em 1.3em 0 0;
@@ -2479,16 +2426,14 @@ dd.image-caption {
 }
 /* @end */
 /* @group Forms */
-fieldset,
-.editionComment {
+fieldset, .editionComment {
   line-height: 1.5em;
   margin: 1em 0;
   padding: 0 1em 1em;
   width: auto;
 }
 /* Emulates the styling from the h1 tag */
-#content .field input[type="text"][name$=".title"],
-#archetypes-fieldname-title input {
+#content .field input[type="text"][name$=".title"], #archetypes-fieldname-title input {
   font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
   line-height: 125%;
   color: #000000;
@@ -2498,28 +2443,22 @@ fieldset,
   font-weight: bold;
 }
 /* Emulates styling from the description's view */
-#content .field textarea[name$=".description"],
-#archetypes-fieldname-description textarea#description {
+#content .field textarea[name$=".description"], #archetypes-fieldname-description textarea#description {
   font-family: Arial, FreeSans, sans-serif;
   color: #666666;
   font-size: 16px;
   font-weight: bold;
 }
-.ArchetypesMultiSelectionValue label,
-.ArchetypesSelectionWidget label {
+.ArchetypesMultiSelectionValue label, .ArchetypesSelectionWidget label {
   margin-left: 4px;
 }
-.radio-widget,
-.baseLayersDiv input,
-.dataLayersDiv input {
+.radio-widget, .baseLayersDiv input, .dataLayersDiv input {
   margin-right: 4px;
 }
 div.formControls {
   margin: 1em;
 }
-input[type="text"]:focus,
-input[type="password"]:focus,
-textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
   background-color: #ffffe0;
 }
 #content textarea {
@@ -2675,17 +2614,13 @@ textarea#form\.description {
   display: inline-block;
 }
 /* @group Login form */
-body.template-logged_out #content,
-body.template-login_form #content,
-.pb-ajax #login-form {
+body.template-logged_out #content, body.template-login_form #content, .pb-ajax #login-form {
   text-align: center;
 }
-#fieldset-openid-login input,
-#login-form input {
+#fieldset-openid-login input, #login-form input {
   font-size: 18px;
 }
-body.template-register #content input,
-body.template-new-user #content input {
+body.template-register #content input, body.template-new-user #content input {
   font-size: 18px;
   width: inherit;
 }
@@ -2780,8 +2715,7 @@ dl.toc dd ol {
   padding: 0.25em 1em;
   margin-bottom: 0;
 }
-#portal-sitemap .navTreeLevel2,
-#portal-sitemap .navTreeLevel2 ul {
+#portal-sitemap .navTreeLevel2, #portal-sitemap .navTreeLevel2 ul {
   font-size: 13px;
   font-weight: normal;
   margin-bottom: 0;
@@ -2948,9 +2882,7 @@ div.overlaybg div.close {
 .pb-ajax input {
   margin-right: 5px;
 }
-.pb-ajax,
-.pb-image,
-.overlay iframe {
+.pb-ajax, .pb-image, .overlay iframe {
   background-color: #ffffff;
   border: 1px solid #999999;
   white-space: normal;
@@ -3144,8 +3076,7 @@ div.overlaybg div.close {
   margin-bottom: 1px;
   margin-left: 0;
 }
-#content #selectedTags,
-#content #content #newTags {
+#content #selectedTags, #content #content #newTags {
   margin-bottom: 0;
   margin-left: 0;
 }
@@ -3162,16 +3093,13 @@ div.overlaybg div.close {
   width: 48%;
   margin-left: 3em;
 }
-#existingTagsTitle,
-#newTagsTitle {
+#existingTagsTitle, #newTagsTitle {
   float: left;
 }
-#existingTagsHelp,
-#newTagsHelp {
+#existingTagsHelp, #newTagsHelp {
   float: right;
 }
-#noTagsSelected,
-#oneOrMoreTagsSelected {
+#noTagsSelected, #oneOrMoreTagsSelected {
   display: none;
 }
 /* IE7: fixes super-wide div for JavaScript Tag selector */
@@ -3402,14 +3330,68 @@ dl.portlet dt {
   font-weight: normal;
   letter-spacing: 1px;
 }
+.promo {
+  font-size: 1.3em;
+}
 .join {
-  background: #DDD;
+  color: #000;
+  background: #fab984;
+  display: block;
+  text-align: left;
+  height: 175px;
+}
+.join h3 {
+  color: #666;
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  margin-left: -25px;
+}
+.join img {
+  position: absolute;
+  bottom: 45px;
+  margin-left: 55px;
+}
+.rotated {
+  /* Safari */
+
+  -webkit-transform: rotate(-90deg);
+  /* Firefox */
+
+  -moz-transform: rotate(-90deg);
+  /* IE */
+
+  -ms-transform: rotate(-90deg);
+  /* Opera */
+
+  -o-transform: rotate(-90deg);
 }
 .find {
-  background: #EEE;
+  background: #b9d3e8;
+  display: block;
+  text-align: left;
+  height: 175px;
+}
+.find h3 {
+  color: #666;
+  position: absolute;
+  bottom: 3px;
+  left: 0px;
+  margin-left: -12px;
+}
+.find img {
+  position: absolute;
+  bottom: 50px;
+  margin-left: 75px;
 }
 .subtitle {
   margin-bottom: 0;
+}
+.recent-news, .sidebar {
+  display: inline-block;
+}
+.recent-news {
+  width: 72.5%;
 }
 .news-item {
   margin-bottom: 30px;
@@ -3422,6 +3404,20 @@ dl.portlet dt {
   border: 4px solid #DDD;
   margin-right: 20px;
   float: left;
+}
+.news-item .read-more {
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
+  font-size: 18px;
+  display: block;
+  float: right;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+.sidebar {
+  width: 250px !important;
+  position: relative;
+  display: block;
+  float: right;
 }
 .sidebar-title {
   font-size: 18px;
@@ -3476,8 +3472,7 @@ dl.portlet dt {
 .project-item {
   margin-bottom: 20px;
 }
-.event-arrow,
-.project-arrow {
+.event-arrow, .project-arrow {
   position: absolute;
   right: 6px;
   height: 18px;
@@ -3527,8 +3522,7 @@ dl.portlet dt {
   width: 1px;
 }
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;
@@ -3540,8 +3534,7 @@ dl.portlet dt {
 .invisible {
   visibility: hidden;
 }
-/* Contain floats: h5bp.com/q */.clearfix:before,
-.clearfix:after {
+/* Contain floats: h5bp.com/q */.clearfix:before, .clearfix:after {
   content: "";
   display: table;
 }
@@ -3565,18 +3558,14 @@ dl.portlet dt {
     -ms-filter: none !important;
   }
   /* Black prints faster: h5bp.com/s */
-  a,
-  a:visited {
+  a, a:visited {
     text-decoration: none;
   }
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
     content: "";
   }
   /* Don't show links for images, or javascript/internal links */
-  pre,
-  blockquote {
+  pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
@@ -3584,8 +3573,7 @@ dl.portlet dt {
     display: table-header-group;
   }
   /* h5bp.com/t */
-  tr,
-  img {
+  tr, img {
     page-break-inside: avoid;
   }
   img {
@@ -3594,14 +3582,11 @@ dl.portlet dt {
   @page  {
     margin: 0.5cm;
   }
-  p,
-  h2,
-  h3 {
+  p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
-  h2,
-  h3 {
+  h2, h3 {
     page-break-after: avoid;
   }
   header,
