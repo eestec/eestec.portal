@@ -18,7 +18,7 @@ from zope.interface import implements
 STUDY_FIELDS = ['ece', 'electrical engineering', 'engineering of electics', 'electrical']
 SEXES = ['male', 'female']
 COUNTRIES = ['greece' , 'USA', 'other countries']
-TSHIRT_SIZES = ['Large', 'Medium', 'Gay']
+TSHIRT_SIZES = ['Large', 'Medium', 'Small']
 
 class PortalTypesVocabulary(object):
 
