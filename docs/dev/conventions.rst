@@ -102,6 +102,13 @@ You run tests like this:
 
     $ bin/test -s eestec.portal
 
+To speed things up, you can choose to run only some tests, not all at once.
+Use the ``-t`` to filter out tests and run only those that match the expression.
+
+.. sourcecode:: bash
+
+    # run only setup tests
+    $ bin/test -s eestec.portal -t test_setup
 
 .. _syntax-validation:
 
