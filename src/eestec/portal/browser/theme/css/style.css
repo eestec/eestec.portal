@@ -3341,9 +3341,15 @@ div.overlaybg div.close {
 .ie7 #content figure figcaption .image-caption:hover {
   left: 0px;
 }
+h2 {
+  border-bottom: 1px solid #e8e8e8;
+}
 #portal-logo img {
   width: 100%;
   height: auto;
+}
+#menu {
+  letter-spacing: 1px;
 }
 #main-wrapper {
   background: url('../images/body_bg.png') repeat-x;
@@ -3391,25 +3397,183 @@ input.searchField {
 #social img {
   margin-top: 0px;
 }
-.promo {
-  background: #eff0f5 url('../images/promo_bg.png') no-repeat 50% 50%;
-  padding: 0 35px;
-  border: 1px solid #fff;
-  margin-bottom: 30px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-box-shadow: 1px 1px 1px 1px #dedede;
-  -moz-box-shadow: 1px 1px 1px 1px #dedede;
-  box-shadow: 1px 1px 1px 1px #dedede;
-  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
-}
-.promo h1 {
-  font-size: 25px;
+dl.portlet dt {
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
   font-weight: normal;
-  font-style: italic;
-  line-height: 1.8em;
+  letter-spacing: 1px;
+}
+.promo-wrapper {
+  display: block;
+  float: left;
+  font-size: 1.3em;
+  position: relative;
+  width: 100%;
+  margin-right: -513px;
+}
+.promo-wrapper .promo {
+  margin-right: 510px;
+}
+.join {
+  color: #000;
+  background: #fab984;
+  display: block;
+  float: left;
+  position: relative;
+  text-align: left;
+  height: 175px;
+  width: 250px;
+  margin-right: 13px;
+}
+.join h3 {
+  color: #666;
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  margin-left: -25px;
+}
+.join img {
+  position: absolute;
+  bottom: 45px;
+  margin-left: 55px;
+}
+.find {
+  background: #b9d3e8;
+  display: block;
+  float: left;
+  position: relative;
+  text-align: left;
+  height: 175px;
+  width: 250px;
+}
+.find h3 {
+  color: #666;
+  position: absolute;
+  bottom: 3px;
+  left: 0px;
+  margin-left: -12px;
+}
+.find img {
+  position: absolute;
+  bottom: 50px;
+  margin-left: 75px;
+}
+.rotated {
+  /* Safari */
+
+  -webkit-transform: rotate(-90deg);
+  /* Firefox */
+
+  -moz-transform: rotate(-90deg);
+  /* IE */
+
+  -ms-transform: rotate(-90deg);
+  /* Opera */
+
+  -o-transform: rotate(-90deg);
+}
+.subtitle {
+  margin-bottom: 0;
+}
+.recent-news,
+.sidebar {
+  display: inline-block;
+}
+#news-wrapper {
+  display: block;
+  float: left;
+  margin-right: -250px;
+  position: relative;
+  width: 100%;
+}
+.recent-news {
+  margin-right: 290px;
+}
+.news-item {
+  margin-bottom: 30px;
+}
+.news-item .news-title {
+  color: #7e7e7e;
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
+}
+.news-item img {
+  border: 4px solid #DDD;
+  margin-right: 20px;
+  float: left;
+}
+.sidebar {
+  width: 250px !important;
+  position: relative;
+  display: block;
+  float: right;
+}
+.sidebar-title {
+  font-size: 18px;
+  margin-top: 38px;
+}
+.event-item {
+  color: #494949;
+  border-left: 3px solid #c05050;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  line-height: 19px;
+}
+.event-item a,
+.event-item a:link,
+.event-item a:active,
+.event-item a:hover,
+.event-item a:visited {
+  color: #494949!important;
+}
+.event-item:hover {
+  background: #f5f5f5;
+}
+.event-item .event-date {
+  float: left;
+  padding: 0 15px;
+}
+.event-item .event-date .month {
+  font-size: 13px;
+  text-align: center;
+}
+.event-item .event-date .day {
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
+  font-size: 25px;
+}
+.event-item .event-title {
+  color: #5e5e5e;
+  font-size: 18px;
+  margin-right: 20px;
+}
+.event-item .event-content {
+  color: #c0c0c0;
+  font-size: 13px;
+  margin-right: 20px;
+  margin-top: 4px;
+}
+.project-list {
+  margin-top: 40px;
+}
+.project-item {
+  margin-bottom: 20px;
+}
+.event-arrow,
+.project-arrow {
+  position: absolute;
+  right: 6px;
+  height: 18px;
+  width: 6px;
+  margin-top: 14px;
+  background: url('../images/arrow.png') no-repeat;
+}
+.project-arrow {
+  margin-top: 30px;
+}
+.partner {
+  float: left;
+  margin-left: 50px;
 }
 #portal-footer {
   height: 225px;
@@ -3436,17 +3600,6 @@ input.searchField {
   text-indent: 5px;
   padding: 1px;
   font-size: 0.9em;
-}
-.twitter {
-  position: relative;
-  width: 100px;
-  padding: 5px;
-  margin: 10px 50px 0.5em;
-  color: #333;
-  background: #eee;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
 }
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
