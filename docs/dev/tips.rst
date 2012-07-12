@@ -26,6 +26,8 @@ So, to access (for example) ``zope_debug`` use:
 Then open ``http://localhost:8099`` in your browser and you will directly access
 the service on this port.
 
+.. _setting-up-git:
+
 Setting up Git
 ==============
 

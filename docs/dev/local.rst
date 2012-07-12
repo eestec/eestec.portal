@@ -113,6 +113,8 @@ Make tea. Buildout needs a couple of minutes to finish preparing your
 development environment.
 
 
+.. _starting-the-portal:
+
 Starting the portal
 ===================
 
@@ -137,19 +139,39 @@ nuts with it!
 You can also run our :ref:`unit-tests` or perform :ref:`syntax-validation`.
 
 
-Commiting a change
-==================
+.. _working-on-an-issue:
+
+Working on an issue
+===================
+
+Out GitHub account contains a `list of open issues
+<https://github.com/eestec/eestec.portal/issues>`_. Click on one that is labeled
+with a green ``entry-level`` tag. If the issue description says ``No one is
+assigned`` it means no-one is already working on it and you can claim it as your
+own. Click on the button next to the text and make yourself the one assigned
+for this issue.
 
 Based on our :ref:`git_workflow` all new features must be developed in separate
-git branches:
+git branches. So if you are not doing a simple bugfix, but rather adding new
+features/enhancements, you should create a *feature branch*. This way your work
+is kept in an isolated place where you can receive feedback on it, improve it,
+etc. Once we are happy with your implementation, your branch gets merged into
+*master* at which point everyone else starts using your code.
 
 .. sourcecode:: bash
-    [you@local eestec.portal]$ git co master  # go to master branch
-    [you@local eestec.portal]$ git co -B my_cool_feature  # create a feature branch
+
+    [you@local eestec.portal]$ git checkout master  # go to master branch
+    [you@local eestec.portal]$ git checkout -B issue_17  # create a feature branch
+    # replace 17 with the issue number you are working on
 
     # change code here
 
-    [you@local eestec.portal]$ git add -p && git ci  # commit my changes
-    [you@local eestec.portal]$ git push -u origin my_cool_feature  # push my branch to GitHub
+    [you@local eestec.portal]$ git add -p && git commit  # commit my changes
+    [you@local eestec.portal]$ git push origin issue_17  # push my branch to GitHub
+    # at this point other can see your changes but they don't get effected by
+    them; in other words, others can comment on your code without your code
+    changing their development environments
 
-Read more about Git branching at http://learn.github.com/p/branching.html.
+Read more about Git branching at http://learn.github.com/p/branching.html. Also,
+to make your git nicer, we have a :ref:`unit-tests` chapter in *Tips &
+Tricks.*
