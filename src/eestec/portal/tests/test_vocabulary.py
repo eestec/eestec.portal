@@ -14,19 +14,39 @@ class TestLCListVocabulary(IntegrationTestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
+        # the vocabulary calls lc.full_title() which expects that LCs have
+        # workflows enabled
+        self.workflow = api.portal.get_tool('portal_workflow')
+        self.workflow.setChainForPortalTypes(
+            ['eestec.portal.lc'],
+            'lc_workflow'
+        )
+
+        # creat the LCs folder
         api.content.create(
-            type='eestec.portal.lc',
-            title=u'patra',
+            type='Folder',
+            title=u'Local Committees',
+            id='lc',
             container=self.portal
         )
 
+        # create a couple of LCs
         api.content.create(
             type='eestec.portal.lc',
-            title=u'athens',
-            container=self.portal
+            title=u'Niš',
+            container=self.portal.lc
         )
+        api.content.create(
+            type='eestec.portal.lc',
+            title=u'Novi Sad',
+            container=self.portal.lc
+        )
+
+    def test_vocabulary(self):
         factory = getUtility(IVocabularyFactory, 'lc_list')
         self.vocabulary = factory(self.portal)
 
-    def test_returned_list(self):
-        self.assertEquals([u'patra', u'athens'], [i.title for i in self.vocabulary])
+        self.assertEquals(
+            [u'Observer Ni\u0161', u'Observer Novi Sad'],
+            [i.title for i in self.vocabulary]
+        )

@@ -5,12 +5,9 @@ from datetime import date
 from zope.interface import implements
 from zope import schema
 
-# from collective.examples.userdata import _
 from plone.app.users.userdataschema import IUserDataSchemaProvider
 from plone.app.users.userdataschema import IUserDataSchema
 
-from Products.CMFCore.utils import getToolByName
-from zope.component.hooks import getSite
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
@@ -30,16 +27,23 @@ class PortalTypesVocabulary(object):
         self.portal_type = portal_type
 
     def __call__(self, context):
-        site = getSite()
-        catalog = getToolByName(site, 'portal_catalog', None)
-        if catalog is None:
-            return SimpleVocabulary([])
+        terms = []
 
-        brains = catalog(portal_type=self.portal_type)
-        items = [(brain.UID, brain.Title) for brain in brains]
-        # Most schema fields expect unicode values.
-        terms = [SimpleTerm(value=unicode(pair[0]), token=unicode(pair[0]),
-                             title=pair[1]) for pair in items]
+        lc_folder = context.lc  # context == portal
+        for lc_id, lc in lc_folder.items():
+
+            # only add LC types as vocabulary terms
+            if not lc.portal_type == 'eestec.portal.lc':
+                continue
+
+            terms.append(
+                SimpleTerm(
+                    value=unicode(lc_id),
+                    token=unicode(lc_id),
+                    title=lc.full_title(),
+                )
+            )
+
         return SimpleVocabulary(terms)
 
 
