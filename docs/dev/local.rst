@@ -175,3 +175,7 @@ etc. Once we are happy with your implementation, your branch gets merged into
 Read more about Git branching at http://learn.github.com/p/branching.html. Also,
 to make your git nicer, we have a :ref:`unit-tests` chapter in *Tips &
 Tricks.*
+
+Once you are done, please add your name to the
+`Changelog <https://github.com/eestec/eestec.portal/blob/master/docs/HISTORY.rst>`_
+
