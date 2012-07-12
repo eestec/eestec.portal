@@ -55,7 +55,6 @@ class TestFunctional(FunctionalTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.workflow = api.portal.get_tool('portal_workflow')
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
         self.login()  # login with self.browser so we can add content
