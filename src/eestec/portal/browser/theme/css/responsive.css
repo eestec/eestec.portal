@@ -6,10 +6,14 @@
   font-style: normal;
 }
 /* Commonly used mixins */
+.overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+}
 @media only screen and (min-width: 801px) {
-  header,
-  #visual-portal-wrapper,
-  footer {
+  header, #visual-portal-wrapper, footer {
     margin: 0 auto;
     max-width: 1088px;
   }
@@ -103,15 +107,81 @@
   .sidebars-right .no-left-column .tablet-right-down #portal-column-main {
     margin-right: 0;
   }
-}
-@media only screen and (max-width: 480px) {
-  body,
-  #container {
+  /*----- Tablet top row icons -----*/
+  #portal-searchbox {
+    top: 100px;
+  }
+  .join, .find {
+    margin-top: 20px;
+    width: 225px;
+    height: 160px;
+  }
+  .join span, .find span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .join img {
+    bottom: 50px;
+    margin-left: 67px;
+    width: 95px;
+  }
+  .find img {
+    bottom: 43px;
+    margin-left: 67px;
+    width: 95px;
+  }
+  .promo-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+  .promo-wrapper .promo {
+    margin: 0;
+  }
+  .tiles-wrapper {
+    margin: 0 auto;
+    width: 463px;
+  }
+  #news-wrapper, .recent-news {
+    margin: 0;
+  }
+  .sidebar {
+    float: none;
     width: 100%;
   }
-  #portal-column-main,
-  #portal-column-one,
-  #portal-column-two {
+  .sidebar #events-list, .sidebar #project-list {
+    display: inline-block;
+    float: left;
+    width: 50%;
+  }
+  .sidebar #events-list h2, .sidebar #project-list h2 {
+    margin-top: 0;
+  }
+  .sidebar #events-list .event-title,
+  .sidebar #project-list .event-title,
+  .sidebar #events-list .event-content,
+  .sidebar #project-list .event-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #partners .partner {
+    width: 30%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+  #partners .partner img {
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  body, #container {
+    width: 100%;
+  }
+  #portal-column-main, #portal-column-one, #portal-column-two {
     display: block;
     float: none!important;
     position: relative;
@@ -162,8 +232,7 @@
     display: none;
     visibility: hidden;
   }
-  #portal-globalnav li,
-  #portal-globalnav li a {
+  #portal-globalnav li, #portal-globalnav li a {
     display: block;
     font-size: 16px;
     padding: 0;
@@ -222,8 +291,7 @@
     overflow: hidden;
     width: 100%;
   }
-  .LSRow,
-  #LSNothingFound {
+  .LSRow, #LSNothingFound {
     width: 100%;
   }
   input.searchPage {
@@ -262,8 +330,7 @@
     margin: 5px;
     padding: 5px 10px;
   }
-  #content-views li.selected a,
-  #content-views li a:hover {
+  #content-views li.selected a, #content-views li a:hover {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -291,8 +358,7 @@
   #contentActionMenus dl.actionMenu {
     float: none;
   }
-  #contentActionMenus dl.actionMenu a,
-  #contentActionMenus dl.actionMenu.activated dd {
+  #contentActionMenus dl.actionMenu a, #contentActionMenus dl.actionMenu.activated dd {
     background-color: transparent;
     min-width: 0 !important;
     right: auto;
@@ -302,12 +368,10 @@
   #contentActionMenus .actionMenuContent {
     background-color: #eeeeee !important;
   }
-  input,
-  textarea {
+  input, textarea {
     font-size: 16px !important;
   }
-  div.managePortletsLink,
-  a.managePortletsFallback {
+  div.managePortletsLink, a.managePortletsFallback {
     font-size: 16px;
   }
   div.overlay {
@@ -316,12 +380,10 @@
   .pb-ajax > div {
     width: 87%;
   }
-  div.overlay-iframe,
-  div.overlay-ajax {
+  div.overlay-iframe, div.overlay-ajax {
     width: 80%;
   }
-  #fieldset-openid-login label,
-  #login-form label {
+  #fieldset-openid-login label, #login-form label {
     text-align: center;
   }
 }
