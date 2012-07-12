@@ -5,10 +5,10 @@ from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('eestec.portal')
 
-LC_MEMBERS_GROUP_STRING = '%-members'
-LC_BOARD_GROUP_STRING = '%-board'
+LC_MEMBERS_GROUP_STRING = u'%s-members'
+LC_BOARD_GROUP_STRING = u'%s-board'
 
-CP_LIST_ADDRESS = "cp@eestec.net"
+CP_LIST_ADDRESS = 'cp@eestec.net'
 
 
 def initialize(context):
