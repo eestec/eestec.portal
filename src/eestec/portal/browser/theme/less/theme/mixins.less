@@ -15,16 +15,22 @@
 }
 
 .rotate(@degrees) {
-    /* Safari */
--webkit-transform: rotate(@degrees);
-/* Firefox */
--moz-transform: rotate(@degrees);
-/* IE */
--ms-transform: rotate(@degrees);
-/* Opera */
--o-transform: rotate(@degrees);
+        /* Safari */
+    -webkit-transform: rotate(@degrees);
+    /* Firefox */
+    -moz-transform: rotate(@degrees);
+    /* IE */
+    -ms-transform: rotate(@degrees);
+    /* Opera */
+    -o-transform: rotate(@degrees);
 }
-
+.transition (@dur) {
+    -webkit-transition: all @dur ease-in-out;
+    -moz-transition: all @dur ease-in-out;
+    -o-transition: all @dur ease-in-out;
+    -ms-transition: all @dur ease-in-out;
+    transition: all @dur ease-in-out;
+}
 
 .rounded-corners(@radius: 5px) {
     border-radius: @radius;
@@ -138,6 +144,13 @@
     .managePortletsLink {
         clear: both;
     }
+}
+
+.overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 // GRID
