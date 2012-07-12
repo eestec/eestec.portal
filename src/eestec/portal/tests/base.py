@@ -22,6 +22,11 @@ import eestec.portal
 class EestecPortalLayer(PloneWithPackageLayer):
     defaultBases = (PLONE_FIXTURE,)
 
+    def setUpZope(self, app, configurationContext):
+        """Set up Zope."""
+        super(EestecPortalLayer, self).setUpZope(app, configurationContext)
+        self.loadZCML(package=eestec.portal, name='overrides.zcml')
+
     def setUpPloneSite(self, portal):
         super(EestecPortalLayer, self).setUpPloneSite(portal)
 
