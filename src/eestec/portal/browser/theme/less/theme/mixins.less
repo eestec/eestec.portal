@@ -83,9 +83,14 @@
     -webkit-box-shadow: @horizontal @vertical @blur @spread @color;
     -moz-box-shadow: @horizontal @vertical @blur @spread @color;
     box-shadow: @horizontal @vertical @blur @spread @color;
-    -ms-filter: e(%("progid:DXImageTransform.Microsoft.Shadow(Strength='%d', Direction=180, Color='%d')", @spread, @color));
-    filter: e(%("progid:DXImageTransform.Microsoft.Shadow(Strength='%d', Direction=180, Color='%d')", @spread, @color));
 }
+
+.inset-box-shadow(@horizontal: 1px, @vertical: 1px, @blur: 1px, @spread: 1px, @color: #000) {
+    -webkit-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    -moz-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    box-shadow: inset @horizontal @vertical @blur @spread @color;
+}
+
 
 .opacity(@opacity:1) {
     @freaking-ie: @opacity * 100;

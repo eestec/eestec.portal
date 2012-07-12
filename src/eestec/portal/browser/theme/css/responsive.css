@@ -131,6 +131,9 @@
   #portal-column-two {
     margin-left: 0!important;
   }
+  #social {
+    display: none;
+  }
   #portal-personaltools {
     font-size: 12px !important;
     padding: 5px;
@@ -148,7 +151,51 @@
   #mobile-menu {
     display: block!important;
     visibility: visible;
-    margin-top: 45px;
+    margin: 0 -13px;
+  }
+  .mobile-menu-button {
+    border: 1px solid #f5f5f5;
+    float: left;
+    padding: 7px;
+    height: 13px;
+    margin-left: 5px;
+    margin-right: 10px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+  .mobile-menu-button img {
+    height: 20px;
+    vertical-align: top;
+    margin-top: -4px;
+  }
+  .icon-bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: #f5f5f5;
+    margin-bottom: 3px;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  }
+  .icon-bar:last-child {
+    margin-bottom: 0;
+  }
+  .mobile-menu-opened .mobile-menu-button {
+    background: #FFF;
+  }
+  .mobile-menu-opened .mobile-menu-button .icon-bar {
+    background-color: #ddd;
+    -webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0);
+    -moz-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0);
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0);
   }
   #mobile-globalnav {
     color: #000000;
@@ -191,7 +238,10 @@
     background: #dddddd;
     cursor: pointer;
     float: right;
-    width: 50px;
+    width: auto;
+  }
+  #mobile-search .mobile-menu-button {
+    margin-right: 5px;
   }
   #portal-searchbox {
     display: none;
@@ -204,15 +254,16 @@
   }
   #portal-searchbox input {
     font-size: 12px !important;
-    margin-bottom: 7px;
+    margin-bottom: 0;
+    height: 25px;
   }
   #searchGadget {
     width: 70%;
   }
   .LSBox .searchButton {
     position: absolute;
-    right: 0;
-    height: 20px;
+    right: 3px;
+    top: 3px;
   }
   #LSResult {
     margin: 0;

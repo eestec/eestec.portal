@@ -34,6 +34,10 @@
 
     // Element stylings
     
+    #social {
+        display: none;
+    }
+    
     #portal-personaltools {
         font-size: @mobile-Personaltools-font-size !important;
         padding: 5px;
@@ -58,8 +62,52 @@
     #mobile-menu {
         display: block!important;
         visibility: visible;
-        margin-top: 45px;
+        margin: 0 -13px;
     }
+    
+    .mobile-menu-button {
+        border: 1px solid #f5f5f5;
+        float: left;
+        padding: 7px;
+        height: 13px;
+        margin-left: 5px;
+        margin-right: 10px;
+        
+        .rounded-corners(3px);
+        .box-shadow(0, 0, 1px, 0, rgba(0,0,0,.25));
+        
+        img {
+            height: 20px;
+            vertical-align: top;
+            margin-top: -4px;
+        }
+    }
+    
+    .icon-bar {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background-color: #f5f5f5;
+        margin-bottom: 3px;
+        
+        .rounded-corners(1px);
+        .box-shadow(0px, 1px, 1px, 0px, rgba(0,0,0,.25));
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    .mobile-menu-opened .mobile-menu-button {
+        background: #FFF;
+        
+        .icon-bar {
+            background-color: #ddd;
+            
+            .inset-box-shadow(0px, 1px, 1px, 0px, rgba(0,0,0,0));
+        }
+    }
+    
     
     // Show menu button, and hide the actual menu
     #mobile-globalnav {
@@ -110,6 +158,10 @@
         cursor: pointer;
         float:right;
         width: @mobile-Mobile-search-width;
+        
+        .mobile-menu-button {
+            margin-right: 5px;
+        }
     }
     
     #portal-searchbox {
@@ -125,6 +177,7 @@
         input {
             font-size: @mobile-Portal-searchbox-input-font-size !important;
             margin-bottom: @mobile-Portal-searchbox-input-margin-bottom;
+                    height: 25px;
         }
     }
     
@@ -132,10 +185,9 @@
         width: @mobile-SearchGadget-width;
     }
     .LSBox .searchButton {
-    	position: absolute;
-    	right: 0;
-    	
-    	height: 20px;
+        position: absolute;
+        right: 3px;
+        top: 3px;
     }
     
     #LSResult {

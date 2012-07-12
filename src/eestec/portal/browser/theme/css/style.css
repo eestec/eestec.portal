@@ -843,8 +843,6 @@ input.searchField {
   -webkit-box-shadow: 0px 0px 2px 2px #e3e3e3;
   -moz-box-shadow: 0px 0px 2px 2px #e3e3e3;
   box-shadow: 0px 0px 2px 2px #e3e3e3;
-  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='2px', Direction=180, Color='#e3e3e3');
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='2px', Direction=180, Color='#e3e3e3');
 }
 .tip-close {
   background: transparent url('../images/window_close.png') no-repeat;
@@ -2300,8 +2298,6 @@ dl.collapsedBlockCollapsible dd.collapsibleContent {
   -webkit-box-shadow: 0 0 1em 0 #888888 1px 1px 1px #000000;
   -moz-box-shadow: 0 0 1em 0 #888888 1px 1px 1px #000000;
   box-shadow: 0 0 1em 0 #888888 1px 1px 1px #000000;
-  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#000000');
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#000000');
 }
 #commenting textarea {
   width: 90%!important;
@@ -2957,8 +2953,6 @@ div.overlaybg div.close {
   -webkit-box-shadow: 0 0 3em 0.5em #666666 1px 1px 1px #000000;
   -moz-box-shadow: 0 0 3em 0.5em #666666 1px 1px 1px #000000;
   box-shadow: 0 0 3em 0.5em #666666 1px 1px 1px #000000;
-  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#000000');
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#000000');
 }
 .no-boxshadow .riform {
   border: 1px solid #999;
