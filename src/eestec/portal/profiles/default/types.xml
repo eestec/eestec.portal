@@ -3,4 +3,5 @@
 <object name="portal_types" meta_type="Plone Types Tool">
   <object name="eestec.portal.lc" meta_type="Dexterity FTI" />
   <object name="eestec.portal.event" meta_type="Dexterity FTI" />
+  <object name="eestec.portal.eventapplication" meta_type="Dexterity FTI" />
 </object>

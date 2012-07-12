@@ -23,5 +23,14 @@ class Event(dexterity.Container):
     """
     grok.implements(IEvent)
 
-    def __init__(self, context):
-        self.context = context
+
+# TODO: setup subscribers
+
+def event_published(context, event):
+    """
+    #. Send email to CP list, notifying them that new event was published
+    """
+
+    if event.transition:
+        if event.transition.id == "publish_event":
+            emails.event_published_notify_cp_list(context)

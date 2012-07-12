@@ -34,7 +34,7 @@ installed with your OS packet manager, such as apt, aptitude, yum, etc.:
   however some platforms will require that ``bzip2`` be installed.
 * ``Python 2.7`` - Plone 4.2 does NOT work with other Python version so you need
   this exact version.
-
+* development headers for libxml2, libxslt and python
 
 Python tools
 ------------

@@ -8,7 +8,5 @@
         <dependency>profile-plone.app.dexterity:default</dependency>
         <dependency>profile-plone.app.theming:default</dependency>
         <dependency>profile-plone.app.toolbar:default</dependency>
-        <dependency>profile-plone.app.event-ploneintegration:prepare</dependency>
-        <dependency>profile-plone.app.event.dx:default</dependency>
     </dependencies>
 </metadata>

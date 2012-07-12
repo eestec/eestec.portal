@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from plone.api import content
+from plone import api
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
@@ -10,7 +10,7 @@ from zope import schema
 
 
 class ILC(form.Schema, IImageScaleTraversable):
-    """EESTEC Local Committee."""
+    """LC field specification."""
 
     title = schema.TextLine(
         title=u"City",
@@ -19,6 +19,7 @@ class ILC(form.Schema, IImageScaleTraversable):
 
 
 class LC(dexterity.Container):
+    """EESTEC Local Committee."""
     grok.implements(ILC)
 
     @property
@@ -27,7 +28,7 @@ class LC(dexterity.Container):
         if not self.id:
             return ''
 
-        state = content.get_state(self)
+        state = api.content.get_state(self)
         if state == 'inactive':
             state = '(inactive)'
         if state.lower() == 'observer':
