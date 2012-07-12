@@ -31,7 +31,7 @@
 
   <utility
       provides="zope.schema.interfaces.IVocabularyFactory"
-      component=".content.userdata.PFGFormsVocabularyFactory"
+      component=".content.user.LCVocabularyFactory"
       name="lc_list"
       />
 
