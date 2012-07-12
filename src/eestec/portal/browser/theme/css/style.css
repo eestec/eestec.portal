@@ -576,6 +576,7 @@ body {
   background: #ffffff;
   color: #000000;
   font: 16px Arial, FreeSans, sans-serif;
+  line-height: 1.8;
   width: 100%;
 }
 #container {
@@ -1302,7 +1303,7 @@ dl.portletNavigationTree dd.portletItem {
 /* @end */
 /* @group Content Area */
 #content {
-  line-height: 1.5em;
+  line-height: 1.8em;
   clear: both;
   font-size: 13px;
   margin: 1em 0.25em 2em 0.25em;
@@ -3339,6 +3340,113 @@ div.overlaybg div.close {
 }
 .ie7 #content figure figcaption .image-caption:hover {
   left: 0px;
+}
+#portal-logo img {
+  width: 100%;
+  height: auto;
+}
+#main-wrapper {
+  background: url('../images/body_bg.png') repeat-x;
+}
+#main {
+  padding-top: 20px;
+}
+#portal-searchbox {
+  margin-top: 55px;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+input.searchField {
+  border: 0;
+  padding: 3px 5px;
+  -moz-appearance: none;
+}
+#searchGadget {
+  width: 200px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+.LSBox .searchButton {
+  border: 1px solid #eee;
+  height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#efefef));
+  background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
+  background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#fafafa', EndColorStr='#efefef', GradientType=0);
+  background-image: -ms-linear-gradient(top, #fafafa, #efefef);
+  background-image: -o-linear-gradient(top, #fafafa, #efefef);
+}
+#social {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#social img {
+  margin-top: 0px;
+}
+.promo {
+  background: #eff0f5 url('../images/promo_bg.png') no-repeat 50% 50%;
+  padding: 0 35px;
+  border: 1px solid #fff;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 1px 1px #dedede;
+  -moz-box-shadow: 1px 1px 1px 1px #dedede;
+  box-shadow: 1px 1px 1px 1px #dedede;
+  -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength='1px', Direction=180, Color='#dedede');
+}
+.promo h1 {
+  font-size: 25px;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.8em;
+}
+#portal-footer {
+  height: 225px;
+  background: #494949;
+  line-height: 1.25em;
+}
+.portletHeader {
+  font-family: BebasNeue, Arial, FreeSans, sans-serif;
+  font-weight: normal;
+  font-size: 1.75em;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.footer-nav li:before {
+  content: "- ";
+  position: relative;
+  left: 0px;
+}
+.footer-nav li {
+  color: #fff;
+  display: block;
+  text-indent: 5px;
+  padding: 1px;
+  font-size: 0.9em;
+}
+.twitter {
+  position: relative;
+  width: 100px;
+  padding: 5px;
+  margin: 10px 50px 0.5em;
+  color: #333;
+  background: #eee;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
