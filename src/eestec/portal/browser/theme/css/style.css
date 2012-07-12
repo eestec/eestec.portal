@@ -3402,15 +3402,27 @@ dl.portlet dt {
   font-weight: normal;
   letter-spacing: 1px;
 }
-.promo {
+.promo-wrapper {
+  display: block;
+  float: left;
   font-size: 1.3em;
+  position: relative;
+  width: 100%;
+  margin-right: -463px;
+}
+.promo-wrapper .promo {
+  margin-right: 463px;
 }
 .join {
   color: #000;
   background: #fab984;
   display: block;
+  float: left;
+  position: relative;
   text-align: left;
   height: 175px;
+  width: 225px;
+  margin-right: 13px;
 }
 .join h3 {
   color: #666;
@@ -3423,6 +3435,27 @@ dl.portlet dt {
   position: absolute;
   bottom: 45px;
   margin-left: 55px;
+}
+.find {
+  background: #b9d3e8;
+  display: block;
+  float: left;
+  position: relative;
+  text-align: left;
+  height: 175px;
+  width: 225px;
+}
+.find h3 {
+  color: #666;
+  position: absolute;
+  bottom: 3px;
+  left: 0px;
+  margin-left: -12px;
+}
+.find img {
+  position: absolute;
+  bottom: 50px;
+  margin-left: 75px;
 }
 .rotated {
   /* Safari */
@@ -3437,24 +3470,6 @@ dl.portlet dt {
   /* Opera */
 
   -o-transform: rotate(-90deg);
-}
-.find {
-  background: #b9d3e8;
-  display: block;
-  text-align: left;
-  height: 175px;
-}
-.find h3 {
-  color: #666;
-  position: absolute;
-  bottom: 3px;
-  left: 0px;
-  margin-left: -12px;
-}
-.find img {
-  position: absolute;
-  bottom: 50px;
-  margin-left: 75px;
 }
 .subtitle {
   margin-bottom: 0;

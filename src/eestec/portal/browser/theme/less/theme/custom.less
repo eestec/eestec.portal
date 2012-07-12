@@ -68,16 +68,29 @@ dl {
     }
 }
 
-.promo {
+.promo-wrapper {
+    display: block;
+    float: left;
     font-size: 1.3em;
+    position: relative;
+    width: 100%;
+    margin-right: -463px;
+    
+    .promo {
+        margin-right: 463px;
+    }
 }
 
 .join {  
     color: #000;
     background: #fab984;
     display: block;
+    float: left;
+    position: relative;
     text-align: left;
     height: 175px;
+    width: 225px;
+    margin-right: 13px;
 
     h3 {
         color: #666;
@@ -93,15 +106,14 @@ dl {
     }
 }
 
-.rotated {
-    .rotate(-90deg);
-}
-
 .find {
     background: #b9d3e8;
     display: block;
+    float: left;
+    position: relative;
     text-align: left;
     height: 175px;
+    width: 225px;
 
     h3 {
         color: #666;
@@ -115,6 +127,10 @@ dl {
         bottom: 50px;
         margin-left: 75px;
     }
+}
+
+.rotated {
+    .rotate(-90deg);
 }
 
 .subtitle {
@@ -223,7 +239,6 @@ dl {
 .partner {
     float: left;
     margin-left: 50px;
-    
 }
 
 
