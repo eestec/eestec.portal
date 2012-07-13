@@ -3,7 +3,7 @@ python:
   - 2.7
 install:
   - python bootstrap.py
-  - bin/buildout -c buildout.d/travis.cfg
+  - bin/buildout -c travis.cfg
 
 script:
   - ./pre-commit-check.sh
