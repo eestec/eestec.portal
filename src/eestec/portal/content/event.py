@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+"""The event content type. Dexterity is awesome!"""
+
+from Products.CMFCore.interfaces import IActionSucceededEvent
+from eestec.portal import emails
 from five import grok
 from plone.directives import form, dexterity
-from Products.CMFCore.interfaces import IDublinCore
-from zope.component import adapts
 from zope import schema
-from zope.interface import implements, alsoProvides
+from zope.interface.declarations import alsoProvides
 
 
 class IEvent(form.Schema):
@@ -15,8 +18,8 @@ class IEvent(form.Schema):
         required=True,
     )
 
-
 alsoProvides(IEvent, form.IFormFieldProvider)
+
 
 class Event(dexterity.Container):
     """
@@ -24,13 +27,10 @@ class Event(dexterity.Container):
     grok.implements(IEvent)
 
 
-# TODO: setup subscribers
-
+@grok.subscribe(Event, IActionSucceededEvent)
 def event_published(context, event):
     """
-    #. Send email to CP list, notifying them that new event was published
+    Send email to CP list, notifying them that new event was published
     """
-
-    if event.transition:
-        if event.transition.id == "publish_event":
-            emails.event_published_notify_cp_list(context)
+    if event.action == 'publish':
+        emails.event.published_notify_cp_list(context)

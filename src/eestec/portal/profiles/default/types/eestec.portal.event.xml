@@ -31,7 +31,6 @@
     <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
     <element value="plone.app.content.interfaces.INameFromTitle" />
     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
-    <!-- TODO: element value="plone.app.event.dx.behaviors.IEventBasic" /-->
   </property>
 
   <!-- View information -->

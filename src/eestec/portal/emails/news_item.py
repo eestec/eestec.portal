@@ -7,7 +7,7 @@ from eestec.portal.utils import get_portal_from
 from plone import api
 
 
-def news_item_published_notify_cp_list(news_item):
+def published_notify_cp_list(news_item):
     """Send notification email to the CP list, notifying them that a new News
     Item has been published.
     """

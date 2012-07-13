@@ -1,28 +1,50 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 from eestec.portal.tests.base import IntegrationTestCase
-
-from plone.api import content
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import setRoles
+from email import message_from_string
+from plone import api
 
 
-class TestEvent(IntegrationTestCase):
+class TestIntegration(IntegrationTestCase):
+    """Integration tests for News Items."""
 
     def setUp(self):
+        """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
+        self.workflow = api.portal.get_tool('portal_workflow')
 
-    def test_hierarchy(self):
-        setRoles(self.portal, TEST_USER_ID, ('Manager',))
+        # in tests we have to manually map content types to workflows
+        self.workflow.setChainForPortalTypes(
+            ['eestec.portal.event'],
+            'simple_publication_workflow'
+        )
 
-        lc = content.create(
+        # add test item
+        lc = api.content.create(
             type='eestec.portal.lc',
             title=u'lc',
             container=self.portal,
         )
 
-        event = content.create(
+        self.event = api.content.create(
             type='eestec.portal.event',
-            id=u'event',
-            container=lc,
+            title=u'Tést event',
+            container=lc
         )
+
+        self.event = self.portal.lc['test-event']
+        # publish the item
+        api.content.transition(obj=self.event, transition='publish')
+
+    def test_notification_email(self):
+        """Test if notification email is sent to CP-list."""
+        mailhost = api.portal.get_tool('MailHost')
+        self.assertEquals(len(mailhost.messages), 1)
+        msg = message_from_string(mailhost.messages[0])
+
+        self.assertEquals(msg['From'], 'EESTEC International <noreply@eestec.net>')
+        self.assertEquals(msg['To'], 'cp@eestec.net')
+        self.assertEquals(msg['Subject'], '=?utf-8?q?=5BCP=5D_=5BEVENTS=5D_T=C3=A9st_event?=')
+        self.assertIn('a new Event has been published', msg.get_payload())
+        self.assertIn('http://nohost/plone/lc/test-event', msg.get_payload())
