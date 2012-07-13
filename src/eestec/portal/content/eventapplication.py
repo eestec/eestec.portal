@@ -8,7 +8,7 @@ from plone.app.textfield import RichText
 from plone.directives import form, dexterity
 from z3c.form.interfaces import IEditForm
 from zope import schema
-from zope.component import alsoProvides
+from zope.interface.declarations import alsoProvides
 
 
 class IEventApplication(form.Schema):
