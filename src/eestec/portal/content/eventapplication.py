@@ -78,6 +78,7 @@ class EventApplication(dexterity.Container):
 
 
 # TODO: write subscribers for eventapplication
+
 def eventapplication_created(context, event):
     """
     #. Send email to member's LC Board.
