@@ -1,0 +1,370 @@
+// Styles that cannot be found in main.less goes here.
+
+h2 {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+#portal-logo img {
+    width: 100%;
+    height: auto;
+}
+
+#menu {
+    letter-spacing: 1px;
+}
+
+#main-wrapper {
+    background: url('../images/body_bg.png') repeat-x;
+}
+
+#main {
+    padding-top: 20px;
+}
+
+#portal-searchbox {
+    margin-top: 55px;
+    border: 1px solid #d7d7d7;
+    
+    .rounded-corners(4px);
+}
+
+input.searchField {
+    border: 0;
+    padding: 3px 5px;
+    -moz-appearance: none;
+}
+
+#searchGadget {
+    width: 200px;
+    .rounded-corners(4px);
+}
+
+.LSBox .searchButton {
+    border: 1px solid #eee;
+    height: 24px;
+    
+    .rounded-corners(4px);
+    .background-gradient(#efefef, #fafafa, #efefef);
+}
+
+#social {
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    img {
+        margin-top: 0px;
+    }
+}
+
+dl {
+    &.portlet {
+        dt {
+            font-family: @heading-font-family;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.promo-wrapper {
+    display: block;
+    float: left;
+    font-size: 1.1em;
+    position: relative;
+    width: 100%;
+    margin-right: -513px;
+    
+    .promo {
+        margin-right: 510px;
+    }
+}
+
+.join {  
+    color: #000;
+    background: #fab984;
+    display: block;
+    float: left;
+    position: relative;
+    text-align: left;
+    height: 175px;
+    width: 250px;
+    margin-right: 13px;
+
+    .tile-hover {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: #fab984;
+        position: absolute;
+        z-index: 1;
+    }
+    .inner-tile {
+        padding: 1em;
+    }
+    &:hover > .tile-hover {
+        display: block;
+        opacity: .7;
+    }
+
+    h3 {
+        color: #666;
+        position: absolute;
+        bottom: 15px;
+        left: 0px;
+        margin-left: -25px
+    }
+    img {
+        position: absolute;
+        bottom: 45px;
+        margin-left: 55px;
+    }
+}
+
+.find {
+    background: #b9d3e8;
+    display: block;
+    float: left;
+    position: relative;
+    text-align: left;
+    height: 175px;
+    width: 250px;
+    .inner-tile {
+        padding: 1em;
+    }
+    .tile-hover {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: #b9d3e8;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &:hover > .tile-hover {
+        display: block;
+        opacity: .7;
+    }
+
+    h3 {
+        color: #666;
+        position: absolute;
+        bottom: 3px;
+        left: 0px;
+        margin-left: -12px;
+    }
+    img {
+        position: absolute;
+        bottom: 50px;
+        margin-left: 75px;
+    }
+}
+
+.rotated {
+    .rotate(-90deg);
+}
+
+.subtitle {
+    margin-bottom: 0;
+}
+
+.recent-news, .sidebar {
+    display: inline-block;
+}
+#news-wrapper {
+    display: block;
+    float: left;
+    margin-right: -250px;
+    position: relative;
+    width: 100%;
+}
+.recent-news {
+    margin-right: 290px;
+}
+.news-item {
+    margin-bottom: 30px;
+    
+    .news-title {
+        color: #7e7e7e;
+        font-family: @heading-font-family;
+    }
+    img {
+        border: 4px solid #DDD;
+        margin-right: 20px;
+        float: left;
+    }
+    .read-more {
+        font-family: @heading-font-family;
+        color: #c14e51;
+        font-size: 1.1em;
+        float: right;
+        margin-top: 30px;
+        margin-right: 30px;
+    }
+}
+
+.sidebar {
+    width: 250px;
+    position: relative;
+    display: block;
+    float:right;
+}
+
+.sidebar-title {
+    font-size: @font-size-large;
+    margin-top: 38px;
+}
+
+.event-item {
+    color: #494949;
+    border-left: 3px solid #c05050;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    line-height: 19px;
+    
+    a, a:link, a:active, a:hover, a:visited {
+        color: #494949!important;
+    }
+    
+    &:hover {
+        background: #f5f5f5;
+    }
+    
+    .event-date {
+        float: left;
+        padding: 0 15px;
+        
+        .month {
+            font-size: 13px;
+            text-align: center;
+        }
+        .day {
+            font-family: @heading-font-family;
+            font-size: 25px;
+        }
+    }
+    .event-title {
+        color: #5e5e5e;
+        font-size: @font-size-large;
+        margin-right: 20px;
+    }
+    .event-content {
+        color: #c0c0c0;
+        font-size: @font-size-small;
+        margin-right: 20px;
+        margin-top: 4px;
+    }
+}
+
+.project-list {
+    margin-top: 40px;
+}
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+.event-arrow,
+.project-arrow {
+    position: absolute;
+    right: 6px;
+    height: 18px;
+    width: 6px;
+    margin-top: 14px;
+    background: url('../images/arrow.png') no-repeat;
+}
+
+.project-arrow {
+    margin-top: 30px;
+}
+
+.partner {
+    float: left;
+    margin-left: 50px;
+}
+
+
+#portal-footer {
+    height: 225px;
+    background: #494949;
+    line-height: 1.25em;
+}
+
+.portletHeader {
+    font-family: @heading-font-family;
+    font-weight: @heading-font-weight;
+    font-size: @h2-font-size;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+
+.footer-nav li:before { 
+    content: "- "; 
+    position: relative; 
+    left: 0px;
+}
+
+
+.footer-nav li{
+    color: #fff;
+    display: block;
+    text-indent: 5px;
+    padding: 1px;
+    font-size: 0.9em
+}
+
+#portal-footer {
+	height: 225px;
+	background: #494949;
+	line-height: 1.25em;
+}
+
+.portletHeader {
+	font-family: @heading-font-family;
+    font-weight: @heading-font-weight;
+    font-size: @h2-font-size;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+
+.footer-nav li:before { 
+	content: "- "; 
+	position: relative; 
+	left: 0px;
+}
+
+
+.footer-nav li{
+	color: #fff;
+	display: block;
+	text-indent: 5px;
+	padding: 1px;
+	font-size: 0.9em
+}
+
+
+
+.twitter {
+	position:relative;
+	width: 100px;
+	padding:5px;
+	margin:10px 50px 0.5em;
+	color:#333;
+	background:#eee;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+
+.twitter:after {
+
+}

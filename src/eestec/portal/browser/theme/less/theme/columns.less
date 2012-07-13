@@ -1,0 +1,198 @@
+// General scafolding that will apply for all devices
+
+#portal-column-main {
+    display: block;
+    float: left;
+    margin-right: -(@sidebar-right-width + @sidebar-right-margin-left);
+    position: relative;
+    width: 100%;
+}
+
+#portal-column-wrapper {
+    margin-left: @sidebar-left-width + @sidebar-left-margin-left;
+    margin-right: @sidebar-right-width + @sidebar-right-margin-left;
+}
+
+// move the left column 100% to the left
+#portal-column-one {
+    display: block;
+    float: left;
+    margin-left: -100%;
+    position: relative;
+    width: @sidebar-left-width;
+}
+// if the right goes down on tablet, then move it back by the width of the right
+// column
+.tablet-right-down {
+    #portal-column-one {
+        padding-left: @sidebar-right-width + @sidebar-right-margin-left;
+    }
+}
+
+#portal-column-two {
+     display: block;
+     float: left;
+     margin-left: @sidebar-right-margin-left;
+     position: relative;
+     width: @sidebar-right-width;
+}
+
+// No right sidebar
+.no-right-column {
+    .no-right-sidebar();
+}
+
+// No left sidebar
+.no-left-column {
+    .no-left-sidebar();
+}
+
+// Page layout: CCCCC | SS | SS,  C - content, S - sidebar
+.sidebars-right {
+    #portal-column-wrapper {
+        margin-left: 0;
+        margin-right: @sidebar-right-width + @sidebar-left-width + @sidebar-right-margin-left + @sidebar-left-margin-left;
+    }
+    #portal-column-main {
+        margin-right: -(@sidebar-right-width + @sidebar-left-width + @sidebar-right-margin-left + @sidebar-left-margin-left);
+    }
+    #portal-column-one {
+        margin-left: @sidebar-left-margin-left;
+        padding-left: 0;
+    }
+    
+    // Switch the position of the sidebars when left sidebar is moved down
+    .tablet-left-down {
+        #portal-column-one {
+            margin-left: -(@sidebar-right-width + @sidebar-left-width + @sidebar-right-margin-left);
+        }
+        #portal-column-two {
+            margin-left: @sidebar-left-width + @sidebar-left-margin-left + @sidebar-right-margin-left;
+        }
+    }
+    
+    // No right column
+    .no-right-column {
+        #portal-column-wrapper {
+            margin-right: @sidebar-left-width + @sidebar-left-margin-left;
+        }
+        #portal-column-main {
+            margin-right: -(@sidebar-left-width + @sidebar-left-margin-left);
+        }
+        #portal-column-one {
+            margin-left: @sidebar-left-margin-left;
+        }
+    }
+    
+    // No left column
+    .no-left-column {
+        #portal-column-wrapper {
+            margin-right: @sidebar-right-width + @sidebar-right-margin-left;
+        }
+        #portal-column-main {
+            margin-right: -(@sidebar-right-width + @sidebar-right-margin-left);
+        }
+        #portal-column-two {
+            margin-left: @sidebar-right-margin-left;
+        }
+    }
+    
+    .no-right-column.no-left-column {
+        #portal-column-wrapper {
+            margin-right: 0;
+        }
+        #portal-column-main {
+            margin-right: 0;
+        }
+    }
+}
+
+// The 16-column Deco Grid System. 
+// For the 12-column variant, see decogrids-12.css.
+// 
+// Cells are 4% width, 1.125% left/right margin.
+// 
+// If page width is fixed to 960px width:
+// Cell will be equivalent to 40px, left/right margin will be 10px.
+// 
+// If page width is fixed to 1088px width:
+// Cell will be equivalent to 44px, left/right margin will be 12px.
+
+
+div.row {
+  float: left;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+div.cell {
+  position: relative;
+  float: left;
+  left: 100%;
+}
+// IE8: keeps livesearch from falling behind content area,
+// and display menu from falling behind footer
+// Keeping float for IE7, so the portlets don't fall
+.ie6 div.cell {
+    float: none;
+}
+
+// Width classes. 
+//   For a given cell width, the calculation is: width: (6.25*n - 2.25)%
+div.width-1  { .grid-column-width(1)  }
+div.width-2  { .grid-column-width(2)  }
+div.width-3  { .grid-column-width(3)  }
+div.width-4  { .grid-column-width(4)  }
+div.width-5  { .grid-column-width(5)  }
+div.width-6  { .grid-column-width(6)  }
+div.width-7  { .grid-column-width(7)  }
+div.width-8  { .grid-column-width(8)  }
+div.width-9  { .grid-column-width(9)  }
+div.width-10 { .grid-column-width(10)  }
+div.width-11 { .grid-column-width(11)  }
+div.width-12 { .grid-column-width(12)  }
+div.width-13 { .grid-column-width(13)  }
+div.width-14 { .grid-column-width(14)  }
+div.width-15 { .grid-column-width(15)  }
+div.width-16 { .grid-column-width(16)  }
+
+
+// Positioning classes, these are subtracting from a rightmost 
+// position, which is why they seem the wrong way around
+// For a given position, the calculation is margin-left: -100 + (6.25*n) + 1.125
+div.position-0  { .grid-position(0) }
+div.position-1  { .grid-position(1) }
+div.position-2  { .grid-position(2) }
+div.position-3  { .grid-position(3) }
+div.position-4  { .grid-position(4) }
+div.position-5  { .grid-position(5) }
+div.position-6  { .grid-position(6) }
+div.position-7  { .grid-position(7) }
+div.position-8  { .grid-position(8) }
+div.position-9  { .grid-position(9) }
+div.position-10 { .grid-position(10) }
+div.position-11 { .grid-position(11) }
+div.position-12 { .grid-position(12) }
+div.position-13 { .grid-position(13) }
+div.position-14 { .grid-position(14) }
+div.position-15 { .grid-position(15) }
+
+// End of the core Deco Grid System
+
+// Convenience classes
+div.width-1\3a 2 { .grid-column-width(8)  } // .width-1:2
+div.width-1\3a 4 { .grid-column-width(4)  } // .width-1:4
+div.width-3\3a 4 { .grid-column-width(12) } // .width-3:4
+div.width-full   { .grid-column-width(16) } 
+div.position-1\3a 2 { .grid-position(8) } // .position-1:2
+div.position-1\3a 4 { .grid-position(4) } // .position-1:4
+div.position-3\3a 4 { .grid-position(12) } // .position-3:4
+
+
+// Special classes. 
+// These do not strictly conform to the grid, but are useful for certain layouts.
+div.width-1\3a 3 { width: @width-1-3 } // .width-1:3
+div.width-2\3a 3 { width: @width-2-3 } // .width-2:3
+div.position-1\3a 3 {margin-left: @position-1-3 } // .position-1:3
+div.position-2\3a 3 {margin-left: @position-2-3 } // .position-2:3
+div.position-00 {margin-left: -100%; } // position-0 sans gutter

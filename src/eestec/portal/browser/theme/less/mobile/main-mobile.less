@@ -1,0 +1,320 @@
+// CSS that is applied only for sceen that is less then 480px wide.
+
+@media only screen and (max-width: 480px) {
+    
+    // Layout modifications
+    body, #container {
+        width:100%;
+    }
+
+    #portal-column-main,
+    #portal-column-one,
+    #portal-column-two {
+        display: block;
+        float: none!important;
+        position: relative;
+        width: 100%;
+    }
+
+    #portal-column-main {
+        margin-right: 0!important;
+    }
+    #portal-column-wrapper {
+        margin-right: 0!important;
+        margin-left: 0!important;
+    }
+    #portal-column-one {
+        margin-left: 0!important;
+        padding-left: 0!important;
+    }
+    #portal-column-two {
+        margin-left: 0!important;
+    }
+
+
+    // Element stylings
+    
+    #social {
+        display: none;
+    }
+    
+    #portal-personaltools {
+        font-size: @mobile-Personaltools-font-size !important;
+        padding: 5px;
+    }
+    
+    #portal-logo {
+        margin-bottom: 1em;
+    }
+    
+    #portal-breadcrumbs {
+        margin-top: 10px;
+    }
+    
+    .visible {
+        display: block!important;
+        visibility: visible!important;
+    }
+
+
+    // MENU
+    
+    #mobile-menu {
+        display: block!important;
+        visibility: visible;
+        margin: 0 -13px;
+    }
+    
+    .mobile-menu-button {
+        border: 1px solid #f5f5f5;
+        float: left;
+        padding: 7px;
+        height: 13px;
+        margin-left: 5px;
+        margin-right: 10px;
+        
+        .rounded-corners(3px);
+        .box-shadow(0, 0, 1px, 0, rgba(0,0,0,.25));
+        
+        img {
+            height: 20px;
+            vertical-align: top;
+            margin-top: -4px;
+        }
+    }
+    
+    .icon-bar {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background-color: #f5f5f5;
+        margin-bottom: 3px;
+        
+        .rounded-corners(1px);
+        .box-shadow(0px, 1px, 1px, 0px, rgba(0,0,0,.25));
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    .mobile-menu-opened .mobile-menu-button {
+        background: #FFF;
+        
+        .icon-bar {
+            background-color: #ddd;
+            
+            .inset-box-shadow(0px, 1px, 1px, 0px, rgba(0,0,0,0));
+        }
+    }
+    
+    
+    // Show menu button, and hide the actual menu
+    #mobile-globalnav {
+        color: @mobile-Mobile-globalnav-color;
+        border: @mobile-Mobile-globalnav-border-bottom;
+        font-size: @mobile-Mobile-globalnav-font-size;
+        font-family: @heading-font-family;
+        padding: 10px;
+        background: @mobile-Mobile-globalnav-background;
+        cursor: pointer;
+    }
+    
+    #portal-globalnav {
+        display: none;
+        visibility: hidden;
+        
+        li, li a {
+            display:block;
+            font-size: @mobile-Portal-globalnav-font-size;
+            padding: 0;
+        }
+        li a {
+            padding: @mobile-Portal-globalnav-item-padding;
+        }
+    }
+    
+    #plone-contentmenu-display {
+        float: none;
+    }
+
+	// Social networking stuff
+	#social {
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    
+		img {
+       		margin-top: -70px;
+    	}
+	}
+    // SEARCH
+    #mobile-search {
+        color: @mobile-Mobile-search-color;
+        border: @mobile-Mobile-search-border-bottom;
+        border-left: @mobile-Mobile-search-border-left;
+        font-size: @mobile-Mobile-search-font-size;
+        padding: @mobile-Mobile-search-padding;
+        background: @mobile-Mobile-search-background;
+        cursor: pointer;
+        float:right;
+        width: @mobile-Mobile-search-width;
+        
+        .mobile-menu-button {
+            margin-right: 5px;
+        }
+    }
+    
+    #portal-searchbox {
+        display: none;
+        visibility: hidden;
+        
+        position: relative;
+        float: none!important;
+        font-size: @mobile-Portal-searchbox-font-size !important;
+        margin: @mobile-Portal-searchbox-margin;
+        width: @mobile-Portal-searchbox-width;
+        
+        input {
+            font-size: @mobile-Portal-searchbox-input-font-size !important;
+            margin-bottom: @mobile-Portal-searchbox-input-margin-bottom;
+                    height: 25px;
+        }
+    }
+    
+    #searchGadget {
+        width: @mobile-SearchGadget-width;
+    }
+    .LSBox .searchButton {
+        position: absolute;
+        right: 3px;
+        top: 3px;
+    }
+    
+    #LSResult {
+        margin: 0;
+        position: relative;
+        
+        fieldset {
+            overflow:hidden;
+            width: 100%;
+        }
+    }
+    
+    .LSRow, #LSNothingFound {
+        width: 100%;
+    }
+    
+    input.searchPage {
+        font-size: @mobile-Input-SearchPage-font-size !important;
+    }
+
+
+    // EDIT BAR
+    #mobile-page-settings {
+        display: block!important;
+        visibility: visible;
+        
+        cursor: pointer;
+        color: @mobile-EditBar-Mobile-page-settings-color;
+        font-size: @mobile-EditBar-Mobile-page-settings-font-size;
+        text-align: center;
+        padding: @mobile-EditBar-Mobile-page-settings-padding;
+        margin: @mobile-EditBar-Mobile-page-settings-margin;
+        border: @mobile-EditBar-Mobile-page-settings-border;
+        .rounded-corners(5px);
+        
+        &.selected {
+            background: @mobile-EditBar-Mobile-page-settings-selected-background;
+        }
+    }
+    
+    #edit-bar {
+        display: none;
+        visibility: hidden;
+        
+        background-color:@mobile-EditBar-background;
+        border:@mobile-EditBar-border;
+        padding-bottom: @mobile-EditBar-padding-bottom;
+    }
+    
+    #content-views {
+        float:none;
+        
+        a {
+            font-size: @mobile-EditBar-content-views-a-font-size;
+            line-height: @mobile-EditBar-content-views-a-line-height !important;
+            margin: @mobile-EditBar-content-views-a-margin;
+            padding: @mobile-EditBar-content-views-a-padding;
+        }
+        
+        li.selected a, li a:hover {
+            .rounded-corners(5px);
+        }
+    }
+    
+    #content li.formTab a {
+        font-size: @mobile-EditBar-FormTab-font-size;
+        line-height: @mobile-EditBar-FormTab-line-height !important;
+        padding: @mobile-EditBar-FormTab-padding;
+    }
+
+    #contentActionMenus {
+        float: none;
+        top: auto;
+        right: auto;
+        margin: @mobile-EditBar-ContentActionMenus-margin;
+        .rounded-corners(0.5em);
+
+        a {
+            width: @mobile-EditBar-ContentActionMenus-a-width;
+            line-height: @mobile-EditBar-ContentActionMenus-a-line-height !important;
+            font-size: @mobile-EditBar-ContentActionMenus-a-font-size;
+            padding-top: @mobile-EditBar-ContentActionMenus-a-padding-top;
+        }        
+        dl.actionMenu {
+            float:none;
+            
+            a, 
+            &.activated dd {
+                background-color: @mobile-EditBar-ContentActionMenus-actionMenu-a-background;
+                min-width: @mobile-EditBar-ContentActionMenus-actionMenu-a-min-width !important;
+                right: auto;
+                position: relative;
+                border: @mobile-EditBar-ContentActionMenus-actionMenu-a-min-width;
+            }
+        }
+        .actionMenuContent {
+            background-color: @mobile-EditBar-ContentActionMenus-actionMenuContent-background !important;
+        }
+    } // edit bar end
+
+
+    input, textarea {
+        font-size: @mobile-Input-font-size !important;
+    }
+    
+    div.managePortletsLink,
+    a.managePortletsFallback {
+        font-size: @mobile-managePortlets-font-size;
+    }
+    
+    div.overlay {
+        font-size: @mobile-overlay-font-size;
+    }
+    
+    .pb-ajax > div {
+        width: @mobile-pb-ajax-width;
+    }
+    
+    div.overlay-iframe,
+    div.overlay-ajax {
+        width: @mobile-Overlay-width;
+    }
+    
+    #fieldset-openid-login label, #login-form label {
+        text-align: @mobile-Login-form-label-text-align;
+    }
+    
+
+}

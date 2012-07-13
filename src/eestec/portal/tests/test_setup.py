@@ -4,7 +4,7 @@
 from plone import api
 from eestec.portal.tests.base import IntegrationTestCase
 from zope.component import getUtilitiesFor
-
+from Products.CMFCore.utils import getToolByName
 import unittest2 as unittest
 
 
@@ -97,6 +97,35 @@ class TestInstall(IntegrationTestCase):
         for portal_type, chain in self.workflow.listChainOverrides():
             if portal_type == 'eestec.portal.lc':
                 self.assertEquals(('lc_workflow',), chain)
+
+    # cssregistry.xml
+    def test_css_registry_configured(self):
+        css_resources = set(
+            getToolByName(self.portal, 'portal_css').getResourceIds())
+
+        self.failUnless(
+            '++theme++eestec.portal/css/style.css' in css_resources)
+
+    # jsregistry.xml
+    def test_js_registry_configured(self):
+        js_resources = set(
+            getToolByName(self.portal, 'portal_javascripts').getResourceIds())
+
+        self.failUnless(
+            '++theme++eestec.portal/javascript/libs/modernizr.custom.js'
+            in js_resources)
+        self.failUnless(
+            '++theme++eestec.portal/javascript/libs/respond.min.js'
+            in js_resources)
+
+    # index.html
+    def test_doctype_configured(self):
+        from plone.app.theming.interfaces import IThemeSettings
+        from plone.registry.interfaces import IRegistry
+        from zope.component import getUtility
+
+        settings = getUtility(IRegistry).forInterface(IThemeSettings)
+        self.assertEqual(settings.doctype, '<!doctype html>')
 
 
 def test_suite():

@@ -1,0 +1,622 @@
+// Variables that set the base properties for the theme
+// =====================================================
+
+// Use custom font
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../fonts/BebasNeue-webfont.eot');
+    src: url('../fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BebasNeue-webfont.woff') format('woff'),
+         url('../fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('../fonts/BebasNeue-webfont.svg#CuprumFFURegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Font family
+@font-family: Arial, FreeSans, sans-serif;
+@heading-font-family: BebasNeue, Arial, FreeSans, sans-serif;
+@input-font-family: "Lucida Grande", Arial, FreeSans;
+@content-pre-font-family: Consolas, Inconsolata, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+@content-code-font-family: Consolas, Inconsolata, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+@content-documentDescription-font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
+@Content-textarea-font-family: Monaco, "Courier New", Courier, monospace;
+@Forms-field-input-font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
+@Forms-field-textarea-font-family: Arial,FreeSans,sans-serif;
+
+
+// Font sizes
+@font-size-large: 18px;
+@font-size-normal: 16px;
+@font-size-medium: 14px;
+@font-size-small: 13px;
+@font-size-smallest: 12px;
+
+@body-font: @font-size-normal @font-family;
+@menu-font: @font-size-normal @heading-font-family;
+
+
+@h1-font-size: 2em;
+@h2-font-size: 1.75em;
+@h3-font-size: 1.25em;
+@h4-font-size: 1.25em;
+@h5-font-size: 1em;
+@h6-font-size: 0.8em;
+
+@Personaltools-font-size: @font-size-small;
+@Languageselector-font-size: @font-size-small;
+@LiveSearchDescription-font-size: @font-size-small;
+@Portal-searchbox-font-size: @font-size-small;
+@SiteActions-font-size: @font-size-small;
+@Breadcrumbs-font-size: @font-size-small;
+@Portlet-font-size: @font-size-small;
+@Portlet-header-font-size: @font-size-normal;
+@Portlet-managePortlets-font-size: @font-size-small;
+@Portlet-ItemDetails-font-size: @font-size-small;
+@PortletAssignments-font-size: @font-size-small;
+@content-font-size: @font-size-small;
+@content-pre-font-size: @font-size-medium;
+@content-documentByLine-font-size: @font-size-smallest;
+@content-documentDescription-font: bold @font-size-normal @content-documentDescription-font-family;
+@content-discreet-font-size: @font-size-medium;
+@content-pullquote-font-size: @font-size-medium;
+@content-portalMessage-font-size: @font-size-large;
+@Content-textarea-font: @font-size-normal @Content-textarea-font-family;
+@category-font-size: @font-size-small;
+@OptionsToggle-font-size: @font-size-medium;
+@StatusMessage-portalMessage-font-size: @font-size-large;
+@EditBar-font-size: @font-size-small;
+@ArrowDownAlternative-font-size: @font-size-small;
+@Collapsible-header-font-size: @font-size-medium;
+@Comments-font-size: @font-size-small;
+@SearchResults-input-searchPage-font-size: @font-size-large;
+@SearchResults-filter-legend-font-size: @font-size-normal;
+@ImageAligned-caption-font-size: @font-size-small;
+@Dashboard-font-size: @font-size-large;
+@Forms-field-input-font-size: @font-size-large;
+@Forms-field-textarea-font-size: @font-size-normal;
+@Content-legend-font-size: @font-size-small;
+@Login-input-font-size: @font-size-large;
+@Footer-font-size: @font-size-small;
+@Colophon-font-size: @font-size-small;
+@Sitemap-font-size: @font-size-large;
+@Sitemap-navTreeLevel2-font-size: @font-size-small;
+@PhotoAlbum-link-font-size: @font-size-medium;
+@Overlay-font-size: @font-size-small;
+
+@mobile-Personaltools-font-size: @font-size-smallest;
+@mobile-Mobile-globalnav-font-size: @font-size-normal;
+@mobile-Portal-globalnav-font-size: @font-size-normal;
+@mobile-Mobile-search-font-size: @font-size-normal;
+@mobile-Portal-searchbox-font-size: @font-size-smallest;
+@mobile-Portal-searchbox-input-font-size: @font-size-smallest;
+@mobile-Input-SearchPage-font-size: @font-size-small;
+@mobile-EditBar-Mobile-page-settings-font-size: @font-size-smallest;
+@mobile-EditBar-FormTab-font-size: @font-size-normal;
+@mobile-EditBar-ContentActionMenus-a-font-size: @font-size-small;
+@mobile-Input-font-size: @font-size-normal;
+@mobile-managePortlets-font-size: @font-size-normal;
+@mobile-overlay-font-size: @font-size-normal;
+
+
+// Accessibility
+@Accessibility-largeText: @font-size-large;
+@Accessibility-smallText: @font-size-small;
+
+
+// BODY styling
+
+// body - all devices
+@body-width: 100%;
+@body-margin: 0;
+@body-background-color: #FFF;
+@body-background: @body-background-color;
+@body-font-color: #000;
+@body-line-height: 1.8;
+
+@container-background: #FFF;
+@container-margin: 0 13px;
+
+@EditBar-default-color: #DDD;
+@EditBar-link-color: @link-color;
+
+// body - desktop only
+@desktop-body-max-width: 1088px;
+@desktop-body-margin: 0 auto;
+
+
+// Sidebar
+// For dynamic sidebar widths use % for width and margin
+@sidebar-right-width: 300px;
+@sidebar-left-width: 200px;
+@sidebar-right-margin-left: 12px;
+@sidebar-left-margin-left: 12px;
+@tablet-sidebar-column-count: 2;
+@tablet-sidebar-column-gap: 10px;
+
+// Heading styling
+
+@heading-font-weight: normal;
+@heading-font-color: #000;
+@heading-line-height: 1.5em;
+
+// Subheading - h2, h3, h4, h5, h6
+@subheading-font-color: #494949;
+
+@link-color: #FF020C;
+@link-hover-color: #9F000A;
+
+@dt-font-weight: bold;
+
+
+// HEADER STYLING
+
+@portal-logo-margin: 1.375em 0;
+
+
+// Menu
+@menu-background: transparent;
+@menu-border-top: 0;
+@menu-border-bottom: 0;
+@menu-item-background: transparent;
+@menu-item-border-top: 0;
+@menu-item-border-bottom: 0;
+@menu-item-border-left: 0;
+@menu-item-border-right: 0;
+@menu-item-color: #000;
+@menu-item-font-weight: normal;
+@menu-item-min-width: auto;
+@menu-item-padding: 15px 20px 10px;
+@menu-item-hover-background: #FFF;
+@menu-item-hover-font-color: #FF020C;
+@menu-item-selected-background: #000;
+@menu-item-selected-font-color: #FFF;
+@menu-item-selected-hover-background: #000;
+@menu-item-selected-hover-font-color: #FFF;
+
+@mobile-Mobile-globalnav-color: #666;
+@mobile-Mobile-globalnav-border-bottom: 1px solid @body-background-color;
+@mobile-Mobile-globalnav-background: @EditBar-default-color;
+@mobile-Portal-globalnav-item-padding: 10px;
+
+
+// Personal Tools
+@Personaltools-background: @EditBar-default-color;
+@Personaltools-margin: 0;
+@Personaltools-line-height: 2em;
+@Personaltools-hover-background: lighten(@EditBar-default-color, 30%);
+@Personaltools-hover-color: @EditBar-link-color;
+@Personaltools-link-color: @EditBar-link-color;
+
+
+// Language Selector
+@Languageselector-background: #e3e3e3;
+
+
+// Live Search
+@LiveSearch-background: transparent;
+@LiveSearch-border: 0.1em solid #ccc;
+@LiveSearch-container-background: #FFF;
+@LiveSearchLegend-background: #ccc;
+@LiveSearchDescription-color: #666;
+@LiveSearchHighlight-background: #ddd;
+@Portal-searchbox-label-font-weight: normal;
+
+@mobile-Mobile-search-color: #000;
+@mobile-Mobile-search-border-bottom: 1px solid @body-background-color;
+@mobile-Mobile-search-border-left: 1px solid @body-background-color;
+@mobile-Mobile-search-padding: 10px;
+@mobile-Mobile-search-background: @EditBar-default-color;
+@mobile-Mobile-search-width: auto;
+@mobile-Portal-searchbox-margin: 1em auto;
+@mobile-Portal-searchbox-width: 80%;
+@mobile-Portal-searchbox-input-margin-bottom: 0;
+@mobile-SearchGadget-width: 70%;
+
+
+// Site Actions
+@SiteActions-color: #000;
+
+
+// BODY STYLING
+
+// Listings
+@ListingsLinkAnchor-color: #000;
+@ListingsLinkOverlay-border: 1px dotted #205c90;
+
+
+// Portlets
+@Portlet-background: @container-background;
+@Portlet-header-background: #555;
+@Portlet-header-color: #FFF;
+@Portlet-header-line-height: normal;
+@Portlet-header-text-transform: uppercase;
+@Portlet-item-padding: 1em;
+@Portlet-link-color: @content-link-color;
+@Portlet-link-border-bottom: @content-link-boerder-bottom;
+@Portlet-link-visited-color: @content-link-visited-color;
+@Portlet-link-visited-border-bottom: @content-link-visited-border-bottom;
+@Portlet-link-hover-color: @content-link-hover-color;
+@Portlet-li-line-height: 1.5em;
+@Portlet-error-background: #FFA500;
+@Portlet-prefs-link-line-height: 2em;
+@Portlet-managePortlets-background: @EditBar-default-color;
+@Portlet-managePortlets-color: @EditBar-link-color;
+@Portlet-blockedPortlet-background: none repeat scroll 0 0 transparent;
+@Portlet-blockedPortlet-border: 1px dashed #DDDDDD;
+@Portlet-blockedPortlet-color: #666666;
+@Portlet-rss-date-color: #888;
+@Portlet-rss-date-font-size: @font-size-smallest;
+@Portlet-Calendar-background: #EEEEEE;
+@Portlet-Calendar-weekdays-background: #EEEEEE;
+@Portlet-Calendar-weekdays-font-weight: normal;
+@Portlet-Calendar-event-background: #EEEEEE;
+@Portlet-Calendar-event-font-weight: bold;
+@Portlet-Calendar-todayEvent-background: #EEEEEE;
+@Portlet-Calendar-todayEvent-border: 2px solid #205C90;
+@Portlet-Calendar-todayEvent-font-weight: bold;
+@Portlet-Calendar-todayNoEvent-border: 2px solid #205C90;
+@Portlet-Calendar-line-height: 1.6em;
+@Portlet-Calendar-font-weight: bold;
+@Portlet-ItemDetails-line-height: 1.5em;
+@Portlet-Navigation-color: #333;
+@Portlet-Navigation-hover-color: #9F000A;
+@Portlet-Navigation-font-weight: normal;
+@Portlet-Navigation-item-padding: 5px 0;
+@Portlet-Navigation-currentItem-background: transparent;
+@Portlet-Navigation-currentItem-color: #FF020C;
+@Portlet-Navigation-currentItem-font-weight: bold;
+@Portlet-Navigation-Level0-padding: 0 0 0 13px;
+@Portlet-Navigation-Level0-border-bottom: 0.1em dotted #ddd;
+@Portlet-Navigation-Level0-line-height: 1.5;
+@Portlet-Navigation-Level1-padding-left: 12px;
+@Portlet-Navigation-Level1-line-height: 1.5;
+@PortletAssignments-line-height: 2em;
+
+
+// Breadcrumbs
+@breadcrumbs-link-color: #999999;
+@breadcrumbs-link-hover-color: #000;
+@breadcrumbs-separator-color: #999;
+@breadcrumbs-current-color: #BC231B;
+
+
+// Content
+@content-line-height: 1.8em;
+@content-margin: 1em 0.25em 2em 0.25em;
+@content-link-color: @link-color;
+@content-link-boerder-bottom: 0.1em solid #ccc;
+@content-link-visited-color: @link-color;
+@content-link-visited-border-bottom: 0.1em solid #ccc;
+@content-link-hover-color: @link-hover-color;
+@content-link-target-background: #ffb;
+@content-pre-background: #222;
+@content-pre-color: #FFF;
+@content-pre-line-height: 1.25em;
+@content-pre-python-background: #FFF;
+@Content-li-line-height: 1.5em;
+@content-dt-font-weight: bold;
+@content-documentByLine-color: #666;
+@content-documentByLine-text-align: left;
+@content-documentByLine-border-top: 0;
+@content-discreet-color: #666;
+@content-discreet-font-weight: normal;
+@content-visualHighlight-background: #ffb;
+@content-pullquote-color: #444;
+@content-pullquote-font-weight: bold;
+@content-pullquote-line-height: 1.25em;
+@content-callout-background: #eee;
+@content-documentDescription-color: #666;
+@content-newsItemContainer-p-discreet-background: #666;
+@content-newsItemContainer-p-discreet-background-rgba: rgba(40,40,40,0.7);
+@content-newsItemContainer-p-discreet-color: #FFF;
+@content-newsItemContainer-p-discreet-font-weight: bold;
+@content-portalMessage-link-color: #000;
+@content-portalMessage-link-border-bottom: 1px solid #888;
+@Content-legend-background: @EditBar-default-color;
+@content-keywords-color: #999;
+@content-keywords-margin-bottom: -30px;
+@content-keywords-margin-top: 30px;
+@content-items-heading-margin: 30px 0 0px;
+@content-items-heading-border-bottom: 1px solid #aaa;
+@content-items-heading-padding-bottom: 5px;
+@content-figure-cation-border: 1px solid #ddd;
+
+@category-color: #666;
+@category-link-color: #000;
+@category-link-background: #ddd;
+@category-link-hover-background: #205c90;
+@category-link-hover-color: #FFF;
+@category-link-hover-border-color: #205c90;
+
+@SelectedTag-color: #000;
+@SelectedTag-background: #ddd;
+
+@Label-font-weight: bold;
+
+@OptionsToggle-border: 0.1em solid #8cacbb;
+@OptionsToggle-background: #dee7ec;
+@OptionsToggle-font-weight: normal;
+
+@InheritedRoles-color: #a0a0a0;
+
+@CurrentItem-border: 0.2em solid #ffa500;
+@CurrentItem-padding: 0.1em;
+
+
+// Workflow State
+@workflow-state-private: Red;
+@workflow-state-private-color: #FFF;
+@workflow-state-visible: #74AE0B;
+@workflow-state-visible-color: #FFF;
+@workflow-state-published: #436976;
+@workflow-state-published-color: #FFF;
+@workflow-state-pending: #FFA500;
+@workflow-state-pending-color: #FFF;
+@workflow-state-expired: Red;
+@workflow-syndicated: #008000;
+
+
+// Status messages
+@StatusMessage-portalMessage-color: @body-font-color;
+@StatusMessage-portalMessage-margin: 1em 0;
+@StatusMessage-portalMessage-border: 1px solid #996;
+@StatusMessage-portalMessage-background: #ffffe3;
+@StatusMessage-portalMessage-link-color: #000;
+@StatusMessage-portalMessage-link-border-bottom: 1px solid #888;
+@StatusMessage-portalMessage-dt-background: #996;
+@StatusMessage-portalMessage-dt-font-weight: bold;
+@StatusMessage-portalMessage-dt-color: #FFF;
+@StatusMessage-portalMessage-dt-line-height: 1.25em;
+@StatusMessage-warning-border-color: #d80;
+@StatusMessage-warning-dt-background: #d80;
+@StatusMessage-warning-dd-background: #fd7;
+@StatusMessage-error-border-color: #d00;
+@StatusMessage-error-dt-background: #d00;
+@StatusMessage-error-dd-background: #fdc;
+
+
+// Edit bar
+@EditBar-background: @EditBar-default-color;
+@EditBar-line-height: 2em;
+@EditBar-border: 0.25em solid @EditBar-background;
+@EditBar-color: #666;
+@EditBar-dropdown-border: 0.5em solid @EditBar-background;
+@EditBar-selected-font-weight: bold;
+@EditBar-selected-background: @container-background;
+@EditBar-selected-color: @body-font-color;
+@EditBar-hover-background: @container-background;
+@EditBar-hover-color: @body-font-color;
+@EditBar-subMenuTitle-color: @ContentActionMenus-selected-background;
+
+@FormTab-background: @EditBar-default-color;
+@FormTab-border: 0.3em solid @EditBar-default-color;
+@FormTab-link-line-height: 2em;
+@FormTab-link-padding: 0 0.75em;
+@FormTab-link-selected-font-weight: bold;
+@FormTab-link-selected-background: @body-background-color;
+@FormTab-link-selected-color: @body-font-color;
+@FormTab-link-hover-background: @body-background-color;
+@FormTab-link-hover-color: @body-font-color;
+@FormTab-link-notify-background: red;
+@FormTab-link-notify-color: #FFF;
+
+@ContentActionMenus-line-height: 2em;
+@ContentActionMenus-selected-background: lighten(@EditBar-default-color, 30%);
+@ContentActionMenus-selected-color: @link-color;
+
+@mobile-EditBar-Mobile-page-settings-color: #999;
+@mobile-EditBar-Mobile-page-settings-padding: 5px;
+@mobile-EditBar-Mobile-page-settings-margin: 10px 5px 0px;
+@mobile-EditBar-Mobile-page-settings-border: 1px dotted #DDDDDD;
+@mobile-EditBar-Mobile-page-settings-selected-background: #EEE;
+@mobile-EditBar-background: transparent;
+@mobile-EditBar-border: 0;
+@mobile-EditBar-padding-bottom: 10px;
+@mobile-EditBar-content-views-a-font-size: 100%;
+@mobile-EditBar-content-views-a-line-height: 2em;
+@mobile-EditBar-content-views-a-margin: 5px;
+@mobile-EditBar-content-views-a-padding: 5px 10px;
+@mobile-EditBar-FormTab-line-height: 2em;
+@mobile-EditBar-FormTab-padding: 0.25em;
+@mobile-EditBar-ContentActionMenus-margin: 20px 0 0;
+@mobile-EditBar-ContentActionMenus-a-width: 100%;
+@mobile-EditBar-ContentActionMenus-a-line-height: 2em;
+@mobile-EditBar-ContentActionMenus-a-padding-top: 5px;
+@mobile-EditBar-ContentActionMenus-actionMenu-a-background: transparent;
+@mobile-EditBar-ContentActionMenus-actionMenu-a-min-width: 80%;
+@mobile-EditBar-ContentActionMenus-actionMenu-a-min-width: 0;
+@mobile-EditBar-ContentActionMenus-actionMenuContent-background: #eee!important;
+
+@Tooltip-background: #f5f5f5;
+@Tooltip-border: 1px solid #ddd;
+@Tooltip-color: @body-font-color;
+@Tooltip-padding: 12px;
+@Tooltip-max-width: 200px;
+
+
+// Control panel
+
+// TODO
+
+
+// Collapsible
+@Collapsible-border: 0.1em solid #8cacbb;
+@Collapsible-header-background: #FFF;
+@Collapsible-header-line-height: 1.2em;
+
+
+// Comments
+@Comments-headings-font-weight: normal;
+@Comments-time-color: #666;
+
+
+// Search Results
+@SearchResults-border-top: 1px solid #DDD;
+@SearchResults-border-bottom: 1px solid #DDD;
+@SearchResults-filter-legend-background: transparent;
+@SearchResults-filter-legend-font-weight: bold;
+@SearchResults-filter-background: #ddd;
+@SearchResults-filter-field-background: #eee;
+@SearchResults-filter-field-label-font-weight: normal;
+@SearchResults-highlightedTerm-background: transparent;
+@SearchResults-highlightedTerm-font-weight: bold;
+
+@HighlightedTerm-background: #ffa;
+
+@user-search-background: #f5f5f5;
+
+
+// Image alignment
+@ImageAligned-border: 1px solid #ddd;
+@ImageAligned-caption-color: #666;
+
+
+// Dashboard
+@Dashboard-line-height: 1em;
+
+
+// Forms
+@Forms-editionComment-line-height: 1.5em;
+@Forms-field-input-line-height: 125%;
+@Forms-field-input-color: #000;
+@Forms-field-input-font-weight: bold;
+@Forms-field-textarea-color: #666666;
+@Forms-field-textarea-font-weight: bold;
+@Forms-input-focus-background: #ffffe0;
+@Content-fieldset-border: 0.1em solid @EditBar-default-color;
+@Content-optgroup-font-style: normal;
+@Content-optgroup-font-weight: bold;
+@Content-optgroup-color: #999;
+@Content-option-color: #000;
+
+@Label-font-weight: bold;
+
+@SearchSection-color: #76797c;
+@Error-input-required-color: #d00;
+@Field-required-color: #FFF;
+@Field-error-background: #fdc;
+@FormHelp-color: #555;
+@Error-warning-background: transparent;
+@Input-label-active-color: #76797c;
+
+
+// Data tables
+@Table-background: @container-background;
+@Table-border-color: lighten(@EditBar-default-color, 20%);
+@Table-border: 1px solid @Table-border-color;
+@Table-th-color: @EditBar-color;
+@Table-th-border: 0.1em solid @Table-border-color;
+@Table-th-background: @EditBar-default-color;
+@Table-tr-odd-th-border: 0.1em solid @Table-border-color;
+@Table-odd-background: darken(@Table-background, 3%);
+@Table-odd-error-background: #fdc;
+@Table-row-selected-background: #ffa;
+@Table-row-error-background: #fdc;
+@Table-vertical-border: 0.1em solid @Table-border-color;
+
+@Pagination-link-border: 0.1em solid @Table-border-color;
+@Pagination-link-hover-background-color: @Table-odd-background;
+@Pagination-link-hover-border-color: @Table-odd-background;
+
+@MultiWidgetField-border-left: 1.5em solid #DDD;
+
+
+// Highslide
+@Highslide-img-border: 0px solid #D0D0D0;
+@Highslide-hover-img-border-color: #A0A0A0;
+@Highslide-Wrapper-background: #FFFFFF;
+@Highslide-Wrapper-image-border: 2px solid #FFFFFF;
+@Highslide-Wrapper-loading-color: #000;
+@Highslide-Wrapper-loading-border: 1px solid #000;
+@Highslide-Wrapper-loading-background-color: #FFF;
+@Highslide-Wrapper-loading-background-image: url(++resource++hexagonit.highslidejs.default/graphics/loader.white.gif);
+
+
+// FrontRow carousel
+@carousel-height: 205px;
+@carousel-pagination-display: block;
+@carousel-pagination-opacity: 0.7;
+@carousel-current-page-opacity: 0.5;
+@carousel-page-color: #990033;
+@carousel-page-background: #FFF;
+@carousel-page-border: 0;
+@carousel-page-padding: 3px 7px;
+@carousel-page-margin-right: 5px;
+
+
+// Sitemap
+@Sitemap-font-weight: bold;
+@Sitemap-li-border-bottom: 0.1em dotted #ddd;
+@Sitemap-li-line-height: 1.8em;
+@Sitemap-navTreeLevel2-font-weight: normal;
+
+
+// Album view
+@PhotoAlbum-entry-height: 185px;
+@PhotoAlbum-entry-weight: 143px;
+@PhotoAlbum-img-border: 1px solid #ccc;
+@PhotoAlbum-link-height: 169px;
+@PhotoAlbum-link-width: 130px;
+@PhotoAlbum-link-margin: 16px auto 0px;
+@PhotoAlbum-entryWrapper-height: 130px;
+@PhotoAlbum-entryWrapper-width: 128px;
+@PhotoAlbum-entryTitle-color: #76797c;
+@PhotoAlbum-entryTitle-width: 128px;
+@PhotoAlbum-entryTitle-height: 3.6em;
+
+
+// Overlay
+@Overlay-link-hover-color: #000;
+@Overlay-link-selected-color: #000000;
+@Overlay-background: #fff;
+@Overlay-border: 1px solid #999;
+@Overlay-formTab-font-weight: bold;
+
+@mobile-pb-ajax-width: 87%;
+@mobile-Overlay-width: 80%;
+
+@mobile-Login-form-label-text-align: center;
+
+
+// Content History
+@ContentHistory-comment-border: 1px solid #ddd;
+@ContentHistory-byLine-background: #ddd;
+@ContentHistory-compare-border-top: 1px dotted #ccc;
+@ContentHistory-compare-span-background: #FFF;
+
+
+// jQuery Tag multiple selector
+@OptionsBox-border: solid 1px #999999;
+@OptionsBox-background: #FFFFFF;
+@OptionsBox-label-line-height: 1em;
+@OptionsBox-label-font-weight: normal;
+@OptionsBox-label-checked-background: #EEEEEE;
+@OptionsBox-label-hover-background: #777777;
+@OptionsBox-label-hover-color: #FFFFFF;
+
+
+// FOOTER
+
+@Footer-line-height: 2em;
+@Footer-background: #ddd;
+@Footer-padding: 1em;
+@Footer-margin: 1em 0;
+@Colophon-link-color: #444;
+
+
+// GRID SIZES
+@grid-column-width:  4%     ;
+@grid-column-gutter: 1.125% ;
+
+// Grid column sizes
+// 4% | 10.25% | 16.5% | 22.75% | 29% | 35.25% | 41.5% | 47.75% | 54% | 60.25% | 66.5% | 72.75% | 79% | 85.25% | 91.5% | 97.75%
+
+// Grid column positions
+// -98.875% | -92.625% | -86.375% | -80.125% | -73.875% | -67.625% | -61.375% | -55.125% | -48.875% | -42.625% | -36.375% | -30.125% | -23.875%  -17.625% | -11.375% |  -5.125% 
+
+// Unconventional widths that are not calculated as the rest
+@width-1-3 : 31.08%;
+@width-2-3 : 64.42%;
+@position-1-3 : -65.545%;
+@position-2-3 : -32.205%; 
