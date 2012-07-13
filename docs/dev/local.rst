@@ -176,6 +176,19 @@ Read more about Git branching at http://learn.github.com/p/branching.html. Also,
 to make your git nicer, we have a :ref:`unit-tests` chapter in *Tips &
 Tricks.*
 
-Once you are done, please add your name to the
+Also please add your name to the
 `Changelog <https://github.com/eestec/eestec.portal/blob/master/docs/HISTORY.rst>`_
+
+Once you are done with your work and you would like us to merge your changes
+into master, go to GitHub to do a *pull request*. Open a browser and point it to
+https://github.com/eestec/eestec.portal/tree/issue_<ISSUE_NUMBER>. There you
+should see a ``Pull Request`` button. Click on it, wrote some text what you
+did and anything else you would like to tell the on who will merge your branch,
+and finally click ``Send pull request``. Now wait that someone comes by and
+merges your branch (don't do it yourself, even if you have permissions to do
+so).
+
+An example pull request text::
+
+    Please merge my branch that resolves issue #13.
 
