@@ -1,9 +1,9 @@
-=======================
+list=======================
 EESTEC.net Plone portal
 =======================
 
 :Framework: `Plone 4.2 <http://plone.org>`_
-:Bug tracker: http://dev.starzel.de/eestec
+:Bug tracker: https://github.com/eestec/eestec.portal/issues
 :Source: https://github.com/eestec/eestec.portal
 :Documentation: http://eestecportal.readthedocs.org/
 :Code status:
