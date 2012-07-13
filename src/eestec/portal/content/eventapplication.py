@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
+"""The event application content type."""
+
+from eestec.portal import emails
 from five import grok
 from plone import api
-from plone.directives import form, dexterity
 from plone.app.textfield import RichText
-from Products.CMFCore.interfaces import IDublinCore
+from plone.directives import form, dexterity
 from z3c.form.interfaces import IEditForm
-from zope.component import adapts
 from zope import schema
-from zope.interface import implements, alsoProvides
+from zope.component import alsoProvides
 
 
 class IEventApplication(form.Schema):
@@ -74,8 +76,8 @@ class EventApplication(dexterity.Container):
     def lc(self):
         return self.get_lc_title()
 
-# TODO: write subscribers for eventapplication
 
+# TODO: write subscribers for eventapplication
 def eventapplication_created(context, event):
     """
     #. Send email to member's LC Board.

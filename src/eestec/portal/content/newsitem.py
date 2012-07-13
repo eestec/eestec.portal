@@ -18,4 +18,4 @@ def news_item_published(context, event):
     # made, not an eestec event ;)
     if event.transition:
         if event.transition.id == "publish":
-            emails.news_item.news_item_published_notify_cp_list(context)
+            emails.news_item.published_notify_cp_list(context)
