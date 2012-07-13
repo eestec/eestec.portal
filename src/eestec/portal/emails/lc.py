@@ -18,7 +18,6 @@ URL : %(portal_url)s/mail_password_form?userid=%(username)s
 Best regards,
 EESTEC IT Team
 """
-
     body_values = dict(
         username=user.id,
         portal_url=api.portal.url(),
