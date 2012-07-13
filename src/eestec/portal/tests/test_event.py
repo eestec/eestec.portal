@@ -21,7 +21,7 @@ class TestIntegration(IntegrationTestCase):
         )
 
         # add test item
-        lc = api.content.create(
+        self.lc = api.content.create(
             type='eestec.portal.lc',
             title=u'lc',
             container=self.portal,
@@ -30,12 +30,21 @@ class TestIntegration(IntegrationTestCase):
         self.event = api.content.create(
             type='eestec.portal.event',
             title=u'Tést event',
-            container=lc
+            container=self.lc
         )
 
         self.event = self.portal.lc['test-event']
         # publish the item
         api.content.transition(obj=self.event, transition='publish')
+
+    def test_atevent_disabled(self):
+        with self.assertRaises(ValueError):
+            self.event = api.content.create(
+                type='Event',
+                title=u'Invalid event',
+                container=self.lc
+            )
+
 
     def test_notification_email(self):
         """Test if notification email is sent to CP-list."""
