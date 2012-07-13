@@ -3,6 +3,8 @@
 
 from eestec.portal import LC_BOARD_GROUP_STRING
 from eestec.portal import LC_MEMBERS_GROUP_STRING
+from Products.CMFCore.interfaces import ISiteRoot
+from eestec.portal import emails
 from five import grok
 from plone import api
 from plone.directives import dexterity
@@ -152,10 +154,5 @@ class AddLCForm(form.SchemaForm):
             board.id,
             ['LCBoard', 'Contributor', 'Reviewer', 'Reader'])
 
-        # TODO: proper body text
-        api.portal.send_email(
-            sender="admin@mysite.com",
-            body="TODO: bla bla",
-            recipient=user.getProperty('email'),
-            subject="TODO: bla bla",
-        )
+        # user in this context refers to newly-created CP of new LC
+        emails.lc.lc_created_notify_cp(lc, user)

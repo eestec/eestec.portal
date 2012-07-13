@@ -18,6 +18,7 @@ class IEvent(form.Schema):
 
 alsoProvides(IEvent, form.IFormFieldProvider)
 
+
 class Event(dexterity.Container):
     """
     """

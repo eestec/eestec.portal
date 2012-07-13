@@ -74,6 +74,7 @@ class EventApplication(dexterity.Container):
     def lc(self):
         return self.get_lc_title()
 
+
 # TODO: write subscribers for eventapplication
 
 def eventapplication_created(context, event):
