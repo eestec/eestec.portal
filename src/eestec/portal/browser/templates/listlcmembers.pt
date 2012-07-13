@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master">
+
+  <body>
+
+    <metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+    <table class="grid listing">
+      <thead>
+        <tr>
+           <!-- TODO: add more header cells-->
+          <th>id</th>
+          <th>mail<br /></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="member view/members">
+          <td tal:content="member/username">Nejc Zupan</td>
+          <td tal:content="member/email">mail</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    </tal:main-macro>
+    </metal:main>
+
+  </body>
+</html>
