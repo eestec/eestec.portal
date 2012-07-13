@@ -5,16 +5,15 @@ Template controller for LC
 --------------------------
 """
 
-from eestec.portal.content import lc
 from eestec.portal.content.lc import ILC
 
 from Acquisition import aq_inner
-from Products.CMFCore.interfaces import ISiteRoot
 from five import grok
 from plone import  api
 
 
 grok.templatedir('templates')
+
 
 class ListLCMembers(grok.View):
     """
