@@ -72,6 +72,41 @@ class TestAddLC(IntegrationTestCase):
                       msg.get_payload())
 
 
+class TestListLCMembers(IntegrationTestCase):
+    """Test the view listing members of a specific LC."""
+
+    def setUp(self):
+        """docstring for setUp"""
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+
+        self.alice = api.user.create(username='alice', email='alice@plone.org')
+        self.bob = api.user.create(username='bob', email='bob@plone.org')
+
+        api.content.create(
+            type='eestec.portal.lc',
+            title="fooland",
+            container=self.portal
+        )
+
+        self.fooland = api.group.create(groupname="fooland")
+
+        api.group.add_user(groupname='fooland', username='alice')
+        api.group.add_user(groupname='fooland', username='bob')
+        self.lc = self.portal['fooland']
+        self.resource = self.lc.restrictedTraverse('@@members-list')
+
+    def test_members_num(self):
+        """docstring for test_num_members"""
+        self.assertEquals(len(self.resource.members()), 2)
+
+    def test_members_list(self):
+        """ """
+        alice = {'username': 'alice', 'email': 'alice@plone.org'}
+        bob = {'username': 'bob', 'email': 'bob@plone.org'}
+        self.assertItemsEqual(self.resource.members(), [alice, bob])
+
+
 def test_suite():
     """This sets up a test suite that actually runs the tests in the class
     above."""
