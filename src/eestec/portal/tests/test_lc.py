@@ -68,7 +68,7 @@ class TestAddLC(IntegrationTestCase):
         self.assertEquals(msg['To'], 'john@eestec.net')
         self.assertEquals(msg['Subject'], '=?utf-8?q?=5BEESTEC_Website=5D_registration_completed?=')
         self.assertIn('because your LC was added to our database', msg.get_payload())
-        self.assertIn('http://eestec.net/mail_password_form?userid=', msg.get_payload())
+        self.assertIn('http://nohost/plone/mail_password_form?userid=', msg.get_payload())
 
 
 def test_suite():
