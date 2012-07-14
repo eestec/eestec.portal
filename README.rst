@@ -1,4 +1,4 @@
-list=======================
+=======================
 EESTEC.net Plone portal
 =======================
 
@@ -23,4 +23,3 @@ Make sure you read the
 `install instructions <http://eestecportal.readthedocs.org/en/latest/dev/local.html>`_
 before attempting to *run buildout* or at least check the list of
 `prerequisites <http://eestecportal.readthedocs.org/en/latest/dev/local.html#prerequisites>`_.
-
