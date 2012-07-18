@@ -4,7 +4,7 @@ python:
 install:
   - $(which echo) -e "[buildout]\nextends = buildout.d/travis.cfg"
   - python bootstrap.py
-  - bin/buildout -c travis.cfg
+  - bin/buildout
 
 script:
   - ./pre-commit-check.sh
