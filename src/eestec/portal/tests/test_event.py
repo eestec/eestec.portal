@@ -45,7 +45,6 @@ class TestIntegration(IntegrationTestCase):
                 container=self.lc
             )
 
-
     def test_notification_email(self):
         """Test if notification email is sent to CP-list."""
         mailhost = api.portal.get_tool('MailHost')
