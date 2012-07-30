@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Running tests'
-bin/test -s eestec.portal
+bin/test
 
 echo '====== Running ZPTLint ======'
 for pt in `find src/eestec/portal/ -name "*.pt"` ; do bin/zptlint $pt; done
