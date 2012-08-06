@@ -139,6 +139,25 @@ nuts with it!
 You can also run our :ref:`unit-tests` or perform :ref:`syntax-validation`.
 
 
+.. _adding-initial-content:
+
+Adding initial content
+======================
+
+If you don't have a ZODB to work with, as in, you are starting with a fresh
+install of Plone, follow this steps to add some content to your site so you
+can see what your code does:
+
+#. Follow the :ref:`starting-the-portal` instructions above.
+#. Use the ``Add new ...`` drop down menu to add a new ``LC``.
+#. Once inside the new LC, use the ``Add new ...`` drop down menu again, this
+   time to add a new ``Event``.
+#. Once inside the new Event, use the ``Add new ...`` drop down menu for the
+   last time, now to add a new ``Event Application``.
+#. Use the ``State:`` drop-down menu to play around with different items'
+   workflow states.
+
+
 .. _working-on-an-issue:
 
 Working on an issue
