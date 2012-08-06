@@ -57,7 +57,7 @@ above steps are required for a default Plone development environment:
 * http://plone.org/documentation/tutorial/buildout
 * http://pypi.python.org/pypi/zc.buildout/
 * http://pypi.python.org/pypi/setuptools
-* http://plone.org/documentation/tutorial/installing-plone-3-with-the-unified-installer
+* http://plone.org/documentation/manual/installing-plone
 
 If you are an OS X user, you first need a working Python implementation (the one
 that comes with the operating system is broken). Use
