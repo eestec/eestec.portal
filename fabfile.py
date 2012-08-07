@@ -46,6 +46,8 @@ def staging_update():
 def staging_deploy():
     with cd(env.staging_folder):
         # TODO: copy production data
-        run('bin/buildout -c buildout.d/staging.cfg')
+        run('$(which echo) -e "[buildout]\nextends = buildout.d/staging.cfg" > buildout.cfg')
+        run('python2.7 bootstrap.py')
+        run('bin/buildout')
         run('bin/supervisord')
         # TODO: run upgrade profile
