@@ -71,7 +71,11 @@ setup(name='eestec.portal',
               'setuptools-flakes',
               'zest.releaser',
               'jarn.mkrelease',
+              'Fabric',
           ],
+          'production': [
+              'Fabric',
+          ]
       },
       entry_points="""
       [z3c.autoinclude.plugin]
