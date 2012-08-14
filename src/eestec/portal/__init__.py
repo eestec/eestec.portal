@@ -5,6 +5,7 @@ LC_MEMBERS_GROUP_STRING = u'%s-members'
 LC_BOARD_GROUP_STRING = u'%s-board'
 
 CP_LIST_ADDRESS = 'cp@eestec.net'
+BOARD_LIST_ADDRESS = 'board@eestec.net'
 
 
 def initialize(context):
