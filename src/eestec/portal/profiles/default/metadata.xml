@@ -3,7 +3,6 @@
     <version>0001</version>
     <dependencies>
         <dependency>profile-niteoweb.loginas:default</dependency>
-        <dependency>profile-niteoweb.loginas:default</dependency>
         <dependency>profile-plone.app.caching:default</dependency>
         <dependency>profile-plone.app.dexterity:default</dependency>
         <dependency>profile-plone.app.theming:default</dependency>
