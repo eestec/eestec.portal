@@ -93,10 +93,14 @@ class TestInstall(IntegrationTestCase):
 
     # workflows.xml
     def test_workflows_mapped(self):
-        """Test if types are mapped to correct workflow."""
+        """Test if types are mapped to correct workflows."""
         for portal_type, chain in self.workflow.listChainOverrides():
             if portal_type == 'eestec.portal.lc':
                 self.assertEquals(('lc_workflow',), chain)
+            if portal_type == 'eestec.portal.event':
+                self.assertEquals(('event_workflow',), chain)
+            if portal_type == 'eestec.portal.eventapplication':
+                self.assertEquals(('event_application_workflow',), chain)
 
     # cssregistry.xml
     def test_css_registry_configured(self):

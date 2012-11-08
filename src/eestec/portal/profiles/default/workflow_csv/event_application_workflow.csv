@@ -1,0 +1,72 @@
+"[Workflow]",,,,,,
+"Id:","event_application_workflow",,,,,
+"Title:","Event Application Workflow",,,,,
+"Description:","Workflow for controlling states and permission on the EventApplication content type.",,,,,
+"Initial state:","pending",,,,,
+"Type:","Workflow",,,,,
+,,,,,,
+"[State]",,,,,,
+"Id:","pending",,,,,
+"Title:","Pending",,,,,
+"Description:",,,,,,
+"Transitions","accept_participant, reject_participant",,,,,
+"Permissions","Acquire","Manager","Owner","Reader","Editor","LCBoardMember"
+"Access contents information","N","Y","Y","Y","N","Y"
+"View","N","Y","Y","Y","N","Y"
+"Modify portal content","N","Y","Y","N","Y","N"
+"View personal data","N","Y","Y","N","N","Y"
+"Confirm participant","Y","Y","N","N","N","N"
+,,,,,,
+"[State]",,,,,,
+"Id:","accepted",,,,,
+"Title:","Accepted",,,,,
+"Description:",,,,,,
+"Transitions","reject_participant, back_to_pending",,,,,
+"Permissions","Acquire","Manager","Owner","Reader","Editor","LCBoardMember"
+"Access contents information","N","Y","Y","Y","N","Y"
+"View","N","Y","Y","Y","N","Y"
+"Modify portal content","N","Y","Y","N","Y","N"
+"View personal data","N","Y","Y","N","N","Y"
+"Confirm participant","Y","Y","N","N","N","N"
+,,,,,,
+"[State]",,,,,,
+"Id:","rejected",,,,,
+"Title:","Rejected",,,,,
+"Description:",,,,,,
+"Transitions","accept_participant, back_to_pending",,,,,
+"Permissions","Acquire","Manager","Owner","Reader","Editor","LCBoardMember"
+"Access contents information","N","Y","Y","Y","N","Y"
+"View","N","Y","Y","Y","N","Y"
+"Modify portal content","N","Y","Y","N","Y","N"
+"View personal data","N","Y","Y","N","N","Y"
+"Confirm participant","Y","Y","N","N","N","N"
+,,,,,,
+"[Transition]",,,,,,
+"Id:","accept_participant",,,,,
+"Title:","Accept Participant",,,,,
+"Description:",,,,,,
+"Details:",,,,,,
+"Target state:","accepted",,,,,
+"URL:","%(content_url)s/content_status_modify?workflow_action=accept_participant",,,,,
+"Trigger:","User",,,,,
+"Guard permission:","Confirm participant",,,,,
+,,,,,,
+"[Transition]",,,,,,
+"Id:","reject_participant",,,,,
+"Title:","Reject Participant",,,,,
+"Description:",,,,,,
+"Details:",,,,,,
+"Target state:","rejected",,,,,
+"URL:","%(content_url)s/content_status_modify?workflow_action=reject_participant",,,,,
+"Trigger:","User",,,,,
+"Guard permission:","Confirm participant",,,,,
+,,,,,,
+"[Transition]",,,,,,
+"Id:","back_to_pending",,,,,
+"Title:","back_to_pending",,,,,
+"Description:",,,,,,
+"Details:",,,,,,
+"Target state:","pending",,,,,
+"URL:","%(content_url)s/content_status_modify?workflow_action=back_to_pending",,,,,
+"Trigger:","User",,,,,
+"Guard permission:","Manage portal",,,,,

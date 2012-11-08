@@ -61,7 +61,7 @@ class TestIntegration(IntegrationTestCase):
 
     def test_notification_cancellation_email(self):
         """Test if notification email is sent to Board-list upon cancellation."""
-        api.content.transition(obj=self.event, transition='cancel-event')
+        api.content.transition(obj=self.event, transition='cancel')
         mailhost = api.portal.get_tool('MailHost')
         self.assertEquals(len(mailhost.messages), 2)
         msg = message_from_string(mailhost.messages[1])
