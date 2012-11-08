@@ -11,10 +11,8 @@ import os
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = read('src', 'eestec', 'portal', 'version.txt').strip()
-
 setup(name='eestec.portal',
-      version=version,
+      version='0.1',
       description="Enter description of what this project is all about.",
       long_description=read('README.rst') +
                        read('docs', 'HISTORY.rst') +
