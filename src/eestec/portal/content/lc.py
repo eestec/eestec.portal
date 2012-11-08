@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""The LC content type."""
 
 from eestec.portal import LC_BOARD_GROUP_STRING
 from eestec.portal import LC_MEMBERS_GROUP_STRING
@@ -128,7 +128,7 @@ class AddLCForm(form.SchemaForm):
             email=self.request.form.get('form.widgets.cp_email'),
             properties=dict(
                 fullname=self.request.form.get('form.widgets.cp_fullname'),
-                )
+            )
         )
 
         # create LC members group

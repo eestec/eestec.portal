@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Testing our Vocabularies."""
 
 from eestec.portal.tests.base import IntegrationTestCase
 from plone import api

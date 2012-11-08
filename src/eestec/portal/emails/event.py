@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+"""Emails sent out when stuff happens to Events."""
 
 from eestec.portal import CP_LIST_ADDRESS
 from plone import api

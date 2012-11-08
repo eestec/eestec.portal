@@ -29,6 +29,7 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <!-- Register a Vocabulary that lists all LCs -->
   <utility
       provides="zope.schema.interfaces.IVocabularyFactory"
       component=".content.user.LCVocabularyFactory"

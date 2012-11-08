@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Testing Event Application content type."""
 
 from plone import api
 

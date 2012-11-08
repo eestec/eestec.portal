@@ -1,5 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Testing LC content type."""
 
 from eestec.portal.tests.base import IntegrationTestCase
 from email import message_from_string

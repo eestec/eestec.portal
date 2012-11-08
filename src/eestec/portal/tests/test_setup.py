@@ -21,8 +21,9 @@ class TestInstall(IntegrationTestCase):
         """Check if the specified role has the specified permission."""
         # The API of the permissionsOfRole() function sucks - it is bound too
         # closely up in the permission management screen's user interface
-        return permission in [r['name'] for r in
-            self.portal.permissionsOfRole(role) if r['selected']]
+        return permission in [r['name']
+                              for r in self.portal.permissionsOfRole(role)
+                              if r['selected']]
 
     def test_product_installed(self):
         """Test if eestec.portal is installed with portal_quickinstaller."""

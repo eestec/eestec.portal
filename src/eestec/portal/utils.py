@@ -15,5 +15,5 @@ def get_portal_from():
     """
     portal = api.portal.get()
     portal_from = portal.getProperty('email_from_name') + \
-         ' <' + portal.getProperty('email_from_address') + '>'
+        ' <' + portal.getProperty('email_from_address') + '>'
     return portal_from

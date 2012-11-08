@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Emails related to News Items."""
-
+"""Emails sent out when stuff happens to News Items."""
 
 from eestec.portal import CP_LIST_ADDRESS
 from eestec.portal.utils import get_portal_from

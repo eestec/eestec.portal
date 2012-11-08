@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Testing News Items."""
+"""Testing News Item content type."""
 
 from eestec.portal.tests.base import FunctionalTestCase
 from eestec.portal.tests.base import IntegrationTestCase

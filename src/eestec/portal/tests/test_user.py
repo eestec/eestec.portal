@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+"""Testing Users."""
 
 from datetime import date
 from eestec.portal.tests.base import IntegrationTestCase
