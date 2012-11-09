@@ -12,6 +12,4 @@
   <property name="passport_valid_until" type="date">2000/01/01</property>
   <property name="tshirt_size" type="string"></property>
   <property name="needs" type="string"></property>
-  <property name="captcha" type="string"></property>
-  <property name="warning" type="string"></property>
 </object>
