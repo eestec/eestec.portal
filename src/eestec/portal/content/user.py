@@ -153,8 +153,7 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         title=u'Special needs',
         description=u"Any special needs? Food allergies? Medical \
         issues? Anything the organizers need to be \
-        aware of? Anything the organizers need to \
-        tell us?",
+        aware of?",
     )
 
 
