@@ -91,8 +91,15 @@ class FunctionalTestCase(TestBase):
 
     layer = FUNCTIONAL_TESTING
 
-    def login(self):
+    def login(self, username=None, password=None):
+
+        if not username:
+            username = TEST_USER_NAME
+
+        if not password:
+            password = TEST_USER_PASSWORD
+
         self.browser.open(self.layer['portal'].absolute_url() + '/login_form')
-        self.browser.getControl(name='__ac_name').value = TEST_USER_NAME
-        self.browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+        self.browser.getControl(name='__ac_name').value = username
+        self.browser.getControl(name='__ac_password').value = password
         self.browser.getControl(name='submit').click()
