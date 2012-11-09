@@ -23,7 +23,7 @@ EESTEC IT Team
 """
     body_values = dict(
         username=user.id,
-        portal_url=api.portal.url(),
+        portal_url=api.portal.get().absolute_url(),
     )
 
     api.portal.send_email(

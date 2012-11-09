@@ -5,6 +5,8 @@ from eestec.portal.tests.base import IntegrationTestCase
 from email import message_from_string
 from plone import api
 
+import unittest2 as unittest
+
 
 class TestIntegration(IntegrationTestCase):
     """Integration tests for News Items."""
@@ -37,8 +39,11 @@ class TestIntegration(IntegrationTestCase):
         # publish the item
         api.content.transition(obj=self.event, transition='publish')
 
+    @unittest.expectedFailure  # this will work when we use plone.api 0.1b2
     def test_atevent_disabled(self):
-        with self.assertRaises(ValueError):
+        """Test that default Event """
+        from plone.api.exc import InvalidParameterError
+        with self.assertRaises(InvalidParameterError):
             self.event = api.content.create(
                 type='Event',
                 title=u'Invalid event',

@@ -57,7 +57,7 @@ class TestFunctional(FunctionalTestCase):
         self.portal = self.layer['portal']
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
-        self.login()  # login with self.browser so we can add content
+        self.login()  # login in self.browser so we can add content
 
     def test_image_is_required(self):
         """Try to add a News Item without an image."""
