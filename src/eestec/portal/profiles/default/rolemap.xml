@@ -2,8 +2,8 @@
 <rolemap>
 
     <roles>
-        <role name="LCBoardMember"/>
-        <role name="IntBoardMember"/>
+        <role name="LCBoard"/>
+        <role name="IntBoard"/>
     </roles>
 
     <permissions>
