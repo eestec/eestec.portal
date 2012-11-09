@@ -46,7 +46,6 @@ class LCVocabulary(object):
         return SimpleVocabulary(terms)
 
 
-# Pick the portal_type that you want here:
 LCVocabularyFactory = LCVocabulary()
 
 
@@ -68,8 +67,6 @@ class Validate:
         return TSHIRT_SIZES
 
 
-### FIXME: The current date around wich dates are set is the day that
-### the server started, not tha day of submission
 class IEestecPortalUserDataSchema(IUserDataSchema):
     """Use all the fields from the default user data schema, and add
     various extra fields."""
@@ -87,7 +84,7 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         title=u'Mobile',
         description=u"Enter the mobile number on which you are \
         available for the organizers.",
-        # read_permission = ModifyPortalContent,
+        required=True,
     )
 
     study_field = schema.Choice(
@@ -102,7 +99,7 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         description=u"Select your birthdate.",
         max=date.today(),
         min=date(1964, 1, 1),
-        # read_permission = ModifyPortalContent,
+        required=True,
     )
 
     sex = schema.Choice(
@@ -122,13 +119,13 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
     address = schema.TextLine(
         title=u'Address',
         description=u"Passport Details",
-        # read_permission = ModifyPortalContent,
+        required=True,
     )
 
     passport_id = schema.TextLine(
         title=u'Passport ID',
         description=u"Passport Details",
-        # read_permission = ModifyPortalContent,
+        required=True,
     )
 
     passport_date_of_issue = schema.Date(
@@ -136,7 +133,6 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         description=u"Passport Details",
         min=date.today().replace(year=date.today().year - 10),
         max=date.today(),
-        # read_permission = ModifyPortalContent,
     )
 
     passport_valid_until = schema.Date(
@@ -144,7 +140,6 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         description=u"Passport Details",
         max=date.today().replace(year=date.today().year + 10),
         min=date.today(),
-        # read_permission = ModifyPortalContent,
     )
 
     tshirt_size = schema.Choice(
@@ -152,7 +147,6 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         constraint=Validate.sizes,
         description=u"Select your T-Shirt size.",
         values=TSHIRT_SIZES,
-        # read_permission = ModifyPortalContent,
     )
 
     needs = schema.Text(
@@ -161,32 +155,11 @@ class IEestecPortalUserDataSchema(IUserDataSchema):
         issues? Anything the organizers need to be \
         aware of? Anything the organizers need to \
         tell us?",
-        # read_permission = ModifyPortalContent,
-    )
-
-    # FIXME: Add image and everything
-    captcha = schema.Int(
-        title=u'Captcha',
-        description=u"Captcha",
-        # read_permission = ModifyPortalContent,
-        required=True,
-    )
-
-    # FIXME: displays an inputline
-    warning = schema.TextLine(
-        title=u'Warning',
-        description=u"In case you are applying for an Event \
-        for the first time, the system redirected you \
-        to this page (your profile page) so you enter \
-        all necessary information. Once you click 'save' \
-        your personal information will be saved. Then you \
-        need to GO BACK TO THE EVENT PAGE AND CLICK APPLY \
-        AGAIN!"
     )
 
 
 class EestecPortalUserDataPanelAdapter(UserDataPanelAdapter):
-    """User adapter."""
+    """Adapt Plone's user object with our specific getters/setters."""
 
     def get_lc(self):
         return self.context.getProperty('lc', '')
@@ -248,15 +221,23 @@ class EestecPortalUserDataPanelAdapter(UserDataPanelAdapter):
         return self.context.getProperty('passport_date_of_issue', '')
 
     def set_passport_date_of_issue(self, value):
-        return self.context.setMemberProperties({'passport_date_of_issue': value})
-    passport_date_of_issue = property(get_passport_date_of_issue, set_passport_date_of_issue)
+        return self.context.setMemberProperties(
+            {'passport_date_of_issue': value})
+    passport_date_of_issue = property(
+        get_passport_date_of_issue,
+        set_passport_date_of_issue
+    )
 
     def get_passport_valid_until(self):
         return self.context.getProperty('passport_valid_until', '')
 
     def set_passport_valid_until(self, value):
-        return self.context.setMemberProperties({'passport_valid_until': value})
-    passport_valid_until = property(get_passport_valid_until, set_passport_valid_until)
+        return self.context.setMemberProperties(
+            {'passport_valid_until': value})
+    passport_valid_until = property(
+        get_passport_valid_until,
+        set_passport_valid_until
+    )
 
     def get_tshirt_size(self):
         return self.context.getProperty('tshirt_size', '')
@@ -291,8 +272,7 @@ class UserDataSchemaProvider(object):
     implements(IUserDataSchemaProvider)
 
     def getSchema(self):
-        """
-        """
+        """Override the IUserDataSchemaProvider to return our custom schema."""
         return IEestecPortalUserDataSchema
 
 
