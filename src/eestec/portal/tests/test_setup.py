@@ -92,6 +92,14 @@ class TestInstall(IntegrationTestCase):
             role='IntBoard',
         ))
 
+    # rolemap.xml
+    def test_only_lc_board_can_add_members(self):
+        """Test that only LC Board members can add new members."""
+        self.assertTrue(self._check_permission_for_role(
+            permission='Add portal member',
+            role='LCBoard',
+        ))
+
     # workflows.xml
     def test_workflows_mapped(self):
         """Test if types are mapped to correct workflow."""

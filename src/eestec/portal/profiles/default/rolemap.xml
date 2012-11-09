@@ -47,10 +47,10 @@
             <role name="Manager"/>
         </permission>
 
-        <!-- Allow anonymous users to register to the site -->
+        <!-- Only LC Board members can add new members -->
         <permission name="Add portal member" acquire="False">
-            <role name="Anonymous"/>
             <role name="Manager"/>
+            <role name="LCBoard"/>
         </permission>
 
     </permissions>
