@@ -3,8 +3,12 @@
 and just extend/override some stuff with eestec.portal specifics.
 """
 
-from plone import api
 from datetime import date
+from eestec.portal.const import COUNTRIES
+from eestec.portal.const import SEXES
+from eestec.portal.const import STUDY_FIELDS
+from eestec.portal.const import TSHIRT_SIZES
+from plone import api
 from plone.app.users.browser.personalpreferences import UserDataConfiglet
 from plone.app.users.browser.personalpreferences import UserDataPanel
 from plone.app.users.browser.personalpreferences import UserDataPanelAdapter
@@ -14,12 +18,6 @@ from zope import schema
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-
-
-STUDY_FIELDS = ['ece', 'electrical engineering', 'engineering of electics', 'electrical']
-SEXES = ['male', 'female']
-COUNTRIES = ['greece', 'USA', 'other countries']
-TSHIRT_SIZES = ['Large', 'Medium', 'Small']
 
 
 class LCVocabulary(object):
