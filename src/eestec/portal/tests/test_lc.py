@@ -42,24 +42,16 @@ class TestAddLC(IntegrationTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.request = self.layer['request']
-
-        # prepare values for the new LC
-        self.request.form['form.widgets.city'] = u'Niš'
-        self.request.form['form.widgets.cp_username'] = u'jsmith'
-        self.request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
-        self.request.form['form.widgets.cp_email'] = u'john@eestec.net'
-
-        # add the new LC
-        self.form = self.portal.restrictedTraverse('@@add-lc')
-        self.form.create()
 
     def test_lc_created(self):
         """Test that LC object was correctly created."""
+        self._add_lc()
         self.assertEquals(self.portal.lc['nis'].title, u'Niš')
 
     def test_email_notification_sent(self):
         """Test that the confirmation email was correctly sent"""
+        self._add_lc()
+
         mailhost = api.portal.get_tool('MailHost')
         self.assertEquals(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])
