@@ -2,7 +2,7 @@
 <componentregistry>
   <utilities>
     <utility
-	  interface="plone.app.users.userdataschema.IUserDataSchemaProvider"
-	  factory="eestec.portal.content.user.UserDataSchemaProvider"/>
+      interface="plone.app.users.userdataschema.IUserDataSchemaProvider"
+      factory="eestec.portal.content.user.UserDataSchemaProvider"/>
   </utilities>
 </componentregistry>

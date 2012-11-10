@@ -37,6 +37,9 @@ setup(
     zip_safe=False,
     install_requires=[
         'collective.wtf',
+        'collective.transmogrifier',
+        'plone.app.transmogrifier',
+        'quintagroup.transmogrifier',
         'niteoweb.loginas',
         'plone.api',
         'plone.behavior',

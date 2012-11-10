@@ -5,6 +5,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
     i18n_domain="eestec.portal">
 
   <!-- Zope2 initialization -->
@@ -34,6 +35,16 @@
       provides="zope.schema.interfaces.IVocabularyFactory"
       component=".content.user.LCVocabularyFactory"
       name="lc_list"
+      />
+
+  <!-- Register collective.transmogrifier -->
+  <include package="collective.transmogrifier" file="meta.zcml" />
+  <include package="collective.transmogrifier" />
+  <transmogrifier:registerConfig 
+      name="Import initial data for eestec.portal" 
+      title="Import initial data for eestec.portal" 
+      description="" 
+      configuration="transmogrifier.cfg"
       />
 
 </configure>
