@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <record type="Document">
+    what-is-eestec
+  </record>
+  <record type="Folder">
+    about-eestec
+  </record>
+  <record type="Folder">
+    events-projects
+  </record>
+  <record type="Folder">
+    news-offers
+  </record>
+  <record type="Folder">
+    partners
+  </record>
+  <record type="Folder">
+    publications
+  </record>
+  <record type="Folder">
+    get-involved
+  </record>
+  <record type="Folder">
+    lc
+  </record>
+</manifest>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?><metadata xmlns="http://plone.org/ns/archetypes/" xmlns:cmf="http://cmf.zope.org/namespaces/default/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xmp="adobe:ns:meta">
+	<dc:title>
+		About EESTEC
+	</dc:title>
+	<dc:creator>
+		admin
+	</dc:creator>
+	<dc:language>
+		en
+	</dc:language>
+	<xmp:CreateDate>
+		2012-12-07T12:13:44Z
+	</xmp:CreateDate>
+	<xmp:ModifyDate>
+		2012-12-07T12:13:53Z
+	</xmp:ModifyDate>
+	<field mimetype="text/plain" name="id">
+		about-eestec
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		Document
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		File
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		Folder
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		Image
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		Link
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		News Item
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		Collection
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		eestec.portal.lc
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		Document
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		File
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		Folder
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		Image
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		Link
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		News Item
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		Collection
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		eestec.portal.lc
+	</field>
+	<field mimetype="text/plain" name="effectiveDate">
+		2012/12/07 13:13:53.076109 GMT+1
+	</field>
+	<uid>
+		7cbb1ceca22444e384f4db31d3f8a8c3
+	</uid>
+	<cmf:type>
+		Folder
+	</cmf:type>
+	<cmf:workflow_history>
+		<cmf:workflow id="simple_publication_workflow">
+			<cmf:history>
+				<cmf:var id="action" type="None" value="None"/>
+				<cmf:var id="actor" type="str" value="admin"/>
+				<cmf:var id="comments" type="str" value=""/>
+				<cmf:var id="review_state" type="str" value="private"/>
+				<cmf:var id="time" type="date" value="2012-12-07T13:13:44+01:00"/>
+			</cmf:history>
+			<cmf:history>
+				<cmf:var id="action" type="str" value="publish"/>
+				<cmf:var id="actor" type="str" value="admin"/>
+				<cmf:var id="comments" type="str" value=""/>
+				<cmf:var id="review_state" type="str" value="published"/>
+				<cmf:var id="time" type="date" value="2012-12-07T13:13:53+01:00"/>
+			</cmf:history>
+		</cmf:workflow>
+	</cmf:workflow_history>
+	<cmf:security>
+		<cmf:local_role role="Owner" user_id="admin"/>
+	</cmf:security>
+</metadata>
