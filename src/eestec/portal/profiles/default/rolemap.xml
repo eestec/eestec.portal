@@ -2,8 +2,9 @@
 <rolemap>
 
     <roles>
-        <role name="LCBoard"/>
-        <role name="IntBoard"/>
+        <role name="LCBoard"/>  <!-- Member of an LC Board -->
+        <role name="IntBoard"/>  <!-- Member of the International Board -->
+        <role name="MemberAdder"/>  <!-- Can add new Members to the site -->
     </roles>
 
     <permissions>
@@ -50,7 +51,7 @@
         <!-- Only LC Board members can add new members -->
         <permission name="Add portal member" acquire="False">
             <role name="Manager"/>
-            <role name="LCBoard"/>
+            <role name="MemberAdder"/>
         </permission>
 
     </permissions>

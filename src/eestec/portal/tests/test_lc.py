@@ -95,6 +95,14 @@ class TestAddLC(IntegrationTestCase):
                 )
             )
 
+        # LC Board group has MemberAdder global role
+        self.assertIn(
+            'MemberAdder',
+            api.group.get_roles(
+                groupname='nis-board',
+            )
+        )
+
     def test_email_notification_sent(self):
         """Test that the confirmation email was correctly sent"""
         mailhost = api.portal.get_tool('MailHost')

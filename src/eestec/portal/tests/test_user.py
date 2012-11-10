@@ -8,6 +8,8 @@ from plone import api
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 
+import unittest2 as unittest
+
 
 class TestUserIntegration(IntegrationTestCase):
     """Testing user registration and fields."""
@@ -72,32 +74,50 @@ class TestUserFunctional(FunctionalTestCase):
         self.request = self.layer['request']
         self.browser = Browser(self.portal)
 
-        self.portal = self.layer['portal']
-
         # prepare request values for the new LC
-        request = self.layer['request']
-        request.form['form.widgets.city'] = u'Niš'
-        request.form['form.widgets.cp_username'] = 'jsmith'
-        request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
-        request.form['form.widgets.cp_email'] = 'john@eestec.net'
+        self.request.form['form.widgets.city'] = u'Niš'
+        self.request.form['form.widgets.cp_username'] = 'jsmith'
+        self.request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
+        self.request.form['form.widgets.cp_email'] = 'john@eestec.net'
 
         # call the @@add-lc form to create us a new LC
         self.layer['portal'].restrictedTraverse('@@add-lc').create()
 
         # set CPs password
         cp = api.user.get(username='jsmith')
-        cp.setPassword(TEST_USER_PASSWORD)
+        self.portal.acl_users._doChangeUser(
+            cp.id,
+            TEST_USER_PASSWORD,
+            cp.getRoles()
+        )
+        ### ARGH!!!! I hope the line above can be written with plone.api soon!
 
         # commit what we've done so testbrowser sees it
         import transaction
         transaction.commit()
 
+    @unittest.expectedFailure
     def test_add_new_cp_member(self):
         """Test the LC Board can add a new member to their LC."""
 
-        #. login as LC Boardie to add a new member
+        # Login as LC Boardie to add a new member
         self.login(username='jsmith')
 
+        # Go to form to add new member
         self.browser.open('http://nohost/plone/@@register')
-        #. go to @@register, fill it out, click create
-        #. check that user was created
+        open('/tmp/testbrowser.html', 'w').write(self.browser.contents)
+
+        # Fill out the form
+        self.browser.getControl(name='form.username').value = 'jane'
+        self.browser.getControl(name='form.email').value = 'jane@eestec.net'
+        self.browser.getControl(name='form.mobile').value = '+386 666'
+        self.browser.getControl(name='form.study_field').value = ['ece', ]
+        self.browser.getControl(name='form.birthdate').value = '1985/01/01'
+        self.browser.getControl(name='form.sex').value = ['female', ]
+        self.browser.getControl(name='form.nationality').value = ['greece', ]
+        self.browser.getControl(name='form.tshirt_size').value = ['Medium', ]
+
+        # Submit!
+        self.browser.getControl(name='form.actions.register').click()
+
+        # TODO: test that member was created!

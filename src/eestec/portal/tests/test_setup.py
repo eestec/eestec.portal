@@ -97,7 +97,7 @@ class TestInstall(IntegrationTestCase):
         """Test that only LC Board members can add new members."""
         self.assertTrue(self._check_permission_for_role(
             permission='Add portal member',
-            role='LCBoard',
+            role='MemberAdder',
         ))
 
     # workflows.xml

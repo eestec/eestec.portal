@@ -156,5 +156,11 @@ class AddLCForm(form.SchemaForm):
             board.id,
             ['LCBoard', 'Contributor', 'Reviewer', 'Reader'])
 
+        # give the LC Board permission to add new members to their LC
+        api.group.grant_roles(
+            group=board,
+            roles=['MemberAdder', ],
+        )
+
         # user in this context refers to newly-created CP of new LC
         emails.lc.lc_created_notify_cp(lc, user)
