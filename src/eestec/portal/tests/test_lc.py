@@ -64,7 +64,10 @@ class TestAddLC(IntegrationTestCase):
     def test_lc_members_group_created(self):
         """Test that LC members group is created when LC is added and that
         CP is a member of this group."""
+        # LC members group exists
         self.assertTrue(api.group.get(groupname='nis-members'))
+
+        # CP is member of LC Board group
         self.assertIn(
             'nis-members',
             [group.id for group in api.group.get_groups(username='jsmith')]
@@ -76,27 +79,21 @@ class TestAddLC(IntegrationTestCase):
         # LC Board group exists
         self.assertTrue(api.group.get('nis-board'))
 
-        # LC Board group has LCBoard role only on it's LC
-        self.assertNotIn(
-            'LCBoard',
-            api.group.get_roles(
-                groupname='nis-board',
-                obj=self.portal,
-            )
-        )
-        self.assertIn(
-            'LCBoard',
-            api.group.get_roles(
-                groupname='nis-board',
-                obj=self.portal.lc['nis'],
-            )
-        )
-
         # CP is member of LC Board group
         self.assertIn(
             'nis-board',
             [group.id for group in api.group.get_groups(username='jsmith')]
         )
+
+        # LC Board group has board roles on it's LC
+        for role in ['LCBoard', 'Contributor', 'Reviewer', 'Reader']:
+            self.assertIn(
+                role,
+                api.group.get_roles(
+                    groupname='nis-board',
+                    obj=self.portal.lc['nis'],
+                )
+            )
 
     def test_email_notification_sent(self):
         """Test that the confirmation email was correctly sent"""
