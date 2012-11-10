@@ -43,15 +43,63 @@ class TestAddLC(IntegrationTestCase):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
 
+        # prepare request values for the new LC
+        request = self.layer['request']
+        request.form['form.widgets.city'] = u'Niš'
+        request.form['form.widgets.cp_username'] = 'jsmith'
+        request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
+        request.form['form.widgets.cp_email'] = 'john@eestec.net'
+
+        # call the @@add-lc form to create us a new LC
+        self.layer['portal'].restrictedTraverse('@@add-lc').create()
+
     def test_lc_created(self):
         """Test that LC object was correctly created."""
-        self._add_lc()
         self.assertEquals(self.portal.lc['nis'].title, u'Niš')
+
+    def test_cp_user_created(self):
+        """Test that a member object is created for CP."""
+        self.assertTrue(api.user.get(username='jsmith'))
+
+    def test_lc_members_group_created(self):
+        """Test that LC members group is created when LC is added and that
+        CP is a member of this group."""
+        self.assertTrue(api.group.get(groupname='nis-members'))
+        self.assertIn(
+            'nis-members',
+            [group.id for group in api.group.get_groups(username='jsmith')]
+        )
+
+    def test_lc_boardies_group_created(self):
+        """Test that LC members group is created when LC is added and that
+        CP is a member of this group."""
+        # LC Board group exists
+        self.assertTrue(api.group.get('nis-board'))
+
+        # LC Board group has LCBoard role only on it's LC
+        self.assertNotIn(
+            'LCBoard',
+            api.group.get_roles(
+                groupname='nis-board',
+                obj=self.portal,
+            )
+        )
+        self.assertIn(
+            'LCBoard',
+            api.group.get_roles(
+                groupname='nis-board',
+                obj=self.portal.lc['nis'],
+            )
+        )
+
+        # CP is member of LC Board group
+        self.assertIn(
+            'nis-board',
+            [group.id for group in api.group.get_groups(username='jsmith')]
+        )
 
     def test_email_notification_sent(self):
         """Test that the confirmation email was correctly sent"""
-        self._add_lc()
-
         mailhost = api.portal.get_tool('MailHost')
         self.assertEquals(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])

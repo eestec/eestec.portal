@@ -62,31 +62,13 @@ FUNCTIONAL_TESTING = FunctionalTesting(bases=(FIXTURE,),
                                        name="EestecPortalLayer:Functional")
 
 
-class TestBase(unittest.TestCase):
-    """Place to throw in utility methods used in our tests."""
-
-    def _add_lc(self, city=u'Niš', cp_username='jsmith',
-                cp_fullname=u'Jöhn Smith', cp_email='john@eestec.net'):
-        """Helper method to add a new LC"""
-
-        # prepare request values for the new LC
-        request = self.layer['request']
-        request.form['form.widgets.city'] = u'Niš'
-        request.form['form.widgets.cp_username'] = u'jsmith'
-        request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
-        request.form['form.widgets.cp_email'] = u'john@eestec.net'
-
-        # call the @@add-lc form to create us a new LC
-        self.layer['portal'].restrictedTraverse('@@add-lc').create()
-
-
-class IntegrationTestCase(TestBase):
+class IntegrationTestCase(unittest.TestCase):
     """Base class for integration tests."""
 
     layer = INTEGRATION_TESTING
 
 
-class FunctionalTestCase(TestBase):
+class FunctionalTestCase(unittest.TestCase):
     """Base class for functional tests."""
 
     layer = FUNCTIONAL_TESTING
