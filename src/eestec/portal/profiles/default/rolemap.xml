@@ -48,7 +48,7 @@
             <role name="Manager"/>
         </permission>
 
-        <!-- Only LC Board members can add new members -->
+        <!-- Special role is required to add new members -->
         <permission name="Add portal member" acquire="False">
             <role name="Manager"/>
             <role name="MemberAdder"/>
