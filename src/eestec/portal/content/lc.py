@@ -152,15 +152,18 @@ class AddLCForm(form.SchemaForm):
         )
 
         # allow LC Members to add content to their LC
-        # TODO: do this with plone.api
-        lc.manage_setLocalRoles(
-            members.id,
-            ['Contributor', ])
+        api.group.grant_roles(
+            group=members,
+            roles=['Contributor', ],
+            obj=lc,
+        )
 
         # allow LC Boardies to manage content in their LC
-        lc.manage_setLocalRoles(
-            board.id,
-            ['Contributor', 'Reviewer', 'Reader'])
+        api.group.grant_roles(
+            group=board,
+            roles=['Contributor', 'Reviewer', 'Reader'],
+            obj=lc,
+        )
 
         # allow LC Boardies to add new members to the site
         # NOTE: this role needs to be global!
