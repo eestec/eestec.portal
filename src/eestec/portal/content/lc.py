@@ -143,24 +143,31 @@ class AddLCForm(form.SchemaForm):
 
         # join user to LC groups
         api.group.add_user(
-            group=members,
             user=user,
+            group=members,
         )
         api.group.add_user(
             user=user,
             group=board,
         )
 
-        # give the LC Board their permissions over LC
+        # allow LC Members to add content to their LC
+        # TODO: do this with plone.api
+        lc.manage_setLocalRoles(
+            members.id,
+            ['Contributor', ])
+
+        # allow LC Boardies to manage content in their LC
         lc.manage_setLocalRoles(
             board.id,
-            ['LCBoard', 'Contributor', 'Reviewer', 'Reader'])
+            ['Contributor', 'Reviewer', 'Reader'])
 
-        # give the LC Board permission to add new members to their LC
+        # allow LC Boardies to add new members to the site
+        # NOTE: this role needs to be global!
         api.group.grant_roles(
             group=board,
             roles=['MemberAdder', ],
         )
 
-        # user in this context refers to newly-created CP of new LC
+        # send email to CP of newly created LC
         emails.lc.lc_created_notify_cp(lc, user)

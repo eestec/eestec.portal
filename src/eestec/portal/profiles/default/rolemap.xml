@@ -2,7 +2,6 @@
 <rolemap>
 
     <roles>
-        <role name="LCBoard"/>  <!-- Member of an LC Board -->
         <role name="IntBoard"/>  <!-- Member of the International Board -->
         <role name="MemberAdder"/>  <!-- Can add new Members to the site -->
     </roles>
@@ -34,11 +33,11 @@
         </permission>
 
         <!-- Allow Editors to manage portlets -->
-        <permission name="Portlets: Manage portlets" acquire="True">
+        <permission name="Portlets: Manage portlets" acquire="false">
             <role name="Manager"/>
             <role name="Editor"/>
         </permission>
-        <permission name="plone.portlet.static: Add static portlet" acquire="True">
+        <permission name="plone.portlet.static: Add static portlet" acquire="false">
             <role name="Manager"/>
             <role name="Editor"/>
         </permission>

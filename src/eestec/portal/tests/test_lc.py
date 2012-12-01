@@ -67,10 +67,22 @@ class TestAddLC(IntegrationTestCase):
         # LC members group exists
         self.assertTrue(api.group.get(groupname='nis-members'))
 
-        # CP is member of LC Board group
+        # CP is member of LC Members group
         self.assertIn(
             'nis-members',
             [group.id for group in api.group.get_groups(username='jsmith')]
+        )
+
+        # LC Members can:
+        self.assertItemsEqual(
+            [
+                'Authenticated',  # virtual group
+                'Contributor',    # add content to their LC
+            ],
+            api.group.get_roles(
+                groupname='nis-members',
+                obj=self.portal.lc['nis'],
+            )
         )
 
     def test_lc_boardies_group_created(self):
@@ -79,28 +91,31 @@ class TestAddLC(IntegrationTestCase):
         # LC Board group exists
         self.assertTrue(api.group.get('nis-board'))
 
-        # CP is member of LC Board group
+        # CP is member of the LC Board group
         self.assertIn(
             'nis-board',
             [group.id for group in api.group.get_groups(username='jsmith')]
         )
 
-        # LC Board group has board roles on it's LC
-        for role in ['LCBoard', 'Contributor', 'Reviewer', 'Reader']:
-            self.assertIn(
-                role,
-                api.group.get_roles(
-                    groupname='nis-board',
-                    obj=self.portal.lc['nis'],
-                )
-            )
-
-        # LC Board group has MemberAdder global role
-        self.assertIn(
-            'MemberAdder',
+        # LC Boardies can:
+        self.assertItemsEqual(
+            [
+                'Authenticated',  # virtual group
+                'Contributor',    # add content to their LC
+                'MemberAdder',    # add new members
+                'Reader',         # view private content in their LC
+                'Reviewer',       # publish content in their LC
+            ],
             api.group.get_roles(
                 groupname='nis-board',
+                obj=self.portal.lc['nis'],
             )
+        )
+
+        # The MemberAdder role needs to be global, not only local on the LC
+        self.assertIn(
+            'MemberAdder',
+            api.group.get_roles(groupname='nis-board')
         )
 
     def test_email_notification_sent(self):
