@@ -104,7 +104,7 @@ class AddLCForm(form.SchemaForm):
         pass
 
     def create(self):
-        """Add a new LC, it's CP and groups; plus assign roles/permissions."""
+        """Add a new LC, its CP and groups; plus assign roles/permissions."""
 
         # check if the Local Committees folder exists
         if not self.context.get('lc'):
