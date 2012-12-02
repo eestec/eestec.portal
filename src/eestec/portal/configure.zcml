@@ -25,7 +25,7 @@
       name="default"
       title="eestec.portal"
       directory="profiles/default"
-      description='Extension profile for eestec.portal.'
+      description='Turns Plone into eestec.net portal.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
