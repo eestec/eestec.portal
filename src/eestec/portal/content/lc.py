@@ -45,7 +45,7 @@ class LC(dexterity.Container):
         return u'%s %s' % (state, self.title)
 
 
-class INewLCForm(form.Schema):
+class IAddLCForm(form.Schema):
     """Define form fields for adding new LC."""
 
     # TODO: add validation to these fields to check if LC/member already exists
@@ -83,7 +83,7 @@ class AddLCForm(form.SchemaForm):
     grok.require('zope2.View')  # TODO: add permission
     grok.context(ISiteRoot)
 
-    schema = INewLCForm
+    schema = IAddLCForm
     ignoreContext = True
 
     @button.buttonAndHandler(u'Ok')
