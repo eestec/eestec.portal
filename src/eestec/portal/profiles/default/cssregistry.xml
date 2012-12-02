@@ -3,91 +3,71 @@
 
   <!-- Set conditions on stylesheets we don't want to pull in -->
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="public.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="columns.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="IEFixes.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="member.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="mobile.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="portlets.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="print.css"
       />
 
   <stylesheet
-      enabled="off"
-      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
-      id="RTL.css"
-      />
-
-  <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="base.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="authoring.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="controlpanel.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="deprecated.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="navtree.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="invisibles.css"
       />
 
   <stylesheet
-      enabled="off"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing"
       id="forms.css"
       />
