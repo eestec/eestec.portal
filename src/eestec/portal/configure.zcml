@@ -26,9 +26,26 @@
       name="default"
       title="eestec.portal"
       directory="profiles/default"
-      description='Turns Plone into eestec.net portal.'
+      description="Turns Plone into eestec.net portal."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <!-- Register the democontent GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="democontent"
+      title="eestec.portal with demo content"
+      directory="profiles/democontent"
+      description="Add demo content to eestec.net portal."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Register a custom GenericSetup import step -->
+    <genericsetup:importStep
+        name="democontent"
+        title="democontent custom import step"
+        description="Custom steps to prepare eestec.net demo content"
+        handler="eestec.portal.demo.setupVarious"
+        />
 
   <!-- Register a Vocabulary that lists all LCs -->
   <utility
@@ -40,10 +57,10 @@
   <!-- Register collective.transmogrifier -->
   <include package="collective.transmogrifier" file="meta.zcml" />
   <include package="collective.transmogrifier" />
-  <transmogrifier:registerConfig 
-      name="Import initial data for eestec.portal" 
-      title="Import initial data for eestec.portal" 
-      description="" 
+  <transmogrifier:registerConfig
+      name="Import initial data for eestec.portal"
+      title="Import initial data for eestec.portal"
+      description=""
       configuration="transmogrifier.cfg"
       />
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><metadata xmlns="http://plone.org/ns/archetypes/" xmlns:cmf="http://cmf.zope.org/namespaces/default/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xmp="adobe:ns:meta">
+	<dc:title>
+		LCs
+	</dc:title>
+	<dc:creator>
+		admin
+	</dc:creator>
+	<dc:language>
+		en
+	</dc:language>
+	<xmp:CreateDate>
+		2012-12-07T12:24:20Z
+	</xmp:CreateDate>
+	<xmp:ModifyDate>
+		2012-12-07T12:24:23Z
+	</xmp:ModifyDate>
+	<field mimetype="text/plain" name="id">
+		lc
+	</field>
+	<field mimetype="text/plain" name="constrainTypesMode">
+		1
+	</field>
+	<field mimetype="text/plain" name="locallyAllowedTypes">
+		eestec.portal.lc
+	</field>
+	<field mimetype="text/plain" name="immediatelyAddableTypes">
+		eestec.portal.lc
+	</field>
+	<field mimetype="text/plain" name="effectiveDate">
+		2012/12/07 13:24:23.470175 GMT+1
+	</field>
+	<uid>
+		643c282068da41769553aa728f1aa39d
+	</uid>
+	<cmf:type>
+		Folder
+	</cmf:type>
+	<cmf:workflow_history>
+		<cmf:workflow id="simple_publication_workflow">
+			<cmf:history>
+				<cmf:var id="action" type="None" value="None"/>
+				<cmf:var id="actor" type="str" value="admin"/>
+				<cmf:var id="comments" type="str" value=""/>
+				<cmf:var id="review_state" type="str" value="private"/>
+				<cmf:var id="time" type="date" value="2012-12-07T13:24:20+01:00"/>
+			</cmf:history>
+			<cmf:history>
+				<cmf:var id="action" type="str" value="publish"/>
+				<cmf:var id="actor" type="str" value="admin"/>
+				<cmf:var id="comments" type="str" value=""/>
+				<cmf:var id="review_state" type="str" value="published"/>
+				<cmf:var id="time" type="date" value="2012-12-07T13:24:23+01:00"/>
+			</cmf:history>
+		</cmf:workflow>
+	</cmf:workflow_history>
+	<cmf:security>
+		<cmf:local_role role="Owner" user_id="admin"/>
+	</cmf:security>
+</metadata>
