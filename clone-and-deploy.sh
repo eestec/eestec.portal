@@ -5,7 +5,7 @@
 # If no arguments are given, the demo.cfg is used, which should
 # populate the ZODB with dummy users and passwords and leave a
 # fresh demo.eestec.net site to show the latest version in master.
-# 
+#
 # To use it in a cronjob, add the -f option to force the deletion
 # of the folder.
 #
@@ -53,7 +53,8 @@ fi
 
 git clone $SRC/$REPO.git
 cd $REPO
-virtualenv-2.6 --no-site-packages . || virtualenv --no-site-packages .
+virtualenv -p python2.7 --no-site-packages .
 bin/python bootstrap.py
-bin/buildout -c $CFG
+$(which echo) -e "[buildout]\nextends = buildout.d/$CFG" > buildout.cfg
+bin/buildout
 bin/instance start
