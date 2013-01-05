@@ -29,9 +29,12 @@ class Event(dexterity.Container):
 
 
 @grok.subscribe(Event, IActionSucceededEvent)
-def event_published(context, event):
+def event_transitioned(context, event):
     """
-    Send email to CP list, notifying them that new event was published
+    Handle actions on event workflow states change.
+    Supported transitions: publish and cancel.
+
+    Example: send an email to International Board if an event is cancelled
     """
     if event.action == 'publish':
         emails.event.published_notify_cp_list(context)
@@ -42,6 +45,6 @@ def event_published(context, event):
 @grok.subscribe(Event, IObjectCreatedEvent)
 def event_created(context, event):
     """
-    Send email to Board list, notifying them that new event was created
+    Send email to Board list, notifying them that the new event was created
     """
     emails.event.created_notify_board(context)
