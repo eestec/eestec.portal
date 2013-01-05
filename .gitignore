@@ -13,6 +13,7 @@ docs/doctrees
 docs/html
 docs/make.bat
 src/plone.api
+src/quintagroup.transmogrifier/
 docs/Makefile
 *.pyc
 .swp
