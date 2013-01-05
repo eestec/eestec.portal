@@ -5,9 +5,19 @@
 
     <bindings>
 
-        <!-- Bind LC content types to a dedicated LC workflow -->
+        <!-- Bind LC content type to a dedicated LC workflow -->
         <type type_id="eestec.portal.lc">
             <bound-workflow workflow_id="lc_workflow"/>
+        </type>
+
+        <!-- Bind Event content type to a dedicated LC workflow -->
+        <type type_id="eestec.portal.event">
+            <bound-workflow workflow_id="event_workflow"/>
+        </type>
+
+        <!-- Bind EventApplication content type to a dedicated LC workflow -->
+        <type type_id="eestec.portal.eventapplication">
+            <bound-workflow workflow_id="event_application_workflow"/>
         </type>
 
     </bindings>

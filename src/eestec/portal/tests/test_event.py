@@ -2,6 +2,8 @@
 """Testing Event content type."""
 
 from eestec.portal.tests.base import IntegrationTestCase
+from eestec.portal import CP_LIST_ADDRESS
+from eestec.portal import BOARD_LIST_ADDRESS
 from email import message_from_string
 from plone import api
 
@@ -36,8 +38,6 @@ class TestIntegration(IntegrationTestCase):
         )
 
         self.event = self.portal.lc['test-event']
-        # publish the item
-        api.content.transition(obj=self.event, transition='publish')
 
     @unittest.expectedFailure  # this will work when we use plone.api 0.1b2
     def test_atevent_disabled(self):
@@ -50,14 +50,41 @@ class TestIntegration(IntegrationTestCase):
                 container=self.lc
             )
 
-    def test_notification_email(self):
+    def test_notification_cp_email(self):
         """Test if notification email is sent to CP-list."""
+        # publish the item
+        api.content.transition(obj=self.event, transition='publish')
+        mailhost = api.portal.get_tool('MailHost')
+        self.assertEquals(len(mailhost.messages), 2)
+        msg = message_from_string(mailhost.messages[1])
+
+        self.assertEquals(msg['From'], 'EESTEC International <noreply@eestec.net>')
+        self.assertEquals(msg['To'], CP_LIST_ADDRESS)
+        self.assertEquals(msg['Subject'], '=?utf-8?q?=5BCP=5D_=5BEVENTS=5D_T=C3=A9st_event?=')
+        self.assertIn('a new Event has been published', msg.get_payload())
+        self.assertIn('http://nohost/plone/lc/test-event', msg.get_payload())
+
+    def test_notification_cancellation_email(self):
+        """Test if notification email is sent to Board-list upon cancellation."""
+        api.content.transition(obj=self.event, transition='cancel')
+        mailhost = api.portal.get_tool('MailHost')
+        self.assertEquals(len(mailhost.messages), 2)
+        msg = message_from_string(mailhost.messages[1])
+
+        self.assertEquals(msg['From'], 'EESTEC International <noreply@eestec.net>')
+        self.assertEquals(msg['To'], BOARD_LIST_ADDRESS)
+        self.assertEquals(msg['Subject'], '=?utf-8?q?=5BEVENTS=5D=5BCancelled=5D_T=C3=A9st_event?=')
+        self.assertIn('a Event has been cancelled', msg.get_payload())
+        self.assertIn('http://nohost/plone/lc/test-event', msg.get_payload())
+
+    def test_notification_creation_email(self):
+        """Test if notification email is sent to Board-list upon creation."""
         mailhost = api.portal.get_tool('MailHost')
         self.assertEquals(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])
 
         self.assertEquals(msg['From'], 'EESTEC International <noreply@eestec.net>')
-        self.assertEquals(msg['To'], 'cp@eestec.net')
-        self.assertEquals(msg['Subject'], '=?utf-8?q?=5BCP=5D_=5BEVENTS=5D_T=C3=A9st_event?=')
-        self.assertIn('a new Event has been published', msg.get_payload())
-        self.assertIn('http://nohost/plone/lc/test-event', msg.get_payload())
+        self.assertEquals(msg['To'], BOARD_LIST_ADDRESS)
+        self.assertEquals(msg['Subject'], '=?utf-8?q?=5BEVENTS=5D=5BCreated=5D_T=C3=A9st_event?=')
+        self.assertIn('a new Event has been created', msg.get_payload())
+        self.assertIn('T=C3=A9st event', msg.get_payload())
