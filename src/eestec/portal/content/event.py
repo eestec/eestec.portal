@@ -2,7 +2,7 @@
 """The event content type. Dexterity is awesome!"""
 
 from Products.CMFCore.interfaces import IActionSucceededEvent
-from  zope.lifecycleevent import IObjectCreatedEvent
+from zope.lifecycleevent import IObjectCreatedEvent
 from eestec.portal import emails
 from five import grok
 from plone.directives import form, dexterity
@@ -37,6 +37,8 @@ def event_published(context, event):
         emails.event.published_notify_cp_list(context)
     if event.action == 'cancel':
         emails.event.cancelled_notify_board(context)
+
+
 @grok.subscribe(Event, IObjectCreatedEvent)
 def event_created(context, event):
     """

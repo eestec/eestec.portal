@@ -19,7 +19,7 @@ class TestIntegration(IntegrationTestCase):
         # in tests we have to manually map content types to workflows
         self.workflow.setChainForPortalTypes(
             ['eestec.portal.event'],
-            'simple_publication_workflow'
+            'event_workflow'
         )
 
         # add test item
@@ -69,7 +69,7 @@ class TestIntegration(IntegrationTestCase):
         self.assertEquals(msg['From'], 'EESTEC International <noreply@eestec.net>')
         self.assertEquals(msg['To'], BOARD_LIST_ADDRESS)
         self.assertEquals(msg['Subject'], '=?utf-8?q?=5BEVENTS=5D=5BCancelled=5D_T=C3=A9st_event?=')
-        self.assertIn('a Event has been cancelled', msg.get_payload())
+        self.assertIn('an Event has been cancelled', msg.get_payload())
         self.assertIn('http://nohost/plone/lc/test-event', msg.get_payload())
 
     def test_notification_creation_email(self):

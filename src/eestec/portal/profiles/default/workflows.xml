@@ -2,6 +2,8 @@
 <object name="portal_workflow" meta_type="Plone Workflow Tool">
 
     <object name="lc_workflow" meta_type="Workflow"/>
+    <object name="event_workflow" meta_type="Workflow"/>
+    <object name="appplication_workflow" meta_type="Workflow"/>
 
     <bindings>
 

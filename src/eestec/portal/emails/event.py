@@ -36,6 +36,7 @@ EESTEC IT Team
         subject=u'[CP] [EVENTS] %s' % (event.title),
         body=body % body_values)
 
+
 def created_notify_board(event):
     """Send notification email to the Board list, notifying them that a
     new Event has been created.
@@ -66,6 +67,7 @@ EESTEC IT Team
         recipient=BOARD_LIST_ADDRESS,
         subject=u'[EVENTS][Created] %s' % (event.title),
         body=body % body_values)
+
 
 def cancelled_notify_board(event):
     """Send notification email to the Board list, notifying them that a
