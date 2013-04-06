@@ -39,12 +39,14 @@ class TestIntegration(IntegrationTestCase):
     def test_notification_email(self):
         """Test if notification email is sent to CP-list."""
         mailhost = api.portal.get_tool('MailHost')
-        self.assertEquals(len(mailhost.messages), 1)
+        self.assertEqual(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])
 
-        self.assertEquals(msg['From'], 'EESTEC International <noreply@eestec.net>')
-        self.assertEquals(msg['To'], 'cp@eestec.net')
-        self.assertEquals(msg['Subject'], '=?utf-8?q?=5BCP=5D_=5BNEWS=5D_T=C3=A9st_item?=')
+        self.assertEqual(msg['To'], 'cp@eestec.net')
+        self.assertEqual(
+            msg['From'], 'EESTEC International <noreply@eestec.net>')
+        self.assertEqual(
+            msg['Subject'], '=?utf-8?q?=5BCP=5D_=5BNEWS=5D_T=C3=A9st_item?=')
         self.assertIn('a new News Item has been published', msg.get_payload())
         self.assertIn('http://nohost/plone/test-item', msg.get_payload())
 
@@ -66,7 +68,8 @@ class TestFunctional(FunctionalTestCase):
         """Try to add a News Item without an image."""
 
         # go to add form
-        self.browser.open('http://nohost/plone/createObject?type_name=News+Item')
+        self.browser.open(
+            'http://nohost/plone/createObject?type_name=News+Item')
 
         # fill in the title field (leave the rest empty)
         self.browser.getControl('Title').value = u"Test item"
@@ -77,7 +80,8 @@ class TestFunctional(FunctionalTestCase):
         # check if `required` error is there
         self.assertRegexpMatches(
             self.browser.url,
-            'http://nohost/plone/portal_factory/News%20Item/news_item.[^/]+/atct_edit'
+            'http://nohost/plone/portal_factory/'
+            'News%20Item/news_item.[^/]+/atct_edit'
         )
         self.assertIn(
             'Image is required, please correct.',

@@ -17,7 +17,8 @@ from zope import schema
 class ILC(form.Schema, IImageScaleTraversable):
     """LC field specification."""
 
-    # read http://davidjb.com/blog/2010/04/plone-and-dexterity-working-with-computed-fields
+    # read http://davidjb.com/blog/2010/04/
+    # /plone-and-dexterity-working-with-computed-fields
     # and see if this title->city relation can be done better
 
     title = schema.TextLine(

@@ -48,6 +48,13 @@ Then you'll also need to install some Python specific tools:
   environments.
 
 
+Code style guide
+----------------
+
+We use the ``plone.api`` style guide so please read it and use it:
+http://ploneapi.readthedocs.org/en/latest/contribute/conventions.html
+
+
 Further information
 -------------------
 
@@ -77,37 +84,30 @@ Go to your home folder or a folder you use for development and `clone` latest
     [you@local work]$ git clone https://github.com/eestec/eestec.portal.git
 
 Now `cd` into the newly created directory and create an isolated python
-environment:
+environment and build the development environment.
 
 .. sourcecode:: bash
 
     [you@local work]$ cd eestec.portal
-    [you@local eestec.portal]$ virtualenv -p python2.7 --no-site-packages ./
-
-    # OS X users using collective.buildout.python would run the following
-    [you@local eestec.portal]$ <path>/<to>/<collective.buildout.python>/bin/virtualenv-2.7 --no-site-packages ./
-
-Confirm you are indeed using Python 2.7:
-
-.. sourcecode:: bash
-
-    [you@local eestec.portal]$ bin/python -V
-    Python 2.7.2
-
-Build the development environement and prepare tools and scripts in ``bin/``:
-
-.. sourcecode:: bash
-
     [you@local eestec.portal]$ make
 
-This uses `zc.buildout` to build Zope and any other servers we might need,
-fetches all dependencies and installs them, generates config files and scripts,
-prepares deployment tools and much more. Read more about buildout at
-http://plone.org/documentation/tutorial/buildout:
+Internally, this uses `zc.buildout` to build Zope and any other servers we
+might need, fetches all dependencies and installs them, generates config files
+and scripts, prepares deployment tools and much more. Read more about buildout
+at http://plone.org/documentation/tutorial/buildout:
 
 While buildout is running go make some tea. When you run it for the first time
 it needs a couple of minutes to finish preparing your development environment.
 More if you have a slower Internet connection.
+
+After ``make`` is finished your development environment is ready! You have
+more make command on your disposal:
+
+.. sourcecode:: bash
+
+    [you@local eestec.portal]$ make tests  # run all unit tests
+    [you@local eestec.portal]$ make docs  # generate documentation
+    [you@local eestec.portal]$ make clean && make  # start from scratch
 
 
 .. _starting-the-portal:

@@ -18,14 +18,18 @@ class IEventApplication(form.Schema):
     # TODO: this doesn't work. instructions should haven no input
     form.mode(IEditForm, instructions='display')
     instructions = schema.TextLine(
-        title=u"All personal information that the organizers need will be pulled from your profile.",
-        description=u'Please make sure that you have filled in all personal information in your profile page.',
+        title=u"All personal information that the organizers need will be "
+              "pulled from your profile.",
+        description=u"Please make sure that you have filled in all personal "
+                    "information in your profile page.",
         required=False,
     )
 
     notes = RichText(
         title=u'Additional notes / Motivational letter',
-        description=u'Any additional notes/information you would like to give to the organizers, besides the information that is already in your profile page?',
+        description=u'Any additional notes/information you would like to give '
+                    'to the organizers, besides the information that is '
+                    'already in your profile page?',
     )
 
     arrival = schema.Datetime(
@@ -40,12 +44,14 @@ class IEventApplication(form.Schema):
 
     arrival_notes = schema.Text(
         title=u'Arrival notes / Type of transport',
-        description=u'Any additional information about your arrival. Type of transportation, flight information, etc',
+        description=u'Any additional information about your arrival. Type of '
+                    'transportation, flight information, etc',
     )
 
     departure_notes = schema.Text(
         title=u'Departure notes / Type of transport',
-        description=u'any additional information about your departure. type of transportation, flight information, etc',
+        description=u'any additional information about your departure. type '
+                    'of transportation, flight information, etc',
     )
 
 alsoProvides(IEventApplication, form.IFormFieldProvider)

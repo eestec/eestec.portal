@@ -36,17 +36,22 @@ class TestInstall(IntegrationTestCase):
 
     def test_dependencies_installed(self):
         """Test if eestec.portal's dependencies are installed."""
-        self.assertFalse(self.installer.isProductInstalled('Dexterity Content Types'))
-        self.assertFalse(self.installer.isProductInstalled('Diazo theme support'))
-        self.assertFalse(self.installer.isProductInstalled('HTTP caching support'))
-        self.assertFalse(self.installer.isProductInstalled('Niteoweb.LoginAs'))
-        self.assertFalse(self.installer.isProductInstalled('Plone Toolbar'))
+        self.assertFalse(
+            self.installer.isProductInstalled('Dexterity Content Types'))
+        self.assertFalse(
+            self.installer.isProductInstalled('Diazo theme support'))
+        self.assertFalse(
+            self.installer.isProductInstalled('HTTP caching support'))
+        self.assertFalse(
+            self.installer.isProductInstalled('Niteoweb.LoginAs'))
+        self.assertFalse(
+            self.installer.isProductInstalled('Plone Toolbar'))
 
     # properties.xml
     def test_portal_title(self):
         """Test if portal title was correctly updated."""
         title = self.portal.getProperty('title')
-        self.assertEquals("EESTEC International", title)
+        self.assertEqual("EESTEC International", title)
 
     # browserlayer.xml
     def test_browserlayer(self):
@@ -105,11 +110,11 @@ class TestInstall(IntegrationTestCase):
         """Test if types are mapped to correct workflows."""
         for portal_type, chain in self.workflow.listChainOverrides():
             if portal_type == 'eestec.portal.lc':
-                self.assertEquals(('lc_workflow',), chain)
+                self.assertEqual(('lc_workflow',), chain)
             if portal_type == 'eestec.portal.event':
-                self.assertEquals(('event_workflow',), chain)
+                self.assertEqual(('event_workflow',), chain)
             if portal_type == 'eestec.portal.eventapplication':
-                self.assertEquals(('event_application_workflow',), chain)
+                self.assertEqual(('event_application_workflow',), chain)
 
     # cssregistry.xml
     def test_css_registry_configured(self):

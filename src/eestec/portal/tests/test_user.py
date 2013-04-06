@@ -45,21 +45,21 @@ class TestUserIntegration(IntegrationTestCase):
             )
         )
 
-        self.assertEquals(self.user.getProperty('lc'), u'Quahog')
-        self.assertEquals(self.user.getProperty('mobile'), u'666')
-        self.assertEquals(self.user.getProperty('study_field'), u'housewife')
-        self.assertEquals(self.user.getProperty('birthdate'), date(1960, 7, 22))
-        self.assertEquals(self.user.getProperty('sex'), u'Female')
-        self.assertEquals(self.user.getProperty('nationality'), u'USA')
-        self.assertEquals(self.user.getProperty('address'), u'Rhode Island')
-        self.assertEquals(self.user.getProperty('passport_id'), u'666')
-        self.assertEquals(self.user.getProperty('tshirt_size'), u'Large')
-        self.assertEquals(self.user.getProperty('needs'), u'No needs')
-        self.assertEquals(
+        self.assertEqual(self.user.getProperty('lc'), u'Quahog')
+        self.assertEqual(self.user.getProperty('mobile'), u'666')
+        self.assertEqual(self.user.getProperty('study_field'), u'housewife')
+        self.assertEqual(self.user.getProperty('birthdate'), date(1960, 7, 22))
+        self.assertEqual(self.user.getProperty('sex'), u'Female')
+        self.assertEqual(self.user.getProperty('nationality'), u'USA')
+        self.assertEqual(self.user.getProperty('address'), u'Rhode Island')
+        self.assertEqual(self.user.getProperty('passport_id'), u'666')
+        self.assertEqual(self.user.getProperty('tshirt_size'), u'Large')
+        self.assertEqual(self.user.getProperty('needs'), u'No needs')
+        self.assertEqual(
             self.user.getProperty('passport_date_of_issue'),
             date.today()
         )
-        self.assertEquals(
+        self.assertEqual(
             self.user.getProperty('passport_valid_until'),
             date.today()
         )

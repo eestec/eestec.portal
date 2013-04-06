@@ -29,11 +29,11 @@ class TestLC(IntegrationTestCase):
 
     def test_city(self):
         """Test that LC's city is set correctly."""
-        self.assertEquals(self.lc.title, u'Niš')
+        self.assertEqual(self.lc.title, u'Niš')
 
     def test_full_title(self):
         """Test the full_title() method of an LC."""
-        self.assertEquals(self.lc.full_title(), u'Observer Niš')
+        self.assertEqual(self.lc.full_title(), u'Observer Niš')
 
 
 class TestAddLC(IntegrationTestCase):
@@ -55,7 +55,7 @@ class TestAddLC(IntegrationTestCase):
 
     def test_lc_created(self):
         """Test that LC object was correctly created."""
-        self.assertEquals(self.portal.lc['nis'].title, u'Niš')
+        self.assertEqual(self.portal.lc['nis'].title, u'Niš')
 
     def test_cp_user_created(self):
         """Test that a member object is created for CP."""
@@ -121,14 +121,14 @@ class TestAddLC(IntegrationTestCase):
     def test_email_notification_sent(self):
         """Test that the confirmation email was correctly sent"""
         mailhost = api.portal.get_tool('MailHost')
-        self.assertEquals(len(mailhost.messages), 1)
+        self.assertEqual(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])
 
-        self.assertEquals(msg['From'], 'admin@mysite.com')
-        self.assertEquals(msg['To'], 'john@eestec.net')
+        self.assertEqual(msg['From'], 'admin@mysite.com')
+        self.assertEqual(msg['To'], 'john@eestec.net')
         self.assertIn('your LC was added to our database', msg.get_payload())
         self.assertIn('mail_password_form?userid=3Djsmith', msg.get_payload())
-        self.assertEquals(
+        self.assertEqual(
             msg['Subject'],
             '=?utf-8?q?=5BEESTEC_Website=5D_registration_completed?='
         )

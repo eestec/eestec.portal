@@ -16,7 +16,7 @@ class TestUtils(IntegrationTestCase):
     def test_get_portal_from(self):
         """Test if portal_from email address is correctly formatted."""
         from eestec.portal.utils import get_portal_from
-        self.assertEquals(
+        self.assertEqual(
             get_portal_from(),
             'EESTEC International <noreply@eestec.net>'
         )

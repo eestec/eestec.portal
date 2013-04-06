@@ -5,7 +5,8 @@ from plone import api
 
 
 def lc_created_notify_cp(lc, user):
-    """Send notification email to the CP of the newly created LC with log-in details
+    """Send notification email to the CP of the newly created LC with log-in
+    details.
     """
 
     body = u"""

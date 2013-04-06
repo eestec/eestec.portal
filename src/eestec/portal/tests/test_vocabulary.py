@@ -46,7 +46,7 @@ class TestLCListVocabulary(IntegrationTestCase):
         factory = getUtility(IVocabularyFactory, 'lc_list')
         self.vocabulary = factory(self.portal)
 
-        self.assertEquals(
+        self.assertEqual(
             [u'Observer Ni\u0161', u'Observer Novi Sad'],
             [i.title for i in self.vocabulary]
         )

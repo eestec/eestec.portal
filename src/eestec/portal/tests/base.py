@@ -49,7 +49,7 @@ class EestecPortalLayer(PloneWithPackageLayer):
 
     def tearDownZope(self, app):
         """Tear down Zope."""
-        z2.uninstallProduct(app, 'eestec.portal')  # TODO: move to plone.app.testing
+        z2.uninstallProduct(app, 'eestec.portal')
 
 
 FIXTURE = EestecPortalLayer(zcml_filename='configure.zcml',
