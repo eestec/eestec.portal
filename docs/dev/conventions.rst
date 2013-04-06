@@ -83,7 +83,7 @@ Before every commit you should:
 
     .. sourcecode:: bash
 
-        $ ./pre-commit-check.sh
+        $ make tests
 
 .. _unit-tests:
 
@@ -100,7 +100,7 @@ You run tests like this:
 
 .. sourcecode:: bash
 
-    $ bin/test -s eestec.portal
+    $ bin/test
 
 To speed things up, you can choose to run only some tests, not all at once.
 Use the ``-t`` to filter out tests and run only those that match the expression.
@@ -108,7 +108,8 @@ Use the ``-t`` to filter out tests and run only those that match the expression.
 .. sourcecode:: bash
 
     # run only setup tests
-    $ bin/test -s eestec.portal -t test_setup
+    $ bin/test -t test_setup
+
 
 .. _syntax-validation:
 
@@ -116,20 +117,22 @@ Syntax validation
 =================
 
 All Python source code should be `PEP-8` valid and checked for syntax errors.
-Tools for checking this are `pep8` and `pyflakes`.
+The tools used for this are `flake8` and `zptlint`.
 
-To validate your source code, run the following two commands:
+To validate your source code, run the following commands:
 
 .. sourcecode:: bash
 
-    $ bin/pyflakes src/eestec/portal
-    $ bin/pep8 --ignore=E501 src/eestec/portal
+    $ bin/flake8 src/eestec/portal
     $ for pt in `find src/eestec/portal/ -name "*.pt"` ; do bin/zptlint $pt; done
 
+    # or just this one (also runs all unit tests)
+    # make tests
+
+
 .. note::
-    It pays off to invest a little time to make your editor run `pep8` and
-    `pyflakes` on a file every time you save that file. Saves lots of time in
-    the long run.
+    It pays off to invest a little time to make your editor run `flake8` on a
+    file every time you save that file. Saves lots of time in the long run.
 
 
 .. _changelog:
@@ -160,7 +163,7 @@ displayed:
 
 .. sourcecode:: bash
 
-    $ bin/sphinxbuilder
+    $ make docs
     $ open docs/html/index.html
 
 Documentation is automatically generated from these source files every time

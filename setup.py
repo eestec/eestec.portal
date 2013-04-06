@@ -20,7 +20,6 @@ setup(
     version='0.1',
     description="Enter description of what this project is all about.",
     long_description=long_description,
-    # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
@@ -62,8 +61,8 @@ setup(
         ],
         'develop': [
             'Fabric',
+            'flake8',
             'jarn.mkrelease',
-            'pep8',
             'plone.app.debugtoolbar',
             'plone.reload',
             'Products.Clouseau',
@@ -71,7 +70,7 @@ setup(
             'Products.PDBDebugMode',
             'Products.PrintingMailHost',
             'quintagroup.transmogrifier',
-            'setuptools-flakes',
+            'Sphinx',
             'transmogrify.dexterity',
             'zest.releaser',
             'zptlint',

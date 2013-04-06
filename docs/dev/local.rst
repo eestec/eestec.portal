@@ -94,23 +94,20 @@ Confirm you are indeed using Python 2.7:
     [you@local eestec.portal]$ bin/python -V
     Python 2.7.2
 
-Bootstrap tools and scripts in ``bin/``:
+Build the development environement and prepare tools and scripts in ``bin/``:
 
 .. sourcecode:: bash
 
-    [you@local eestec.portal]$ bin/python bootstrap.py
+    [you@local eestec.portal]$ make
 
-Buildout builds Zope and any other servers we might need, fetches all
-dependencies and installs them, generates config files and scripts, prepares
-deployment tools and much more. Read more about buildout at
+This uses `zc.buildout` to build Zope and any other servers we might need,
+fetches all dependencies and installs them, generates config files and scripts,
+prepares deployment tools and much more. Read more about buildout at
 http://plone.org/documentation/tutorial/buildout:
 
-.. sourcecode:: bash
-
-    [you@local eestec.portal]$ bin/buildout
-
-Make tea. Buildout needs a couple of minutes to finish preparing your
-development environment.
+While buildout is running go make some tea. When you run it for the first time
+it needs a couple of minutes to finish preparing your development environment.
+More if you have a slower Internet connection.
 
 
 .. _starting-the-portal:

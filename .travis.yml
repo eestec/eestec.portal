@@ -3,11 +3,10 @@ python:
   - 2.7
 install:
   - $(which echo) -e "[buildout]\nextends = buildout.d/travis.cfg" > buildout.cfg
-  - python bootstrap.py
-  - bin/buildout -t 2
+  - make .installed.cfg
 
 script:
-  - ./pre-commit-check.sh
+  - make tests
  
 notifications:
   irc:
