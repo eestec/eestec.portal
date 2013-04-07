@@ -88,4 +88,9 @@
       applyPrefix="True"
       />
 
+  <stylesheet
+      id="++theme++eestec.portal/css/temporary.css"
+      enabled="on"
+      />
+
 </object>

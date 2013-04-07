@@ -93,8 +93,12 @@ class AddForm(dexterity.AddForm):
 
         self.create()
 
-        # Done!
-        self.status = 'LC added.'
+        # Done, notify user and redirect back to LC folder
+        api.portal.show_message(
+            message="Successfully added LC {}.".format(data['city']),
+            request=self.request,
+        )
+        self.request.RESPONSE.redirect(self.context.absolute_url())
 
     @button.buttonAndHandler(u"Cancel")
     def handleCancel(self, action):
