@@ -7,7 +7,7 @@
   <property name="title" i18n:translate="">Event Application</property>
   <property name="description" i18n:translate="">LC Event Application</property>
 
-  <property name="content_icon">++resource++eestec.base.icons/eventapplication.png</property>
+  <property name="content_icon">++theme++eestec.portal/images/eventapplication.png</property>
   <property name="factory">eestec.portal.eventapplication</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>

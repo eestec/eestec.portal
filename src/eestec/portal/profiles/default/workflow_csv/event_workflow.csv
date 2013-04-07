@@ -15,7 +15,7 @@
 "View","N","Y","Y","Y","N","Y"
 "Modify portal content","N","Y","Y","N","Y","N"
 "Deadline","N","Y","N","N","N","N"
-"eestec.base: Add EventApplication","N","Y","N","N","N","N"
+"eestec.portal: Add EventApplication","N","Y","N","N","N","N"
 "Confirm participant","N","Y","N","N","N","N"
 ,,,,,,
 "[State]",,,,,,
@@ -28,7 +28,7 @@
 "View","N","Y","N","Y","N","N"
 "Modify portal content","N","Y","Y","N","Y","N"
 "Add portal content","N","Y","Y","N","N","Y"
-"eestec.base: Add EventApplication","N","Y","N","N","N","Y"
+"eestec.portal: Add EventApplication","N","Y","N","N","N","Y"
 "Deadline","N","Y","N","N","N","N"
 "Confirm participant","N","Y","N","N","N","N"
 ,,,,,,
@@ -42,7 +42,7 @@
 "View","N","Y","N","Y","N",
 "Modify portal content","N","Y","Y","N","Y",
 "Deadline","N","Y","N","N","N",
-"eestec.base: Add EventApplication","N","Y","N","N","N",
+"eestec.portal: Add EventApplication","N","Y","N","N","N",
 "Confirm participant","N","Y","Y","N","N",
 ,,,,,,
 "[State]",,,,,,
@@ -55,7 +55,7 @@
 "View","N","Y","N","Y","N",
 "Modify portal content","N","Y","Y","N","Y",
 "Deadline","N","Y","N","N","N",
-"eestec.base: Add EventApplication","N","Y","N","N","N",
+"eestec.portal: Add EventApplication","N","Y","N","N","N",
 "Confirm participant","N","Y","N","N","N",
 ,,,,,,
 "[State]",,,,,,
@@ -68,7 +68,7 @@
 "View","N","Y","Y","Y","Y","N"
 "Modify portal content","N","Y","N","N","N","Y"
 "Deadline","N","Y","N","N","N","N"
-"eestec.base: Add EventApplication","N","Y","N","N","N","N"
+"eestec.portal: Add EventApplication","N","Y","N","N","N","N"
 "Confirm participant","N","Y","N","N","N","N"
 "Add portal content","N","Y","N","N","N","N"
 ,,,,,,
