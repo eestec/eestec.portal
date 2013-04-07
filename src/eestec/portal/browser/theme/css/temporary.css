@@ -1,0 +1,7 @@
+/* Temporary styles used in development until we get the Diazo theme
+from the design team */
+
+/* plone.app.toolbar hides all portal messages but we want them visible */
+dl.portalMessage {
+    display: block;
+}

@@ -9,7 +9,6 @@ from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-from Products.CMFCore.interfaces import ISiteRoot
 from z3c.form import button
 from zope import schema
 
@@ -21,6 +20,7 @@ class ILC(form.Schema, IImageScaleTraversable):
     # /plone-and-dexterity-working-with-computed-fields
     # and see if this title->city relation can be done better
 
+    # TODO: add validation to these fields to check if LC/member already exists
     title = schema.TextLine(
         title=u"City",
         description=u"City name of the LC",
@@ -72,7 +72,7 @@ class IAddLCForm(form.Schema):
     )
 
 
-class AddLCForm(form.SchemaForm):
+class AddForm(dexterity.AddForm):
     """Form for adding a new LC.
 
     When adding a new LC we cannot use the default Plone 'add new ...' form,
@@ -80,12 +80,8 @@ class AddLCForm(form.SchemaForm):
     handling. Hence a custom form for adding a new LC.
     """
 
-    grok.name('add-lc')
-    grok.require('zope2.View')  # TODO: add permission
-    grok.context(ISiteRoot)
-
+    grok.name('eestec.portal.lc')
     schema = IAddLCForm
-    ignoreContext = True
 
     @button.buttonAndHandler(u'Ok')
     def handleApply(self, action):
@@ -96,8 +92,12 @@ class AddLCForm(form.SchemaForm):
 
         self.create()
 
-        # Done!
-        self.status = 'LC added.'
+        # Done, notify user and redirect back to LC folder
+        api.portal.show_message(
+            message="Successfully added LC {}.".format(data['city']),
+            request=self.request,
+        )
+        self.request.RESPONSE.redirect(self.context.absolute_url())
 
     @button.buttonAndHandler(u"Cancel")
     def handleCancel(self, action):
@@ -106,15 +106,6 @@ class AddLCForm(form.SchemaForm):
 
     def create(self):
         """Add a new LC, its CP and groups; plus assign roles/permissions."""
-
-        # check if the Local Committees folder exists
-        if not self.context.get('lc'):
-            api.content.create(
-                type='Folder',
-                title='Local Committees',
-                id='lc',
-                container=self.context
-            )
 
         # add a new LC object
         lc = api.content.create(
@@ -128,6 +119,7 @@ class AddLCForm(form.SchemaForm):
             username=self.request.form.get('form.widgets.cp_username'),
             email=self.request.form.get('form.widgets.cp_email'),
             properties=dict(
+                lc=self.request.form.get('form.widgets.city'),
                 fullname=self.request.form.get('form.widgets.cp_fullname'),
             )
         )
@@ -175,3 +167,4 @@ class AddLCForm(form.SchemaForm):
 
         # send email to CP of newly created LC
         emails.lc.lc_created_notify_cp(lc, user)
+        return lc
