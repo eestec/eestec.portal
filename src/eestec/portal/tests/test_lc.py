@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Testing LC content type."""
 
+from eestec.portal.content.lc import AddForm
 from eestec.portal.tests.base import IntegrationTestCase
 from email import message_from_string
 from plone import api
@@ -42,16 +43,20 @@ class TestAddLC(IntegrationTestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
+        self.request = self.layer['request']
 
         # prepare request values for the new LC
-        request = self.layer['request']
-        request.form['form.widgets.city'] = u'Niš'
-        request.form['form.widgets.cp_username'] = 'jsmith'
-        request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
-        request.form['form.widgets.cp_email'] = 'john@eestec.net'
+        self.request.form['form.widgets.city'] = u'Niš'
+        self.request.form['form.widgets.cp_username'] = 'jsmith'
+        self.request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
+        self.request.form['form.widgets.cp_email'] = 'john@eestec.net'
 
-        # call the @@add-lc form to create us a new LC
-        self.layer['portal'].restrictedTraverse('@@add-lc').create()
+        # Create the 'LC' folder
+        api.content.create(
+            type='Folder', id='lc', container=self. portal)
+
+        # call the AddForm's create() method to create us a new LC
+        AddForm(self.portal, self.request).create()
 
     def test_lc_created(self):
         """Test that LC object was correctly created."""
@@ -119,7 +124,7 @@ class TestAddLC(IntegrationTestCase):
         )
 
     def test_email_notification_sent(self):
-        """Test that the confirmation email was correctly sent"""
+        """Test that the confirmation email was correctly sent."""
         mailhost = api.portal.get_tool('MailHost')
         self.assertEqual(len(mailhost.messages), 1)
         msg = message_from_string(mailhost.messages[0])

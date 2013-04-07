@@ -9,7 +9,6 @@ from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-from Products.CMFCore.interfaces import IFolderish
 from z3c.form import button
 from zope import schema
 
@@ -168,4 +167,4 @@ class AddForm(dexterity.AddForm):
 
         # send email to CP of newly created LC
         emails.lc.lc_created_notify_cp(lc, user)
-	return lc
+        return lc

@@ -2,6 +2,7 @@
 """Testing Users."""
 
 from datetime import date
+from eestec.portal.content.lc import AddForm
 from eestec.portal.tests.base import FunctionalTestCase
 from eestec.portal.tests.base import IntegrationTestCase
 from plone import api
@@ -80,8 +81,12 @@ class TestUserFunctional(FunctionalTestCase):
         self.request.form['form.widgets.cp_fullname'] = u'Jöhn Smith'
         self.request.form['form.widgets.cp_email'] = 'john@eestec.net'
 
-        # call the @@add-lc form to create us a new LC
-        self.layer['portal'].restrictedTraverse('@@add-lc').create()
+        # Create the 'LC' folder
+        api.content.create(
+            type='Folder', id='lc', container=self. portal)
+
+        # call the AddForm's create() method to create us a new LC with a CP
+        AddForm(self.portal, self.request).create()
 
         # set CPs password
         cp = api.user.get(username='jsmith')
