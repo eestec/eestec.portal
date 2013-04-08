@@ -7,15 +7,24 @@ from eestec.portal import emails
 from five import grok
 from plone.directives import form, dexterity
 from zope import schema
+from plone.app.textfield import RichText
 from zope.interface.declarations import alsoProvides
 
 
 class IEvent(form.Schema):
     """
     """
+    title = schema.TextLine(
+        title=u'Name',
+        required=True,
+    )
     deadline = schema.Datetime(
         title=u'Deadline',
         description=u'Deadline to apply to this event',
+        required=True,
+    )
+    description = RichText(
+        title=u'Description',
         required=True,
     )
 
