@@ -11,8 +11,8 @@ coverage: htmlcov/index.html
 
 htmlcov/index.html: src/eestec/portal/*.py src/eestecportal/browser/*.py \
 		src/eestec/portal/content/*.py src/eestec/portal/tests/ *.py bin/coverage
-	@./bin/coverage run --source=./src/eestec/portal/ --branch ./bin/test
-	@./bin/coverage html -i
+	./bin/coverage run --source=./src/eestec/portal/ --branch ./bin/test
+	./bin/coverage html -i
 	@touch $@
 	@echo "Coverage report was generated at '$@'."
 
@@ -39,12 +39,12 @@ $(python):
 	@touch $@
 
 tests: .installed.cfg
-	@./bin/test
-	@./bin/flake8 setup.py
-	@./bin/flake8 src/eestec/portal
-	@for pt in `find src/eestec/portal -name "*.pt"` ; do ./bin/zptlint $$pt; done
-	@for xml in `find src/eestec/portal -name "*.xml"` ; do ./bin/zptlint $$xml; done
-	@for zcml in `find src/eestec/portal -name "*.zcml"` ; do ./bin/zptlint $$zcml; done
+	./bin/test
+	./bin/flake8 setup.py
+	./bin/flake8 src/eestec/portal
+	for pt in `find src/eestec/portal -name "*.pt"` ; do ./bin/zptlint $$pt; done
+	for xml in `find src/eestec/portal -name "*.xml"` ; do ./bin/zptlint $$xml; done
+	for zcml in `find src/eestec/portal -name "*.zcml"` ; do ./bin/zptlint $$zcml; done
 
 clean:
 	@rm -rf .coverage .installed.cfg .mr.developer.cfg bin docs/html htmlcov \
