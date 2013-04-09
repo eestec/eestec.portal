@@ -1,7 +1,7 @@
 # convenience makefile to boostrap & run buildout
 # use `make options=-v` to run buildout with extra options
 #
-# % make bootstrap
+# % make bootstrap  OR  make bootstrap-nix
 # % make
 # % make check
 # % make docs
@@ -30,6 +30,7 @@ version = 2.7
 python = ./bin/python
 options =
 
+
 ### default target
 
 all: buildout
@@ -37,7 +38,11 @@ all: buildout
 
 ### targets you might want to run
 
-bootstrap: dev.nix requirements.txt setup.py
+bootstrap:
+	${NIX_PROFILE}/bin/virtualenv --distribute --clear .
+	$(python) bootstrap.py -d
+
+bootstrap-nix:
 	${OUTER_ENV} nix-env -p ${NIX_PROFILE} -i dev-env -f dev.nix
 	${NIX_PROFILE}/bin/virtualenv --distribute --clear .
 	echo ../../../nixprofile/lib/python2.7/site-packages > lib/python2.7/site-packages/nixprofile.pth

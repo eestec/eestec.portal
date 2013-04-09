@@ -4,7 +4,7 @@ python:
 install:
   - mkdir -p buildout-cache/{eggs,downloads}
   - $(which echo) -e "[buildout]\nextends = buildout.d/travis.cfg" > buildout.cfg
-  - make .installed.cfg
+  - make
 
 script:
   - make tests
