@@ -6,7 +6,9 @@
 # % make check
 # % make docs
 #
-
+# TODO: USE_NIX, true if nix-env is available, don't set PATH etc if
+# not using nix
+#
 
 LOCALISED_SCRIPTS = ipython ipdb flake8 pylint
 PROJECT = $(shell basename $(shell pwd))
@@ -38,13 +40,13 @@ all: buildout
 
 ### targets you might want to run
 
-bootstrap:
-	virtualenv --distribute --clear .
+bootstrap: bin/wrapper
+	virtualenv -p python$(version) --distribute --clear --no-site-packages .
 	$(python) bootstrap.py -d
 
 bootstrap-nix:
 	${OUTER_ENV} nix-env -p ${NIX_PROFILE} -i dev-env -f dev.nix
-	${NIX_PROFILE}/bin/virtualenv --distribute --clear .
+	${NIX_PROFILE}/bin/virtualenv -p python${version} --distribute --clear .
 	echo ../../../nixprofile/lib/python2.7/site-packages > lib/python2.7/site-packages/nixprofile.pth
 	./bin/pip install -r requirements.txt --no-index -f ""
 	for script in ${LOCALISED_SCRIPTS}; do ./bin/easy_install -H "" $$script; done
