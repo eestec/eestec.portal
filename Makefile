@@ -39,7 +39,7 @@ all: buildout
 ### targets you might want to run
 
 bootstrap:
-	${NIX_PROFILE}/bin/virtualenv --distribute --clear .
+	virtualenv --distribute --clear .
 	$(python) bootstrap.py -d
 
 bootstrap-nix:
