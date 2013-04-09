@@ -4,6 +4,7 @@ python:
 install:
   - mkdir -p buildout-cache/{eggs,downloads}
   - $(which echo) -e "[buildout]\nextends = buildout.d/travis.cfg" > buildout.cfg
+  - make bootstrap
   - make
 
 script:
