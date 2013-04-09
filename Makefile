@@ -24,10 +24,10 @@ docs/html/index.html: docs/*.rst src/eestec/portal/*.py src/eestec/portal/browse
 	@touch $@
 	@echo "Documentation was generated at '$@'."
 
-bin/sphinx-build: .installed.cfg
+bin/sphinx-build: buildout
 	@touch $@
 
-.installed.cfg: bin/buildout buildout.cfg buildout.d/*.cfg setup.py
+buildout: bin/buildout buildout.cfg buildout.d/*.cfg setup.py
 	./bin/buildout $(options)
 
 bin/buildout: $(python) buildout.cfg bootstrap.py
@@ -38,7 +38,7 @@ $(python):
 	virtualenv -p python$(version) --no-site-packages .
 	@touch $@
 
-tests: .installed.cfg
+tests: buildout
 	./bin/test
 	./bin/flake8 setup.py
 	./bin/flake8 src/eestec/portal
