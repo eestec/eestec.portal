@@ -1,11 +1,43 @@
 # convenience makefile to boostrap & run buildout
 # use `make options=-v` to run buildout with extra options
 
+LOCALISED_SCRIPTS = ipython ipdb flake8 pylint
+PROJECT = $(shell basename $(shell pwd))
+
+NIX_PROFILE := $(shell pwd)/nixprofile
+
+OUTER_ENV := PATH=$(PATH) \
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) \
+	PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) \
+	NIX_LDFLAGS=$(NIX_LDFLAGS) \
+	NIX_CFLAGS_COMPILE=$(NIX_CFLAGS_COMPILE)
+
+PATH = $(NIX_PROFILE)/bin
+LD_LIBRARY_PATH = $(NIX_PROFILE)/lib
+PKG_CONFIG_PATH = $(NIX_PFOFILE)/lib/pkgconfig
+NIX_LDFLAGS = -L $(NIX_PROFILE)/lib
+NIX_CFLAGS_COMPILE = -I $(NIX_PROFILE)/include -I $(NIX_PROFILE)/include/sasl
+
+
 version = 2.7
 python = ./bin/python
 options =
 
 all: docs tests
+
+
+bootstrap: dev.nix requirements.txt setup.py
+	${OUTER_ENV} nix-env -p ${NIX_PROFILE} -i dev-env -f dev.nix
+	${NIX_PROFILE}/bin/virtualenv --distribute --clear .
+	echo ../../../nixprofile/lib/python2.7/site-packages > lib/python2.7/site-packages/nixprofile.pth
+	./bin/pip install -r requirements.txt --no-index -f ""
+	for script in ${LOCALISED_SCRIPTS}; do ./bin/easy_install -H "" $$script; done
+
+print-syspath:
+	./bin/python -c 'import sys,pprint;pprint.pprint(sys.path)'
+
+check: tests
+
 
 coverage: htmlcov/index.html
 
@@ -34,9 +66,10 @@ bin/buildout: $(python) buildout.cfg bootstrap.py
 	$(python) bootstrap.py -d
 	@touch $@
 
-$(python):
-	virtualenv -p python$(version) --no-site-packages .
-	@touch $@
+# handled by bootstrap
+# $(python):
+# 	virtualenv -p python$(version) --no-site-packages .
+# 	@touch $@
 
 tests: buildout
 	./bin/test
@@ -50,4 +83,4 @@ clean:
 	@rm -rf .coverage .installed.cfg .mr.developer.cfg bin docs/html htmlcov \
 	    parts develop-eggs src/eestec.portal.egg-info lib include .Python
 
-.PHONY: all docs tests clean
+.PHONY: all bootstrap buildout check clean docs print-syspath tests

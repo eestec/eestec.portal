@@ -1,0 +1,2 @@
+# define development eggs here to be installed into the virtualenv
+# e.g.: -e ../some-repo
