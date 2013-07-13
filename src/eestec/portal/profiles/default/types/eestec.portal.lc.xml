@@ -5,7 +5,7 @@
   <property name="title" i18n:translate="">LC</property>
   <property name="description" i18n:translate="">Information about an EESTEC Local Commitee.</property>
 
-  <property name="content_icon">++resource++eestec.base.icons/lc.png</property>
+  <property name="content_icon">++theme++eestec.portal/images/lc.png</property>
   <property name="factory">eestec.portal.lc</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>

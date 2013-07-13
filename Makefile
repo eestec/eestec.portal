@@ -9,7 +9,7 @@ all: docs tests
 
 coverage: htmlcov/index.html
 
-htmlcov/index.html: src/eestec/portal/*.py src/eestecportal/browser/*.py \
+htmlcov/index.html: src/eestec/portal/*.py src/eestec/portal/browser/*.py \
 		src/eestec/portal/content/*.py src/eestec/portal/tests/ *.py bin/coverage
 	@bin/coverage run --source=./src/eestec/portal/ --branch bin/test
 	@bin/coverage html -i
